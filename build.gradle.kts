@@ -43,6 +43,7 @@ repositories {
     }
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
+    maven("https://mvn.devos.one/releases/")
 }
 
 dependencies {
@@ -53,6 +54,15 @@ dependencies {
     minecraft("com.mojang:minecraft:$mcVersion")
     mappings("net.fabricmc:yarn:$mcVersion+build.${deps["yarn_build"]}:v2")
     modImplementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
+    modImplementation("maven.modrinth:midnightlib:${deps["midnightlib"]}")
+    modCompileOnly("maven.modrinth:modmenu:${deps["modmenu"]}")
+    modCompileOnly("maven.modrinth:effective:${deps["effective"]}")
+    modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
+    modCompileOnly("maven.modrinth:particle-rain:${deps["particle-rain"]}")
+    modCompileOnly("maven.modrinth:lodestonelib:${deps["lodestone"]}")
+    modCompileOnly("maven.modrinth:wakes:${deps["wakes"]}")
+    modCompileOnly("maven.modrinth:owo-lib:${deps["owo-lib"]}")
+    modCompileOnly("io.github.fabricators_of_create.Porting-Lib:lazy_registration:2.3.8+1.20.1")
 
     fapi(
         // Add modules from https://github.com/FabricMC/fabric

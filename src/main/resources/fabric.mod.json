@@ -3,29 +3,29 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Various mod integrations, fixes and tweaks",
   "authors": [
-    "Me!"
+    "VesMaybeVesper"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/template/icon.png",
+  "license": "LGPL-3.0",
+  "icon": "assets/vcc/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.TemplateMod"
+      "vesper.vcc.VCC"
     ],
     "client": [
-      "com.example.TemplateModClient"
+      "vesper.vcc.VCCClient"
     ]
   },
   "mixins": [
-    "template.mixins.json",
+    "vcc.mixins.json",
     {
-      "config": "template.client.mixins.json",
+      "config": "vcc.client.mixins.json",
       "environment": "client"
     }
   ],
