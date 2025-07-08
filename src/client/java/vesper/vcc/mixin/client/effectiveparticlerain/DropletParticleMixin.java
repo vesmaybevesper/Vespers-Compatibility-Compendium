@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import pigcart.particlerain.ParticleRainClient;
+import pigcart.particlerain.ParticleRain;
 import vesper.vcc.Config;
 
 @Mixin(DropletParticle.class)
@@ -39,7 +39,7 @@ public abstract class DropletParticleMixin extends SpriteBillboardParticle {
                 for(int i = 0; i > -10; --i) {
                     BlockPos pos = BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i), this.z);
                     if (this.world.getBlockState(pos).getBlock() == Blocks.WATER && this.world.getBlockState(BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i), this.z)).getFluidState().isStill() && this.world.getBlockState(BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i + 1L), this.z)).isAir()) {
-                        this.world.addParticle(ParticleRainClient.RIPPLE, this.x, (double)((float)(Math.round(this.y) + (long)i) + 0.9F), this.z, (double)0.0F, (double)0.0F, (double)0.0F);
+                        this.world.addParticle(ParticleRain.RIPPLE, this.x, (double)((float)(Math.round(this.y) + (long)i) + 0.9F), this.z, (double)0.0F, (double)0.0F, (double)0.0F);
                         break;
                     }
                 }
