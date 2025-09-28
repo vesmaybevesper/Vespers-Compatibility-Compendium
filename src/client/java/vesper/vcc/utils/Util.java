@@ -23,6 +23,10 @@ public class Util {
         VCC.LOGGER.info("[VCC]: {}", s);
     }
 
+    public static void warn(String s){VCC.LOGGER.warn("[VCC]: {}", s);}
+
+    public static void error(String s){VCC.LOGGER.error("[VCC]: {}", s);}
+
     public static void devLog(String s){
         if (FabricLoader.getInstance().isDevelopmentEnvironment()){
             VCC.LOGGER.info("[VCC]: {}", s);
