@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "${id}",
+  "id": "vcc",
   "version": "${version}",
   "name": "${name}",
   "description": "Various mod integrations, fixes and tweaks",

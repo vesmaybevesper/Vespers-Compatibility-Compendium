@@ -3,12 +3,13 @@ package vesper.vcc.mixin.client.effectivewakes;
 import com.goby56.wakes.WakesClient;
 import com.goby56.wakes.config.WakesConfig;
 import com.goby56.wakes.render.WakeColor;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.ladysnake.effective.core.utils.EffectiveUtils;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vesper.vcc.Config;
 
-
+@Environment(EnvType.CLIENT)
 @Mixin(value = WakeColor.class, remap = false)
 public abstract class WakeRendererMixin {
 
@@ -40,7 +41,7 @@ public abstract class WakeRendererMixin {
             assert MinecraftClient.getInstance().player != null;
             PlayerEntity player = MinecraftClient.getInstance().player;
             BlockPos pos = player.getBlockPos();
-            if (EffectiveUtils.isGlowingWater(world, pos)){
+            if (org.ladysnake.effective.utils.EffectiveUtils.isGlowingWater(world, pos)){
                 float fade = Math.min(0.3f, (world.getTime() % 40) / 40f);
                 float value = Math.min(0.3f, fade / 15f);
                 float hue = 210f / 360f;
