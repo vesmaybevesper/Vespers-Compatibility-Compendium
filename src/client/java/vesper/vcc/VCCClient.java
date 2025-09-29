@@ -2,7 +2,7 @@ package vesper.vcc;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ClientModInitializer;
-import vesper.vcc.leaks.EMI;
+import vesper.vcc.leaks.emi.EMI;
 import vesper.vcc.utils.Util;
 
 public class VCCClient implements ClientModInitializer {

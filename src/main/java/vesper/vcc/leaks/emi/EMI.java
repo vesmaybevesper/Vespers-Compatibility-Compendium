@@ -1,6 +1,6 @@
-package vesper.vcc.leaks;
+package vesper.vcc.leaks.emi;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,36 +9,24 @@ import java.lang.reflect.Method;
 
 public class EMI {
     private static final Logger LOGGER = LoggerFactory.getLogger("VCC/EMI");
-    private static boolean initialized = false;
 
     public static void initialize() {
-        if (initialized || !FabricLoader.getInstance().isModLoaded("emi")) {
+        if (!FabricLoader.getInstance().isModLoaded("emi")) {
             return;
         }
 
         try {
-            // Use reflection to avoid direct class references
             Class<?> emiHistoryClass = Class.forName("dev.emi.emi.runtime.EmiHistory");
             Method clearMethod = emiHistoryClass.getDeclaredMethod("clear");
 
-            // Register events
-            ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            ServerPlayerEvents.AFTER_RESPAWN.register((handler, sender, client) -> {
                 try {
                     clearMethod.invoke(null);
                 } catch (Exception e) {
-                    LOGGER.error("Error clearing EMI history on join", e);
+                    LOGGER.error("Error clearing EMI history on respawn", e);
                 }
             });
 
-            ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
-                try {
-                    clearMethod.invoke(null);
-                } catch (Exception e) {
-                    LOGGER.error("Error clearing EMI history on disconnect", e);
-                }
-            });
-
-            initialized = true;
             LOGGER.info("EMI history clearing registered successfully");
 
         } catch (ClassNotFoundException e) {
