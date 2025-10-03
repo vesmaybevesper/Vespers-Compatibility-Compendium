@@ -1,10 +1,9 @@
 package vesper.vcc.leaks.emi;
 
-import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import vesper.vcc.events.ClientRespawnEvent;
 import java.lang.reflect.Method;
 
 public class EMI {
@@ -19,7 +18,7 @@ public class EMI {
             Class<?> emiHistoryClass = Class.forName("dev.emi.emi.runtime.EmiHistory");
             Method clearMethod = emiHistoryClass.getDeclaredMethod("clear");
 
-            ServerPlayerEvents.AFTER_RESPAWN.register((handler, sender, client) -> {
+            ClientRespawnEvent.EVENT.register((gameMode, oldPlayer, newPlayer, connection) -> {
                 try {
                     clearMethod.invoke(null);
                 } catch (Exception e) {

@@ -44,6 +44,14 @@ repositories {
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
     maven("https://mvn.devos.one/releases/")
+    maven {
+        name = "Gegy"
+        url = uri("https://maven.gegy.dev/releases/")
+    }
+    maven {
+        name = "ParchmentMC"
+        url = uri("https://maven.parchmentmc.org")
+    }
 }
 
 dependencies {
@@ -52,7 +60,12 @@ dependencies {
     }
 
     minecraft("com.mojang:minecraft:$mcVersion")
-    mappings("net.fabricmc:yarn:$mcVersion+build.${deps["yarn_build"]}:v2")
+    @Suppress("UnstableApiUsage")
+    mappings(loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.21.1:2024.11.17@zip")
+        //mappings("dev.lambdaurora:yalmm:1.21.1+build.7")
+    })
     modImplementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${deps["fabric_api"]}")
     modImplementation("maven.modrinth:midnightlib:${deps["midnightlib"]}")
@@ -68,7 +81,6 @@ dependencies {
     modCompileOnly("maven.modrinth:emi-loot:${deps["emi_loot"]}")
     modCompileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
     modCompileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
-    modCompileOnly("io.github.fabricators_of_create.Porting-Lib:lazy_registration:2.3.8+1.20.1")
 
     fapi(
         // Add modules from https://github.com/FabricMC/fabric

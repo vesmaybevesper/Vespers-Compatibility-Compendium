@@ -1,9 +1,9 @@
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import org.ladysnake.effective.index.EffectiveParticles;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,14 +14,14 @@ import vesper.vcc.Config;
 @Mixin(com.imeetake.effectual.effects.MouthSteam.MouthSteamEffect.class)
 public class MouthSteamEffectMixin {
     @Inject(method = "spawn", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void override(MinecraftClient client, PlayerEntity player, CallbackInfo ci){
+    private static void override(Minecraft client, Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (Config.EffectiveXEffectual && Config.replaceMouthSteam) {
-                World world = player.getWorld();
+                Level world = player.level();
                 double x = player.getX();
                 double y = player.getEyeY() - 0.1;
                 double z = player.getZ();
-                float yaw = player.getYaw() * ((float)Math.PI / 180F);
+                float yaw = player.getYRot() * ((float)Math.PI / 180F);
                 double offsetForward = 0.3;
                 x += -Math.sin(yaw) * offsetForward;
                 z += Math.cos(yaw) * offsetForward;

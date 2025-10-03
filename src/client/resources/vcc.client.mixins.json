@@ -10,6 +10,8 @@
     "effectiveeffectual.WaterDripEffectMixin",
     "effectiveparticlerain.DropletParticleMixin",
     "effectivewakes.WakeNodeAccessor",
+    "events.ClientPlayNetworkHandlerMixin",
+    "events.LivingEntityRendererMixin",
     "leaks.emf.EMFClearCachedEntity",
     "leaks.emf.EMFClearContext"
   ],
@@ -20,5 +22,5 @@
     "effectivewakes.WakeRenderAccessor",
     "effectivewakes.WakeRendererMixin",
     "effectivewakes.WakesUtilMixin"
-	]
+  ]
 }

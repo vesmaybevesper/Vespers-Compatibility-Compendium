@@ -1,11 +1,10 @@
-package vesper.vcc.effectivewakes;
+/*package vesper.vcc.effectivewakes;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
-import org.ladysnake.effective.Effective;
 import org.ladysnake.effective.EffectiveConfig;
 import org.ladysnake.effective.index.EffectiveParticles;
 
@@ -19,4 +18,4 @@ public class EffectiveWakesUtil {
         }
         world.addParticle(splash.setData(data), pos.getX(), pos.getY() + 9, pos.getZ(), velX, velY, velZ);
     }
-}
+}*/

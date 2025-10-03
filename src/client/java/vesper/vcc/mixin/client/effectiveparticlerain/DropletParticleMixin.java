@@ -2,10 +2,10 @@ package vesper.vcc.mixin.client.effectiveparticlerain;
 
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.particle.SpriteBillboardParticle;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,9 +14,9 @@ import pigcart.particlerain.ParticleRain;
 import vesper.vcc.Config;
 
 @Mixin(org.ladysnake.effective.particle.DropletParticle.class)
-public abstract class DropletParticleMixin extends SpriteBillboardParticle {
+public abstract class DropletParticleMixin extends TextureSheetParticle {
 
-    protected DropletParticleMixin(ClientWorld clientWorld, double d, double e, double f) {
+    protected DropletParticleMixin(ClientLevel clientWorld, double d, double e, double f) {
         super(clientWorld, d, e, f);
     }
 
@@ -24,33 +24,33 @@ public abstract class DropletParticleMixin extends SpriteBillboardParticle {
     private void replaceRipple(CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("particlerain")) {
             if (Config.EffectiveXParticleRain && Config.dropletRipple) {
-                this.prevPosX = this.x;
-                this.prevPosY = this.y;
-                this.prevPosZ = this.z;
-                if (this.age++ >= this.maxAge) {
-                    this.markDead();
+                this.xo = this.x;
+                this.yo = this.y;
+                this.zo = this.z;
+                if (this.age++ >= this.lifetime) {
+                    this.remove();
                 }
 
-                if (this.onGround || this.age > 5 && this.world.getBlockState(BlockPos.ofFloored(this.x, this.y + this.velocityY, this.z)).getBlock() == Blocks.WATER) {
-                    this.markDead();
+                if (this.onGround || this.age > 5 && this.level.getBlockState(BlockPos.containing(this.x, this.y + this.yd, this.z)).getBlock() == Blocks.WATER) {
+                    this.remove();
                 }
 
-                if (this.world.getBlockState(BlockPos.ofFloored(this.x, this.y + this.velocityY, this.z)).getBlock() == Blocks.WATER && this.world.getBlockState(BlockPos.ofFloored(this.x, this.y, this.z)).isAir()) {
+                if (this.level.getBlockState(BlockPos.containing(this.x, this.y + this.yd, this.z)).getBlock() == Blocks.WATER && this.level.getBlockState(BlockPos.containing(this.x, this.y, this.z)).isAir()) {
                         for(int i = 0; i > -10; --i) {
-                            BlockPos pos = BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i), this.z);
-                            if (this.world.getBlockState(pos).getBlock() == Blocks.WATER && this.world.getBlockState(BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i), this.z)).getFluidState().isStill() && this.world.getBlockState(BlockPos.ofFloored(this.x, (double)(Math.round(this.y) + (long)i + 1L), this.z)).isAir()) {
-                                this.world.addParticle(ParticleRain.RIPPLE, this.x, (float)(Math.round(this.y) + (long)i) + 0.9F, this.z, 0.0F, 0.0F, 0.0F);
+                            BlockPos pos = BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i), this.z);
+                            if (this.level.getBlockState(pos).getBlock() == Blocks.WATER && this.level.getBlockState(BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i), this.z)).getFluidState().isSource() && this.level.getBlockState(BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i + 1L), this.z)).isAir()) {
+                                this.level.addParticle(ParticleRain.RIPPLE, this.x, (float)(Math.round(this.y) + (long)i) + 0.9F, this.z, 0.0F, 0.0F, 0.0F);
                                 break;
                             }
                         }
 
 
-                    this.markDead();
+                    this.remove();
                 }
-                this.velocityX *= 0.99F;
-                this.velocityY -= 0.05F;
-                this.velocityZ *= 0.99F;
-                this.move(this.velocityX, this.velocityY, this.velocityZ);
+                this.xd *= 0.99F;
+                this.yd -= 0.05F;
+                this.zd *= 0.99F;
+                this.move(this.xd, this.yd, this.zd);
 
                 ci.cancel();
             }

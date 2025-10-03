@@ -1,11 +1,9 @@
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
-import org.apache.commons.lang3.Validate;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import org.ladysnake.effective.index.EffectiveParticles;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -17,16 +15,16 @@ import vesper.vcc.Config;
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubbleBreathEffect.class)
 public class BubbleBreathEffectMixin {
     @Unique
-    private static final Random RANDOM = Random.create();
+    private static final RandomSource RANDOM = RandomSource.create();
     @Inject(method = "spawnBubbleParticles", at = @At("HEAD"), cancellable = true)
-    private static void replaceParticles(PlayerEntity player, CallbackInfo ci){
+    private static void replaceParticles(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (Config.EffectiveXEffectual && Config.useEffectiveBubbleBreath) {
-                World world = player.getWorld();
+                Level world = player.level();
                 double x = player.getX();
                 double y = player.getEyeY() - 0.2;
                 double z = player.getZ();
-                float yaw = player.getYaw() * ((float)Math.PI / 180F);
+                float yaw = player.getYRot() * ((float)Math.PI / 180F);
                 double offsetForward = 0.3;
                 x += -Math.sin(yaw) * offsetForward;
                 z += Math.cos(yaw) * offsetForward;

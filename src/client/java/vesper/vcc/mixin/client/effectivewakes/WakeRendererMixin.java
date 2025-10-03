@@ -6,10 +6,10 @@ import com.goby56.wakes.render.WakeColor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -37,12 +37,12 @@ public abstract class WakeRendererMixin {
     @Inject(method = "blend", at = @At(value = "HEAD"), cancellable = true)
     private void modifyColor(WakeColor tint, int lightColor, float opacity, CallbackInfoReturnable<WakeColor> cir) {
         if (Config.EffectiveXWakes && Config.WakeRenderMixin && FabricLoader.getInstance().isModLoaded("wakes") && FabricLoader.getInstance().isModLoaded("effective")) {
-            World world = MinecraftClient.getInstance().world;
-            assert MinecraftClient.getInstance().player != null;
-            PlayerEntity player = MinecraftClient.getInstance().player;
-            BlockPos pos = player.getBlockPos();
+            Level world = Minecraft.getInstance().level;
+            assert Minecraft.getInstance().player != null;
+            Player player = Minecraft.getInstance().player;
+            BlockPos pos = player.getOnPos();
             if (org.ladysnake.effective.utils.EffectiveUtils.isGlowingWater(world, pos)){
-                float fade = Math.min(0.3f, (world.getTime() % 40) / 40f);
+                float fade = Math.min(0.3f, (world.getDayTime() % 40) / 40f);
                 float value = Math.min(0.3f, fade / 15f);
                 float hue = 210f / 360f;
                 float sat = 0.3f;
