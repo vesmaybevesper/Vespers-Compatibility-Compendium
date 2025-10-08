@@ -29,7 +29,7 @@ public class EMI {
             LOGGER.info("EMI history clearing registered successfully");
 
         } catch (ClassNotFoundException e) {
-            LOGGER.debug("EMI classes not found, skipping EMI fix");
+            LOGGER.warn("EMI classes not found, skipping EMI fix");
         } catch (Exception e) {
             LOGGER.error("Failed to initialize EMI fix", e);
         }
