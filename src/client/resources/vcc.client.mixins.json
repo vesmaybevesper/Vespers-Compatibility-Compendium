@@ -11,9 +11,7 @@
     "effectiveparticlerain.DropletParticleMixin",
     "effectivewakes.WakeNodeAccessor",
     "events.ClientPlayNetworkHandlerMixin",
-    "events.LivingEntityRendererMixin",
-    "leaks.emf.EMFClearCachedEntity",
-    "leaks.emf.EMFClearContext"
+    "events.LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
