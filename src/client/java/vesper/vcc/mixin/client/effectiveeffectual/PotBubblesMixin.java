@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubblePotsEffect.class)
 public class PotBubblesMixin {
@@ -19,7 +19,7 @@ public class PotBubblesMixin {
     private static void overrideRegister(CallbackInfo ci){
         final RandomSource RANDOM = RandomSource.create();
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
-            if (Config.EffectiveXEffectual && Config.useEffectiveBubblePot){
+            if (YACLConfig.bubblePot){
                 ClientTickEvents.END_CLIENT_TICK.register((ClientTickEvents.EndTick)(client) -> {
                     if (com.imeetake.effectual.EffectualClient.CONFIG.bubblePots()) {
                         if (client.level != null) {

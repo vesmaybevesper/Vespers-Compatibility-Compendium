@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubbleChestEffect.class)
 public class EffectualBubblesMixin {
@@ -22,7 +22,7 @@ public class EffectualBubblesMixin {
     private static void overrideRegister(CallbackInfo ci){
         final RandomSource RANDOM = RandomSource.create();
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
-            if (Config.EffectiveXEffectual && Config.useEffectiveBubbleChest){
+            if (YACLConfig.bubbleChest){
                 ClientTickEvents.END_CLIENT_TICK.register((client) -> {
                     if (com.imeetake.effectual.EffectualClient.CONFIG.bubbleChests()) {
                         if (client.level != null) {

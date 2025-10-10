@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Environment(EnvType.CLIENT)
 @Mixin(value = WakeColor.class, remap = false)
@@ -36,7 +36,7 @@ public abstract class WakeRendererMixin {
 
     @Inject(method = "blend", at = @At(value = "HEAD"), cancellable = true)
     private void modifyColor(WakeColor tint, int lightColor, float opacity, CallbackInfoReturnable<WakeColor> cir) {
-        if (Config.EffectiveXWakes && Config.WakeRenderMixin && FabricLoader.getInstance().isModLoaded("wakes") && FabricLoader.getInstance().isModLoaded("effective")) {
+        if (YACLConfig.mimicGlow && FabricLoader.getInstance().isModLoaded("wakes") && FabricLoader.getInstance().isModLoaded("effective")) {
             Level world = Minecraft.getInstance().level;
             assert Minecraft.getInstance().player != null;
             Player player = Minecraft.getInstance().player;

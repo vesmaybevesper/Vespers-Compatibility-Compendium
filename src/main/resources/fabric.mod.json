@@ -20,6 +20,9 @@
     ],
     "client": [
       "vesper.vcc.VCCClient"
+    ],
+    "modmenu": [
+      "vesper.vcc.ModMenuInit"
     ]
   },
   "mixins": [
@@ -32,6 +35,7 @@
   "depends": {
     "fabricloader": ">=0.15",
     "minecraft": "${mcdep}",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "yet_another_config_lib_v3": ">=3.8.0"
   }
 }

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.WaterDrip.WaterDripEffect.class)
 public class WaterDripEffectMixin {
@@ -22,7 +22,7 @@ public class WaterDripEffectMixin {
     @Inject(method = "spawnWaterDripParticles", at = @At("HEAD"), cancellable = true)
     private static void redirectParticle(ClientLevel world, Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
-            if (Config.EffectiveXEffectual && Config.useEffectiveDroplet) {
+            if (YACLConfig.effectiveDroplet) {
                 if (EffectiveConfig.glowingPlankton && world.isNight() && world.getBiome(player.getOnPos()).is(Biomes.WARM_OCEAN)){
                 if (RANDOM.nextInt(5) == 0) {
                     double offsetX = (double)RANDOM.nextFloat() * 0.4 - (double)0.25F;

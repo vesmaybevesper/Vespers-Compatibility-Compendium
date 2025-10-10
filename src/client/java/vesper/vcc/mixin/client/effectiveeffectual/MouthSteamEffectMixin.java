@@ -9,14 +9,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.MouthSteam.MouthSteamEffect.class)
 public class MouthSteamEffectMixin {
     @Inject(method = "spawn", at = @At("HEAD"), cancellable = true, remap = false)
     private static void override(Minecraft client, Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
-            if (Config.EffectiveXEffectual && Config.replaceMouthSteam) {
+            if (YACLConfig.mouthSteam) {
                 Level world = player.level();
                 double x = player.getX();
                 double y = player.getEyeY() - 0.1;

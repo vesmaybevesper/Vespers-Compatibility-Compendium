@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import pigcart.particlerain.ParticleRain;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(org.ladysnake.effective.particle.DropletParticle.class)
 public abstract class DropletParticleMixin extends TextureSheetParticle {
@@ -23,7 +23,7 @@ public abstract class DropletParticleMixin extends TextureSheetParticle {
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void replaceRipple(CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("particlerain")) {
-            if (Config.EffectiveXParticleRain && Config.dropletRipple) {
+            if (YACLConfig.dropletRipple) {
                 this.xo = this.x;
                 this.yo = this.y;
                 this.zo = this.z;

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import vesper.vcc.Config;
+import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubbleBreathEffect.class)
 public class BubbleBreathEffectMixin {
@@ -19,7 +19,7 @@ public class BubbleBreathEffectMixin {
     @Inject(method = "spawnBubbleParticles", at = @At("HEAD"), cancellable = true)
     private static void replaceParticles(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
-            if (Config.EffectiveXEffectual && Config.useEffectiveBubbleBreath) {
+            if (YACLConfig.bubbleBreath) {
                 Level world = player.level();
                 double x = player.getX();
                 double y = player.getEyeY() - 0.2;
