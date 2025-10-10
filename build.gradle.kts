@@ -52,6 +52,11 @@ repositories {
         name = "ParchmentMC"
         url = uri("https://maven.parchmentmc.org")
     }
+    maven { url = uri("https://maven.bawnorton.com/releases")}
+    maven { url = uri("https://maven.enjarai.dev/mirrors")}
+    maven("https://maven.isxander.dev/releases") {
+        name = "Xander Maven"
+    }
 }
 
 dependencies {
@@ -68,7 +73,7 @@ dependencies {
     })
     modImplementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${deps["fabric_api"]}")
-    modImplementation("maven.modrinth:midnightlib:${deps["midnightlib"]}")
+    modImplementation("dev.isxander:yet-another-config-lib:${deps["yacl"]}")
     modCompileOnly("maven.modrinth:modmenu:${deps["modmenu"]}")
     modCompileOnly("maven.modrinth:effective:${deps["effective"]}")
     modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
@@ -81,8 +86,15 @@ dependencies {
     modCompileOnly("maven.modrinth:emi-loot:${deps["emi_loot"]}")
     modCompileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
     modCompileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
+    modCompileOnly("maven.modrinth:entityculling:${deps["entityculling"]}")
+    modCompileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
+    /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
+    include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
+    annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
 
-    fapi(
+
+
+fapi(
         // Add modules from https://github.com/FabricMC/fabric
         "fabric-lifecycle-events-v1",
     )
