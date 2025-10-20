@@ -26,13 +26,6 @@ public class MouthSteamEffectMixin {
                 x += -Math.sin(yaw) * offsetForward;
                 z += Math.cos(yaw) * offsetForward;
                 world.addParticle(EffectiveParticles.CASCADE, x, y, z, 0.0F, 0.001, 0.0F);
-               /* WorldParticleBuilder.create(EffectiveParticles.CASCADE).setScaleData(GenericParticleData.create(0.05f + world.random.nextFloat() * 0.05f).build())
-                        .setTransparencyData(GenericParticleData.create(0.5f).build())
-                        //.enableNoClip()
-                        .setLifetime(60 + world.random.nextInt(60))
-                        .addTickActor(new LinearForcedMotionImpl(new Vector3f(0, -1, 0.0f), new Vector3f(0, 0, 0), 1))
-                        .setRenderType(ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT)
-                        .spawn(world, x, y, z);*/
                 ci.cancel();
             }
         }

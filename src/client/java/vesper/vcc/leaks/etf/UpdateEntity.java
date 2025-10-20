@@ -1,11 +1,11 @@
 package vesper.vcc.leaks.etf;
 
+import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import traben.entity_texture_features.features.ETFManager;
 import traben.entity_texture_features.features.player.ETFPlayerEntity;
-import vesper.vcc.events.ClientRespawnEvent;
 
 public class UpdateEntity {
     private static final Logger LOGGER = LoggerFactory.getLogger("VCC/ETF");
@@ -16,7 +16,7 @@ public class UpdateEntity {
         }
 
         try {
-            ClientRespawnEvent.EVENT.register((gameMode, oldPlayer, newPlayer, connection) -> {
+            ClientRespawnEventCallback.EVENT.register((gameMode, oldPlayer, newPlayer, connection) -> {
                 var etfTexture = ETFManager.getInstance().PLAYER_TEXTURE_MAP.get(oldPlayer.getUUID());
                 if (etfTexture == null) return;
                 if (newPlayer instanceof ETFPlayerEntity playerEntity){

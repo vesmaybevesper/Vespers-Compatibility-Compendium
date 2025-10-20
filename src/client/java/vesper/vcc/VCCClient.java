@@ -5,13 +5,14 @@ import vesper.vcc.leaks.emf.ClearContext;
 import vesper.vcc.leaks.emi.EMI;
 import vesper.vcc.leaks.etf.ClearCachedEntity;
 import vesper.vcc.leaks.etf.UpdateEntity;
+import vesper.vcc.leaks.iceberg.ClearEntities;
+import vesper.vcc.leaks.iceberg.ClearMaps;
 import vesper.vcc.utils.Util;
 
 public class VCCClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
         YACLConfig.CONFIG.load();
-		Util.log("Vesper's Compatibility Compendium is loaded");
 		// EffectiveParticleRainDisableConflicts.init();
 		// DashKeyBind.init();
         EMI.initialize();
@@ -19,5 +20,7 @@ public class VCCClient implements ClientModInitializer {
         UpdateEntity.init();
         ClearContext.init();
         ClearCachedEntity.init();
+        ClearMaps.init();
+        ClearEntities.init();
 	}
 }

@@ -74,6 +74,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${deps["fabric_api"]}")
     modImplementation("dev.isxander:yet-another-config-lib:${deps["yacl"]}")
+    modImplementation ("maven.modrinth:eveningstarlib:${deps["esl"]}")
     modCompileOnly("maven.modrinth:modmenu:${deps["modmenu"]}")
     modCompileOnly("maven.modrinth:effective:${deps["effective"]}")
     modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
@@ -83,10 +84,8 @@ dependencies {
     modCompileOnly("maven.modrinth:owo-lib:${deps["owo-lib"]}")
     modCompileOnly("maven.modrinth:enchancement:${deps["enchancement"]}")
     modCompileOnly("maven.modrinth:emi:${deps["emi"]}")
-    modCompileOnly("maven.modrinth:emi-loot:${deps["emi_loot"]}")
     modCompileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
     modCompileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
-    modCompileOnly("maven.modrinth:entityculling:${deps["entityculling"]}")
     modCompileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
     /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
@@ -151,8 +150,8 @@ publishMods {
     displayName = "${mod.name} ${mod.version} for $mcVersion"
     version = mod.version
     changelog = rootProject.file("CHANGELOG.md").readText()
-    type = STABLE
-    modLoaders.add("fabric")
+    type = BETA
+    modLoaders.add("fabric", "quilt")
 
     dryRun = providers.environmentVariable("MODRINTH_TOKEN")
         .getOrNull() == null || providers.environmentVariable("CURSEFORGE_TOKEN").getOrNull() == null

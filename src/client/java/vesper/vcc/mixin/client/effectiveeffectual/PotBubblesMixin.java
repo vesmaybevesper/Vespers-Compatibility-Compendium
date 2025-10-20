@@ -33,12 +33,6 @@ public class PotBubblesMixin {
                                     world.getBlockEntity(pos);
                                     if (world.getFluidState(pos).isSource() && RANDOM.nextInt(15) == 0) {
                                         world.addParticle(EffectiveParticles.BUBBLE, (double)pos.getX() + (double)0.5F, (double)pos.getY() + 1.3, (double)pos.getZ() + (double)0.5F, 0.0F, 0.1, 0.0F);
-                                        /*WorldParticleBuilder.create(EffectiveParticles.BUBBLE).enableForcedSpawn().setScaleData(GenericParticleData.create(0.05f + world.random.nextFloat() * 0.05f).build())
-                                                .setTransparencyData(GenericParticleData.create(1f).build())
-                                                .enableNoClip().setLifetime(60)
-                                                .addTickActor(new LinearForcedMotionImpl(new Vector3f(0f, 0.35f, 0f), new Vector3f(0, 0.1f, 0), 5))
-                                                .setRenderType(ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT).spawn(world, pos.getX() + 0.5f, pos.getY() + 1.3, pos.getZ() + 0.5f);*/
-                                        // world.addParticle(data, (double)pos.getX() + (double)0.5F, (double)pos.getY() + 1.3, (double)pos.getZ() + (double)0.5F, (double)0.0F, 0.1, (double)0.0F);
                                     }
                                 }
                             }

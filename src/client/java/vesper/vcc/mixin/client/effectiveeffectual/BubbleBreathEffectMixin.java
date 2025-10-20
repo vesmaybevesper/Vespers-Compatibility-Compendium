@@ -1,9 +1,12 @@
 package vesper.vcc.mixin.client.effectiveeffectual;
 
+
+import com.imeetake.effectual.effects.Bubbles.BubbleBreathEffect;
+import dev.vesper.eveningstarlib.common.ESLPosUtils;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import org.ladysnake.effective.index.EffectiveParticles;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -12,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vesper.vcc.YACLConfig;
 
-@Mixin(com.imeetake.effectual.effects.Bubbles.BubbleBreathEffect.class)
+@Mixin(BubbleBreathEffect.class)
 public class BubbleBreathEffectMixin {
     @Unique
     private static final RandomSource RANDOM = RandomSource.create();
@@ -20,32 +23,21 @@ public class BubbleBreathEffectMixin {
     private static void replaceParticles(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (YACLConfig.bubbleBreath) {
-                Level world = player.level();
-                double x = player.getX();
+                ClientLevel world = (ClientLevel) player.level();
+                double yawRad = Math.toRadians(player.getYRot());
+                double x = player.getX() - Math.sin(yawRad) * 0.3;
                 double y = player.getEyeY() - 0.2;
-                double z = player.getZ();
-                float yaw = player.getYRot() * ((float)Math.PI / 180F);
-                double offsetForward = 0.3;
-                x += -Math.sin(yaw) * offsetForward;
-                z += Math.cos(yaw) * offsetForward;
+                double z = player.getZ() + Math.cos(yawRad) * 0.3;
+                int i = 0;
 
-                for(int i = 0; i < 3; ++i) {
-                    double velocityX = (RANDOM.nextDouble() - (double)0.5F) * 0.02;
-                    double velocityY = 0.1 + RANDOM.nextDouble() * 0.05;
-                    double velocityZ = (RANDOM.nextDouble() - (double)0.5F) * 0.02;
-
-                    if (world != null) {
-                        world.addParticle(EffectiveParticles.BUBBLE,  x, y, z, velocityX, velocityY, velocityZ);
-                    }
-                    /*WorldParticleBuilder.create(EffectiveParticles.BUBBLE).enableForcedSpawn().setScaleData(GenericParticleData.create(0.05f + world.random.nextFloat() * 0.05f).build())
-                            .setTransparencyData(GenericParticleData.create(1F).build())
-                            .enableNoClip().setLifetime(60 + world.random.nextInt(60))
-                            .addTickActor(new LinearForcedMotionImpl(new Vector3f((float) velocityX, (float) velocityY, (float) velocityZ), new Vector3f(0, 0, 0), 10f))
-                            .setRenderType(ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT).spawn(world, x, y, z);*/
-                    //client.world.addParticle(effect, x, y, z, velocityX, velocityY, velocityZ);
+                for (int count = 2 * RANDOM.nextInt(4); i < count; i++) {
+                    double xOffset = ESLPosUtils.offsetWithNegative(.000000000001);
+                    double zOffset = ESLPosUtils.offsetWithNegative(.000000000001);
+                    world.addParticle(EffectiveParticles.BUBBLE, x + (xOffset / 2), y, z + (zOffset / 2), 0, 0.1, 0);
                 }
-                ci.cancel();
             }
+                ci.cancel();
         }
     }
 }
+
