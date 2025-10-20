@@ -1,9 +1,9 @@
 package vesper.vcc.leaks.emi;
 
+import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vesper.vcc.events.ClientRespawnEvent;
 import java.lang.reflect.Method;
 
 public class EMI {
@@ -18,15 +18,13 @@ public class EMI {
             Class<?> emiHistoryClass = Class.forName("dev.emi.emi.runtime.EmiHistory");
             Method clearMethod = emiHistoryClass.getDeclaredMethod("clear");
 
-            ClientRespawnEvent.EVENT.register((gameMode, oldPlayer, newPlayer, connection) -> {
+            ClientRespawnEventCallback.EVENT.register((gameMode, oldPlayer, newPlayer, connection) -> {
                 try {
                     clearMethod.invoke(null);
                 } catch (Exception e) {
                     LOGGER.error("Error clearing EMI history on respawn", e);
                 }
             });
-
-            LOGGER.info("EMI history clearing registered successfully");
 
         } catch (ClassNotFoundException e) {
             LOGGER.warn("EMI classes not found, skipping EMI fix");
