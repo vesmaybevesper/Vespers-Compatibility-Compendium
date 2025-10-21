@@ -18,6 +18,7 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "accessors.jei.RecipeTransferManagerAccessor",
     "effectivewakes.WakeRenderAccessor",
     "effectivewakes.WakeRendererMixin",
     "effectivewakes.WakesUtilMixin"

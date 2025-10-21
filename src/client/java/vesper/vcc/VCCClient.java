@@ -7,20 +7,21 @@ import vesper.vcc.leaks.etf.ClearCachedEntity;
 import vesper.vcc.leaks.etf.UpdateEntity;
 import vesper.vcc.leaks.iceberg.ClearEntities;
 import vesper.vcc.leaks.iceberg.ClearMaps;
-import vesper.vcc.utils.Util;
+import vesper.vcc.leaks.jei.ClearCaches;
+import vesper.vcc.leaks.jei.ClearMenu;
 
 public class VCCClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
         YACLConfig.CONFIG.load();
-		// EffectiveParticleRainDisableConflicts.init();
-		// DashKeyBind.init();
         EMI.initialize();
-        //ClearTextureMap.init();
         UpdateEntity.init();
         ClearContext.init();
         ClearCachedEntity.init();
         ClearMaps.init();
         ClearEntities.init();
+        ClearCaches.onLevelUnload();
+        ClearCaches.onRespawn();
+        ClearMenu.onRespawn();
 	}
 }
