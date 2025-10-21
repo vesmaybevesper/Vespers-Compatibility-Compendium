@@ -87,6 +87,7 @@ dependencies {
     modCompileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
     modCompileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
     modCompileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
+    modCompileOnly("maven.modrinth:geckolib:${deps["geckolib"]}")
     /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
