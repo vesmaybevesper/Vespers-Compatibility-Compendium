@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.RandomSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import vesper.vcc.leaks.supplementaries.ClearRemaining;
 
 import java.util.Arrays;
 
@@ -18,5 +19,6 @@ public class VCC implements ModInitializer {
     public void onInitialize() {
         int randomMsg = RandomSource.create().nextIntBetweenInclusive(0, launchMsg.length - 1);
         LOGGER.info("[VCC]: {}", launchMsg[randomMsg]);
+        ClearRemaining.init();
     }
 }
