@@ -89,6 +89,8 @@ dependencies {
     modCompileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
     modCompileOnly("maven.modrinth:geckolib:${deps["geckolib"]}")
     modCompileOnly("maven.modrinth:supplementaries:${deps["supplementaries"]}")
+    modCompileOnly("maven.modrinth:jei:${deps["jei"]}")
+    modCompileOnly("maven.modrinth:betterf3:${deps["betterf3"]}")
     /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
