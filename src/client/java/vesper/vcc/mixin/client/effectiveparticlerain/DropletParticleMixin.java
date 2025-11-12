@@ -1,19 +1,19 @@
 package vesper.vcc.mixin.client.effectiveparticlerain;
 
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Blocks;
+import org.ladysnake.effective.particle.DropletParticle;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import pigcart.particlerain.ParticleRain;
 import vesper.vcc.YACLConfig;
 
-@Mixin(org.ladysnake.effective.particle.DropletParticle.class)
+@Mixin(DropletParticle.class)
 public abstract class DropletParticleMixin extends TextureSheetParticle {
 
     protected DropletParticleMixin(ClientLevel clientWorld, double d, double e, double f) {
@@ -39,11 +39,14 @@ public abstract class DropletParticleMixin extends TextureSheetParticle {
                         for(int i = 0; i > -10; --i) {
                             BlockPos pos = BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i), this.z);
                             if (this.level.getBlockState(pos).getBlock() == Blocks.WATER && this.level.getBlockState(BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i), this.z)).getFluidState().isSource() && this.level.getBlockState(BlockPos.containing(this.x, (double)(Math.round(this.y) + (long)i + 1L), this.z)).isAir()) {
-                                this.level.addParticle(ParticleRain.RIPPLE, this.x, (float)(Math.round(this.y) + (long)i) + 0.9F, this.z, 0.0F, 0.0F, 0.0F);
+                                try {
+                                    Class<?> particleRainClass = Class.forName("pigcart.particlerain.ParticleRain");
+                                    Object rippleField = particleRainClass.getField("RIPPLE").get(null);
+                                    this.level.addParticle((ParticleOptions) rippleField, this.x, (float)(Math.round(this.y) + (long)i) + 0.9F, this.z, 0.0F, 0.0F, 0.0F);
+                                } catch (NoSuchFieldException | ClassNotFoundException | IllegalAccessException ignored) {}
                                 break;
                             }
                         }
-
 
                     this.remove();
                 }
