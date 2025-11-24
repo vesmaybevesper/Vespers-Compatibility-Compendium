@@ -1,4 +1,4 @@
-package vesper.vcc.mixin.client.effectivewakes;
+/*package vesper.vcc.mixin.client.effectivewakes;
 
 
 import com.goby56.wakes.utils.WakesUtils;
@@ -31,4 +31,4 @@ public class WakesUtilMixin {
             }
         }
     }
-}
+}*/

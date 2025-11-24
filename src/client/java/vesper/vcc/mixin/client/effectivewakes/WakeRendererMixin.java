@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biomes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -41,7 +42,8 @@ public abstract class WakeRendererMixin {
             assert Minecraft.getInstance().player != null;
             Player player = Minecraft.getInstance().player;
             BlockPos pos = player.getOnPos();
-            if (org.ladysnake.effective.utils.EffectiveUtils.isGlowingWater(world, pos)){
+            assert world != null;
+            if (world.getSunAngle(world.getDayTime()) >= 0.25965086 && world.getSunAngle(world.getDayTime()) <= 0.7403491 && world.getBiome(pos).is(Biomes.WARM_OCEAN)){
                 float fade = Math.min(0.3f, (world.getDayTime() % 40) / 40f);
                 float value = Math.min(0.3f, fade / 15f);
                 float hue = 210f / 360f;
