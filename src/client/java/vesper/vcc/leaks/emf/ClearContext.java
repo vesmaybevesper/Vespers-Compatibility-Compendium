@@ -15,7 +15,7 @@ public class ClearContext {
             Class<?> emfIterationContext = Class.forName("traben.entity_model_features.models.animation.EMFAnimationEntityContext.IterationContext");
             Field emfHeldIteration = emfIterationContext.getDeclaredField("emf$heldIteration");
 
-            RenderLivingEvent.POST.register((renderer, matrices, vertexConsumers, light, tickDelta) -> {
+            RenderLivingEvent.POST.register((renderer, matrices) -> {
                 try {
                    emfHeldIteration.set(renderer, (Object) null);
                 } catch (IllegalAccessException e) {

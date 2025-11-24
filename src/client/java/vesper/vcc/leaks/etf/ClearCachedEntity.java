@@ -24,7 +24,7 @@ public class ClearCachedEntity {
             //Field etfPlayerTexture = ETF$PLAYERTEXTURE.getDeclaredField("etf$ETFPlayerTexture");
 
 
-            RenderLivingEvent.POST.register((renderer, matrices, vertexConsumers, light, tickDelta) -> {
+            RenderLivingEvent.POST.register((renderer, matrices) -> {
                 try {
                     //ETF$HELDENTITY.set(renderer, null);
                     if (renderer instanceof AvatarRenderer) {
