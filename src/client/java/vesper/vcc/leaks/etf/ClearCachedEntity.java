@@ -1,7 +1,7 @@
 package vesper.vcc.leaks.etf;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import traben.entity_texture_features.features.player.ETFPlayerTexture;
@@ -20,14 +20,14 @@ public class ClearCachedEntity {
             //VarHandle ETF$HELDENTITY = Util.ReflectionHelper.getFieldFromClass(LivingEntityRenderer.class, "etf$heldEntity", ETFEntityRenderState.class, false);
             //Field etfHeldEntityField = ETF$HELDENTITY.getDeclaredField("etf$heldEntity");
             //Class<?> ETF$PLAYERTEXTURE = Class.forName("traben.entity_texture_features.mixin.mixins.entity.renderer.MixinPlayerEntityRenderer");
-            VarHandle ETF$PLAYERTEXTURE = Util.ReflectionHelper.getFieldFromClass(PlayerRenderer.class, "etf$ETFPlayerTexture", ETFPlayerTexture.class, false);
+            VarHandle ETF$PLAYERTEXTURE = Util.ReflectionHelper.getFieldFromClass(AvatarRenderer.class, "etf$ETFPlayerTexture", ETFPlayerTexture.class, false);
             //Field etfPlayerTexture = ETF$PLAYERTEXTURE.getDeclaredField("etf$ETFPlayerTexture");
 
 
             RenderLivingEvent.POST.register((renderer, matrices, vertexConsumers, light, tickDelta) -> {
                 try {
                     //ETF$HELDENTITY.set(renderer, null);
-                    if (renderer instanceof PlayerRenderer) {
+                    if (renderer instanceof AvatarRenderer) {
                         ETF$PLAYERTEXTURE.set(renderer, null);
                     }
                 } catch (IllegalArgumentException e) {
