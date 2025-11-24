@@ -1,4 +1,4 @@
-package vesper.vcc.mixin.client.accessors.iceberg;
+/*package vesper.vcc.mixin.client.accessors.iceberg;
 
 import com.anthonyhilyard.iceberg.renderer.CustomItemRenderer;
 import net.minecraft.world.entity.Entity;
@@ -26,4 +26,4 @@ public interface CustomItemRenderAccessor {
     @Mutable
     @Accessor("wolf")
     static void setWolf(Wolf wolf){}
-}
+}*/

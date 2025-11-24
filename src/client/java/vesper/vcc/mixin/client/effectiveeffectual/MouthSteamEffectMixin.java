@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.loader.api.FabricLoader;
@@ -31,3 +32,4 @@ public class MouthSteamEffectMixin {
         }
     }
 }
+*/

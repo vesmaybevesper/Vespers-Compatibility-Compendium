@@ -1,4 +1,4 @@
-package vesper.vcc.mixin.client.effectiveeffectual;
+/*package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -35,4 +35,4 @@ public class WaterDripEffectMixin {
             }
         }
     }
-}
+}*/

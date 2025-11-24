@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -45,3 +46,4 @@ public class PotBubblesMixin {
         }
     }
 }
+*/

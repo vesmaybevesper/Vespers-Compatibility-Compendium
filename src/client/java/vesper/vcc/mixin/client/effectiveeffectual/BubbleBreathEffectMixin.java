@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 
@@ -41,3 +42,4 @@ public class BubbleBreathEffectMixin {
     }
 }
 
+*/

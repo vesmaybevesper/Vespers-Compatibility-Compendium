@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveparticlerain;
 
 import net.fabricmc.loader.api.FabricLoader;
@@ -59,4 +60,4 @@ public abstract class DropletParticleMixin extends TextureSheetParticle {
             }
         }
     }
-}
+}*/
