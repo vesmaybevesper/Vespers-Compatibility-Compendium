@@ -14,5 +14,5 @@ public interface RenderLivingEvent {
         }
     });
 
-    void postRender(LivingEntityRenderer<?, ?> renderer, PoseStack matrices, MultiBufferSource vertexConsumers, int light, float tickDelta) throws IllegalAccessException;
+    void postRender(LivingEntityRenderer<?, ?, ?> renderer, PoseStack matrices, MultiBufferSource vertexConsumers, int light, float tickDelta) throws IllegalAccessException;
 }
