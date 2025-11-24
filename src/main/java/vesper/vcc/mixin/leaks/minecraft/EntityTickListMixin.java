@@ -1,4 +1,4 @@
-package vesper.vcc.mixin.leaks.minecraft;
+/*package vesper.vcc.mixin.leaks.minecraft;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.world.entity.Entity;
@@ -20,4 +20,4 @@ public class EntityTickListMixin {
     private void clearPassive(Consumer<Entity> entity, CallbackInfo ci){
         this.passive.clear();
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package vesper.vcc.leaks.supplementaries;
+/*package vesper.vcc.leaks.supplementaries;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.EndermanSkullBlockTile;
@@ -15,4 +15,4 @@ public class ClearRemaining {
             ColoredMapHandler.clearIdCache();
         });
     }
-}
+}*/
