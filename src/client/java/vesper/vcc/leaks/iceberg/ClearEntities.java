@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.leaks.iceberg;
 
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
@@ -18,3 +19,4 @@ public class ClearEntities {
         });
     }
 }
+*/

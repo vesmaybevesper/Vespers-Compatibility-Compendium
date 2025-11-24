@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.leaks.iceberg;
 
 import com.anthonyhilyard.iceberg.util.EntityCollector;
@@ -32,3 +33,4 @@ public class ClearMaps {
         }
     }
 }
+*/

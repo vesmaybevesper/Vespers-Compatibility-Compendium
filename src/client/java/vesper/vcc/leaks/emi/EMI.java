@@ -1,4 +1,4 @@
-package vesper.vcc.leaks.emi;
+/*package vesper.vcc.leaks.emi;
 
 import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -32,4 +32,4 @@ public class EMI {
             LOGGER.error("Failed to initialize EMI fix", e);
         }
     }
-}
+}*/
