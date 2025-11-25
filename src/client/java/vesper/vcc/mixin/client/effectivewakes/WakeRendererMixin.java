@@ -43,7 +43,7 @@ public abstract class WakeRendererMixin {
             Player player = Minecraft.getInstance().player;
             BlockPos pos = player.getOnPos();
             assert world != null;
-            if (world.getSunAngle(world.getDayTime()) >= 0.25965086 && world.getSunAngle(world.getDayTime()) <= 0.7403491 && world.getBiome(pos).is(Biomes.WARM_OCEAN)){
+            if (world.isDarkOutside() && world.getBiome(pos).is(Biomes.WARM_OCEAN)){
                 float fade = Math.min(0.3f, (world.getDayTime() % 40) / 40f);
                 float value = Math.min(0.3f, fade / 15f);
                 float hue = 210f / 360f;

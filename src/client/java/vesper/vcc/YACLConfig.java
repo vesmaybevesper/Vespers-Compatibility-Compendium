@@ -8,11 +8,11 @@ import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class YACLConfig {
     public static ConfigClassHandler<YACLConfig> CONFIG = ConfigClassHandler.createBuilder(YACLConfig.class)
-            .id(ResourceLocation.fromNamespaceAndPath("vcc", "vcc_config"))
+            .id(Identifier.fromNamespaceAndPath("vcc", "vcc_config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(FabricLoader.getInstance().getConfigDir().resolve("vcc_config.json5"))
                     .appendGsonBuilder(GsonBuilder::setPrettyPrinting)

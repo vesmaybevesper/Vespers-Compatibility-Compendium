@@ -6,9 +6,10 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import org.jetbrains.annotations.NotNull;
 
 public interface RenderLivingEvent {
-    Event<RenderLivingEvent> POST = EventFactory.createArrayBacked(RenderLivingEvent.class, (listeners) -> (renderer, matrices) ->{
+    Event<@NotNull RenderLivingEvent> POST = EventFactory.createArrayBacked(RenderLivingEvent.class, (listeners) -> (renderer, matrices) ->{
         for (RenderLivingEvent listener : listeners){
             listener.postRender(renderer, matrices);
         }
