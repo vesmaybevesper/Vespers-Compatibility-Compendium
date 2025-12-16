@@ -37,7 +37,7 @@ public abstract class WakeRendererMixin {
 
     @Inject(method = "blend", at = @At(value = "HEAD"), cancellable = true)
     private void modifyColor(WakeColor tint, int lightColor, float opacity, CallbackInfoReturnable<WakeColor> cir) {
-        if (YACLConfig.mimicGlow && FabricLoader.getInstance().isModLoaded("wakes") && FabricLoader.getInstance().isModLoaded("effective")) {
+        if (YACLConfig.mimicGlow && FabricLoader.getInstance().isModLoaded("wakes")) {
             Level world = Minecraft.getInstance().level;
             assert Minecraft.getInstance().player != null;
             Player player = Minecraft.getInstance().player;

@@ -23,16 +23,11 @@ public class YACLConfig {
     public static Screen Config(Screen parent){
         return CONFIG.generateGui().generateScreen(parent);
     }
-
+    //? 1.21.1{
     @AutoGen(category = "effWakes")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean oarSplash = true;
-
-    @AutoGen(category = "effWakes")
-    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-    @SerialEntry
-    public static boolean mimicGlow = true;
 
     @AutoGen(category = "eff^2")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
@@ -63,4 +58,12 @@ public class YACLConfig {
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean dropletRipple = true;
+    //?}
+
+    @AutoGen(category = "Wakes")
+    @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
+    @SerialEntry
+    public static boolean mimicGlow = true;
+
+
 }

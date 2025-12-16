@@ -77,7 +77,7 @@ dependencies {
     modImplementation ("maven.modrinth:eveningstarlib:${deps["esl"]}")
     modCompileOnly("maven.modrinth:modmenu:${deps["modmenu"]}")
     // modCompileOnly("maven.modrinth:effective:${deps["effective"]}")
-    modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
+    //modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
     modCompileOnly("maven.modrinth:particle-rain:${deps["particle-rain"]}")
     //modCompileOnly("maven.modrinth:lodestonelib:${deps["lodestone"]}")
     modCompileOnly("maven.modrinth:wakes:${deps["wakes"]}")
@@ -92,7 +92,7 @@ dependencies {
     modCompileOnly("maven.modrinth:jei:${deps["jei"]}")
     modCompileOnly("maven.modrinth:betterf3:${deps["betterf3"]}")
     modCompileOnly("maven.modrinth:jade:${deps["jade"]}")
-    modCompileOnly("maven.modrinth:particular-reforged:${deps["particular"]}")
+    //modCompileOnly("maven.modrinth:particular-reforged:${deps["particular"]}")
     /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
