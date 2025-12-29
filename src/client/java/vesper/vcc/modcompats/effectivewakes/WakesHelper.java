@@ -1,4 +1,4 @@
-package vesper.vcc.effectivewakes;
+package vesper.vcc.modcompats.effectivewakes;
 
 import com.goby56.wakes.simulation.WakeNode;
 import vesper.vcc.mixin.client.effectivewakes.WakeNodeAccessor;
