@@ -20,9 +20,10 @@ public class WaterDripEffectMixin {
     private static final RandomSource RANDOM = RandomSource.create();
 
     @Inject(method = "spawnWaterDripParticles", at = @At("HEAD"), cancellable = true)
-    private static void redirectParticle(ClientLevel world, Player player, CallbackInfo ci){
+    private static void redirectParticle(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (YACLConfig.effectiveDroplet) {
+                ClientLevel world = (ClientLevel) player.level();
                 if (EffectiveConfig.glowingPlankton && world.isNight() && world.getBiome(player.getOnPos()).is(Biomes.WARM_OCEAN)){
                 if (RANDOM.nextInt(5) == 0) {
                     double offsetX = (double)RANDOM.nextFloat() * 0.4 - (double)0.25F;

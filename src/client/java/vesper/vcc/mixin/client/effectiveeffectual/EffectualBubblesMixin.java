@@ -1,5 +1,6 @@
 package vesper.vcc.mixin.client.effectiveeffectual;
 
+import com.imeetake.effectual.EffectualConfig;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -24,7 +25,7 @@ public class EffectualBubblesMixin {
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (YACLConfig.bubbleChest){
                 ClientTickEvents.END_CLIENT_TICK.register((client) -> {
-                    if (com.imeetake.effectual.EffectualClient.CONFIG.bubbleChests()) {
+                    if (EffectualConfig.get().bubbleChests) {
                         if (client.level != null) {
                             ClientLevel world = client.level;
                             assert client.player != null;

@@ -13,8 +13,8 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.MouthSteam.MouthSteamEffect.class)
 public class MouthSteamEffectMixin {
-    @Inject(method = "spawn", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void override(Minecraft client, Player player, CallbackInfo ci){
+    @Inject(method = "spawnBreath", at = @At("HEAD"), cancellable = true, remap = false)
+    private static void override(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (YACLConfig.mouthSteam) {
                 Level world = player.level();

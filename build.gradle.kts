@@ -57,6 +57,7 @@ repositories {
     maven("https://maven.isxander.dev/releases") {
         name = "Xander Maven"
     }
+    maven("https://maven.terraformersmc.com/releases/")
 }
 
 dependencies {
@@ -92,6 +93,7 @@ dependencies {
     modCompileOnly("maven.modrinth:jei:${deps["jei"]}")
     modCompileOnly("maven.modrinth:betterf3:${deps["betterf3"]}")
     modCompileOnly("maven.modrinth:jade:${deps["jade"]}")
+    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:15.0.140")
     /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
     annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
