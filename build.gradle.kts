@@ -149,8 +149,9 @@ tasks.register<Copy>("buildAndCollect") {
     dependsOn("build")
 }
 
-/*
-publishMods {
+
+
+/*publishMods {
     file = tasks.remapJar.get().archiveFile
     additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
     displayName = "${mod.name} ${mod.version} for $mcVersion"
@@ -180,8 +181,7 @@ publishMods {
         }
     }
 }
-*/
-/*
+
 publishing {
     repositories {
         maven("...") {
@@ -202,5 +202,4 @@ publishing {
             from(components["java"])
         }
     }
-}
-*/
+}*/
