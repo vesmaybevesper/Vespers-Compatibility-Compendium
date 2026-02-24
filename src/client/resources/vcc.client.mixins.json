@@ -12,7 +12,6 @@
   },
   "mixins": [
     "accessors.jei.RecipeTransferManagerAccessor",
-    "effectivewakes.WakeRenderAccessor",
     "effectivewakes.WakeRendererMixin"
   ]
 }
