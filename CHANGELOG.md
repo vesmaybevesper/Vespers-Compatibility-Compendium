@@ -1,0 +1,5 @@
+- Update versions for:
+  - JEI
+  - Mod Menu
+  - YACL
+  - Jade
