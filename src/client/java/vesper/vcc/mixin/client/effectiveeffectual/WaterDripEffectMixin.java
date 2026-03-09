@@ -16,7 +16,8 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.WaterDrip.WaterDripEffect.class)
 public class WaterDripEffectMixin {
-    @Unique
+    //? 1.21.1 {
+    /*@Unique
     private static final RandomSource RANDOM = RandomSource.create();
 
     @Inject(method = "spawnWaterDripParticles", at = @At("HEAD"), cancellable = true)
@@ -36,4 +37,5 @@ public class WaterDripEffectMixin {
             }
         }
     }
+    *///?}
 }

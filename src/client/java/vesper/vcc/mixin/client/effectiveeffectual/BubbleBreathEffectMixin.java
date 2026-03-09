@@ -18,7 +18,8 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(BubbleBreathEffect.class)
 public class BubbleBreathEffectMixin {
-    @Unique
+    //? 1.21.1 {
+    /*@Unique
     private static final RandomSource RANDOM = RandomSource.create();
     @Inject(method = "processBreathTick", at = @At("HEAD"), cancellable = true)
     private static void replaceParticles(Player player, CallbackInfo ci){
@@ -50,4 +51,5 @@ public class BubbleBreathEffectMixin {
                 ci.cancel();
         }
     }
+    *///?}
 }

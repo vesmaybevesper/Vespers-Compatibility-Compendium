@@ -1,7 +1,6 @@
 package vesper.vcc.mixin.client.effectivewakes;
-
-
-import com.goby56.wakes.utils.WakesUtils;
+//? 1.21.1 {
+/*import com.goby56.wakes.utils.WakesUtils;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -32,3 +31,4 @@ public class WakesUtilMixin {
         }
     }
 }
+*///?}

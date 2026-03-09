@@ -1,6 +1,6 @@
 package vesper.vcc.mixin.client.accessors.iceberg;
-
-import com.anthonyhilyard.iceberg.renderer.CustomItemRenderer;
+//? 1.21.1 {
+/*import com.anthonyhilyard.iceberg.renderer.CustomItemRenderer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.horse.Horse;
@@ -27,3 +27,4 @@ public interface CustomItemRenderAccessor {
     @Accessor("wolf")
     static void setWolf(Wolf wolf){}
 }
+*///?}

@@ -2,7 +2,7 @@ plugins {
     `maven-publish`
     id("fabric-loom")
     //id("dev.kikugie.j52j")
-    //id("me.modmuss50.mod-publish-plugin")
+    id("me.modmuss50.mod-publish-plugin")
 }
 
 class ModData {
@@ -150,7 +150,7 @@ tasks.register<Copy>("buildAndCollect") {
     dependsOn("build")
 }
 
-/*
+
 publishMods {
     file = tasks.remapJar.get().archiveFile
     additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
@@ -181,8 +181,6 @@ publishMods {
         }
     }
 }
-*/
-/*
 publishing {
     repositories {
         maven("...") {
@@ -204,4 +202,3 @@ publishing {
         }
     }
 }
-*/

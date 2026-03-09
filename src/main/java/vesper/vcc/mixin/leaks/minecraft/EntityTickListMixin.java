@@ -13,11 +13,13 @@ import java.util.function.Consumer;
 
 @Mixin(EntityTickList.class)
 public class EntityTickListMixin {
-    @Shadow
+    //? 1.21.1 {
+    /*@Shadow
     private Int2ObjectMap<Entity> passive;
 
     @Inject(method = "forEach", at = @At(value = "FIELD", target = "Lnet/minecraft/world/level/entity/EntityTickList;iterated:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;", shift = At.Shift.AFTER, ordinal = 2))
     private void clearPassive(Consumer<Entity> entity, CallbackInfo ci){
         this.passive.clear();
     }
+    *///?}
 }

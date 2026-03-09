@@ -13,7 +13,8 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.MouthSteam.MouthSteamEffect.class)
 public class MouthSteamEffectMixin {
-    @Inject(method = "spawnBreath", at = @At("HEAD"), cancellable = true, remap = false)
+    //? 1.21.1 {
+    /*@Inject(method = "spawnBreath", at = @At("HEAD"), cancellable = true, remap = false)
     private static void override(Player player, CallbackInfo ci){
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
             if (YACLConfig.mouthSteam) {
@@ -30,4 +31,5 @@ public class MouthSteamEffectMixin {
             }
         }
     }
+    *///?}
 }

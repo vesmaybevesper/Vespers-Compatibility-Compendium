@@ -19,7 +19,8 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubbleChestEffect.class)
 public class EffectualBubblesMixin {
-    @Inject(method = "register", at = @At("HEAD"), cancellable = true, remap = false)
+    //? 1.21.1 {
+    /*@Inject(method = "register", at = @At("HEAD"), cancellable = true, remap = false)
     private static void overrideRegister(CallbackInfo ci){
         final RandomSource RANDOM = RandomSource.create();
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
@@ -55,6 +56,7 @@ public class EffectualBubblesMixin {
         }
         }
     }
+    *///?}
 }
 
 

@@ -8,10 +8,15 @@ import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.ResourceLocation;
+//? 1.21.1 {
+/*import net.minecraft.resources.ResourceLocation;
+*///?} 1.21.11 {
+import net.minecraft.resources.Identifier;
+//?}
 
 public class YACLConfig {
-    public static ConfigClassHandler<YACLConfig> CONFIG = ConfigClassHandler.createBuilder(YACLConfig.class)
+    //? 1.21.1 {
+    /*public static ConfigClassHandler<YACLConfig> CONFIG = ConfigClassHandler.createBuilder(YACLConfig.class)
             .id(ResourceLocation.fromNamespaceAndPath("vcc", "vcc_config"))
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(FabricLoader.getInstance().getConfigDir().resolve("vcc_config.json5"))
@@ -19,22 +24,32 @@ public class YACLConfig {
                     .setJson5(true)
                     .build())
             .build();
+    *///?} 1.21.11 {
+    public static ConfigClassHandler<YACLConfig> CONFIG = ConfigClassHandler.createBuilder(YACLConfig.class)
+            .id(Identifier.fromNamespaceAndPath("vcc", "vcc_config"))
+            .serializer(config -> GsonConfigSerializerBuilder.create(config)
+                    .setPath(FabricLoader.getInstance().getConfigDir().resolve("vcc_config.json5"))
+                    .appendGsonBuilder(GsonBuilder::setPrettyPrinting)
+                    .setJson5(true)
+                    .build())
+            .build();
+    //?}
 
     public static Screen Config(Screen parent){
         return CONFIG.generateGui().generateScreen(parent);
     }
-
-    @AutoGen(category = "effWakes")
+//? 1.21.1 {
+    /*@AutoGen(category = "effWakes")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean oarSplash = true;
-
+*///?}
     @AutoGen(category = "effWakes")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean mimicGlow = true;
-
-    @AutoGen(category = "eff^2")
+//? 1.21.1 {
+    /*@AutoGen(category = "eff^2")
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean bubbleChest = true;
@@ -63,4 +78,5 @@ public class YACLConfig {
     @Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
     @SerialEntry
     public static boolean dropletRipple = true;
+    *///?}
 }
