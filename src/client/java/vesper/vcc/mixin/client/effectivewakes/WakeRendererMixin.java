@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectivewakes;
 
 import com.goby56.wakes.WakesClient;
@@ -64,3 +65,4 @@ public abstract class WakeRendererMixin {
 }
 
 
+*/

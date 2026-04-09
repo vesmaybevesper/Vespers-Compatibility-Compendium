@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import net.fabricmc.loader.api.FabricLoader;
@@ -17,7 +18,8 @@ import vesper.vcc.YACLConfig;
 @Mixin(com.imeetake.effectual.effects.WaterDrip.WaterDripEffect.class)
 public class WaterDripEffectMixin {
     //? 1.21.1 {
-    /*@Unique
+    */
+/*@Unique
     private static final RandomSource RANDOM = RandomSource.create();
 
     @Inject(method = "spawnWaterDripParticles", at = @At("HEAD"), cancellable = true)
@@ -37,5 +39,7 @@ public class WaterDripEffectMixin {
             }
         }
     }
-    *///?}
+    *//*
+//?}
 }
+*/

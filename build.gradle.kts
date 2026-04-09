@@ -1,6 +1,6 @@
 plugins {
     `maven-publish`
-    id("fabric-loom")
+    id("net.fabricmc.fabric-loom")
     //id("dev.kikugie.j52j")
     id("me.modmuss50.mod-publish-plugin")
 }
@@ -58,47 +58,41 @@ repositories {
         name = "Xander Maven"
     }
     maven("https://maven.terraformersmc.com/releases/")
+    maven {
+        name = "Terraformers"
+        url = uri("https://maven.terraformersmc.com/")
+    }
 }
 
 dependencies {
     fun fapi(vararg modules: String) = modules.forEach {
-        modImplementation(fabricApi.module(it, deps["fabric_api"]))
+        implementation(fabricApi.module(it, deps["fabric_api"]))
     }
 
     minecraft("com.mojang:minecraft:$mcVersion")
-    @Suppress("UnstableApiUsage")
-    mappings(loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.21.1:2024.11.17@zip")
-        //mappings("dev.lambdaurora:yalmm:1.21.1+build.7")
-    })
-    modImplementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${deps["fabric_api"]}")
-    modImplementation("dev.isxander:yet-another-config-lib:${deps["yacl"]}")
-    modImplementation ("maven.modrinth:eveningstarlib:${deps["esl"]}")
-    modCompileOnly("maven.modrinth:modmenu:${deps["modmenu"]}")
-    modCompileOnly("maven.modrinth:effective:${deps["effective"]}")
-    modCompileOnly("maven.modrinth:effectual:${deps["effectual"]}")
-    modCompileOnly("maven.modrinth:particle-rain:${deps["particle-rain"]}")
-    modCompileOnly("maven.modrinth:lodestonelib:${deps["lodestone"]}")
-    modCompileOnly("maven.modrinth:wakes:${deps["wakes"]}")
-    modCompileOnly("maven.modrinth:owo-lib:${deps["owo-lib"]}")
-    modCompileOnly("maven.modrinth:enchancement:${deps["enchancement"]}")
-    modCompileOnly("maven.modrinth:emi:${deps["emi"]}")
-    modCompileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
-    modCompileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
-    modCompileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
-    modCompileOnly("maven.modrinth:geckolib:${deps["geckolib"]}")
-    modCompileOnly("maven.modrinth:supplementaries:${deps["supplementaries"]}")
-    modCompileOnly("maven.modrinth:jei:${deps["jei"]}")
-    modCompileOnly("maven.modrinth:betterf3:${deps["betterf3"]}")
-    modCompileOnly("maven.modrinth:jade:${deps["jade"]}")
-    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:15.0.140")
-    /*implementation("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
-    include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")
-    annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.6-beta.1")*/
-
-
+    implementation("net.fabricmc:fabric-loader:${deps["fabric_loader"]}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${deps["fabric_api"]}")
+    implementation("dev.isxander:yet-another-config-lib:${deps["yacl"]}")
+    implementation ("maven.modrinth:eveningstarlib:${deps["esl"]}")
+    compileOnly("com.terraformersmc:modmenu:${deps["modmenu"]}")
+    //compileOnly("maven.modrinth:effective:${deps["effective"]}")
+    //compileOnly("maven.modrinth:effectual:${deps["effectual"]}")
+    compileOnly("maven.modrinth:particle-rain:${deps["particle-rain"]}")
+    //compileOnly("maven.modrinth:lodestonelib:${deps["lodestone"]}")
+    //compileOnly("maven.modrinth:wakes:${deps["wakes"]}")
+    compileOnly("maven.modrinth:owo-lib:${deps["owo-lib"]}")
+    //compileOnly("maven.modrinth:enchancement:${deps["enchancement"]}")
+    //compileOnly("maven.modrinth:emi:${deps["emi"]}")
+    compileOnly("maven.modrinth:entity-model-features:${deps["emf"]}")
+    compileOnly("maven.modrinth:entitytexturefeatures:${deps["etf"]}")
+    //compileOnly("maven.modrinth:iceberg:${deps["iceberg"]}")
+    compileOnly("maven.modrinth:geckolib:${deps["geckolib"]}")
+    //compileOnly("maven.modrinth:supplementaries:${deps["supplementaries"]}")
+    compileOnly("maven.modrinth:jei:${deps["jei"]}")
+    //compileOnly("maven.modrinth:betterf3:${deps["betterf3"]}")
+    compileOnly("maven.modrinth:jade:${deps["jade"]}")
+    compileOnly("maven.modrinth:mouse-tweaks:${deps["mousetweaks"]}")
+    compileOnly("me.shedaniel.cloth:cloth-config-fabric:15.0.140")
 
 fapi(
         // Add modules from https://github.com/FabricMC/fabric
@@ -122,7 +116,7 @@ loom {
 
 java {
     withSourcesJar()
-    val java = if (stonecutter.eval(mcVersion, ">=1.20.6")) JavaVersion.VERSION_21 else JavaVersion.VERSION_17
+    val java = JavaVersion.VERSION_25
     targetCompatibility = java
     sourceCompatibility = java
 }
@@ -145,39 +139,53 @@ tasks.processResources {
 
 tasks.register<Copy>("buildAndCollect") {
     group = "build"
-    from(tasks.remapJar.get().archiveFile)
+    from(tasks.jar.get().archiveFile)
     into(rootProject.layout.buildDirectory.file("libs/${mod.version}"))
     dependsOn("build")
 }
 
 
 publishMods {
-    file = tasks.remapJar.get().archiveFile
-    additionalFiles.from(tasks.remapSourcesJar.get().archiveFile)
+    file = tasks.jar.get().archiveFile
     displayName = "${mod.name} ${mod.version} for $mcVersion"
     version = mod.version
     changelog = rootProject.file("CHANGELOG.md").readText()
-    type = BETA
-    modLoaders.add("fabric", "quilt")
+    type = ALPHA
+    modLoaders.add("fabric")
 
-    dryRun = providers.environmentVariable("MODRINTH_TOKEN")
-        .getOrNull() == null || providers.environmentVariable("CURSEFORGE_TOKEN").getOrNull() == null
+    dryRun = false
 
     modrinth {
         projectId = property("publish.modrinth").toString()
-        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        accessToken = ""
         minecraftVersions.add(mcVersion)
         requires {
             slug = "fabric-api"
+            slug = "yacl"
+            slug = "eveningstarlib"
+        }
+        optional {
+            slug = "modmenu"
+            slug = "entitytexturefeatures"
+            slug = "jade"
+            slug = "jei"
         }
     }
 
     curseforge {
         projectId = property("publish.curseforge").toString()
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        accessToken = ""
         minecraftVersions.add(mcVersion)
         requires {
             slug = "fabric-api"
+            slug = "yacl"
+            slug = "eveningstarlib"
+        }
+        optional {
+            slug = "modmenu"
+            slug = "entity-texture-features-fabric"
+            slug = "jade"
+            slug = "jei"
         }
     }
 }

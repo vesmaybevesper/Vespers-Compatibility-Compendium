@@ -1,10 +1,13 @@
+/*
 package vesper.vcc.mixin.client.effectiveparticlerain;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.multiplayer.ClientLevel;
 //? 1.21.1 {
+*/
 /*import net.minecraft.client.particle.TextureSheetParticle;
-*///?}
+*//*
+//?}
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Blocks;
@@ -17,13 +20,16 @@ import vesper.vcc.YACLConfig;
 
 @Mixin(DropletParticle.class)
 //? 1.21.1 {
+*/
 /*public abstract class DropletParticleMixin extends TextureSheetParticle {
-    *///?} 1.21.11 {
+    *//*
+//?} 1.21.11 {
     public abstract class DropletParticleMixin {
     //?}
     //? 1.21.1 {
 
-    /*protected DropletParticleMixin(ClientLevel clientWorld, double d, double e, double f) {
+    */
+/*protected DropletParticleMixin(ClientLevel clientWorld, double d, double e, double f) {
         super(clientWorld, d, e, f);
     }
 
@@ -66,5 +72,6 @@ import vesper.vcc.YACLConfig;
             }
         }
     }
-    *///?}
-}
+    *//*
+//?}
+}*/

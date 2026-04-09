@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import com.imeetake.effectual.EffectualConfig;
@@ -17,7 +18,8 @@ import vesper.vcc.YACLConfig;
 @Mixin(com.imeetake.effectual.effects.Bubbles.BubblePotsEffect.class)
 public class PotBubblesMixin {
     //? 1.21.1 {
-    /*@Inject(method = "register", at = @At(value = "HEAD"), cancellable = true, remap = false)
+    */
+/*@Inject(method = "register", at = @At(value = "HEAD"), cancellable = true, remap = false)
     private static void overrideRegister(CallbackInfo ci){
         final RandomSource RANDOM = RandomSource.create();
         if (FabricLoader.getInstance().isModLoaded("effective") && FabricLoader.getInstance().isModLoaded("effectual")) {
@@ -46,5 +48,7 @@ public class PotBubblesMixin {
             }
         }
     }
-    *///?}
+    *//*
+//?}
 }
+*/

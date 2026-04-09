@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectivewakes;
 
 import com.goby56.wakes.simulation.WakeNode;
@@ -11,3 +12,4 @@ public interface WakeNodeAccessor {
         throw new AssertionError();
     }
 }
+*/

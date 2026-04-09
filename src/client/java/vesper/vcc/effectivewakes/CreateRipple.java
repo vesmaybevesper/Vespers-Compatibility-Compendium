@@ -1,9 +1,6 @@
 package vesper.vcc.effectivewakes;
 
-import com.goby56.wakes.simulation.WakeHandler;
-import com.goby56.wakes.simulation.WakeNode;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -12,7 +9,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Set;
 
 public class CreateRipple {
-    public static void createWakeSplash(Level world, Vec3 pos, Boat boat) {
+/*    public static void createWakeSplash(Level world, Vec3 pos, Boat boat) {
         BlockPos blockPos = BlockPos.containing(pos);
         FluidState fluidState = world.getFluidState(blockPos);
 
@@ -31,5 +28,5 @@ public class CreateRipple {
                  wakeHandler.insert(center);
             });
         }
-    }
+    }*/
 }

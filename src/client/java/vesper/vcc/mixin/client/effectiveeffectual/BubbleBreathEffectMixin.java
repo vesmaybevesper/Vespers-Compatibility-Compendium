@@ -1,3 +1,4 @@
+/*
 package vesper.vcc.mixin.client.effectiveeffectual;
 
 import com.imeetake.effectual.effects.Bubbles.BubbleBreathEffect;
@@ -19,7 +20,8 @@ import vesper.vcc.YACLConfig;
 @Mixin(BubbleBreathEffect.class)
 public class BubbleBreathEffectMixin {
     //? 1.21.1 {
-    /*@Unique
+    */
+/*@Unique
     private static final RandomSource RANDOM = RandomSource.create();
     @Inject(method = "processBreathTick", at = @At("HEAD"), cancellable = true)
     private static void replaceParticles(Player player, CallbackInfo ci){
@@ -51,5 +53,6 @@ public class BubbleBreathEffectMixin {
                 ci.cancel();
         }
     }
-    *///?}
-}
+    *//*
+//?}
+}*/
