@@ -21,7 +21,7 @@ public class ClearScreen {
         HANDLER = Util.ReflectionHelper.getFieldFromClass(Main.class, "handler", IGuiScreenHandler.class, true);
     }
     public static void init(){
-        if (!FabricLoader.getInstance().isModLoaded("")) return;
+        if (!FabricLoader.getInstance().isModLoaded("mousetweaks")) return;
 
         try {
             ServerLevelEvents.UNLOAD.register((server, world) -> {

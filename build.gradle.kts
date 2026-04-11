@@ -169,6 +169,7 @@ publishMods {
             slug = "entitytexturefeatures"
             slug = "jade"
             slug = "jei"
+            slug = "mouse-tweaks"
         }
     }
 
@@ -186,6 +187,7 @@ publishMods {
             slug = "entity-texture-features-fabric"
             slug = "jade"
             slug = "jei"
+            slug = "mouse-tweaks"
         }
     }
 }

@@ -1,6 +1,7 @@
 package vesper.vcc.leaks.jei;
 
 import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.inventory.GrindstoneMenu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ public class ClearMenu {
     private static final Logger LOGGER = LoggerFactory.getLogger("VCC/JEI");
 
     public static void onRespawn(){
+        if (FabricLoader.getInstance().isModLoaded("jei")) return;
 
         try {
             var clazz = Util.ReflectionHelper.getClass("mezz.jei.library.plugins.vanilla.grindstone.GrindstoneRecipeMaker");

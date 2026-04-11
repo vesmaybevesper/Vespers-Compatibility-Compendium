@@ -1,0 +1,2 @@
+- Add a Mouse Tweaks memory leak fix
+- Make all fixes a little bit safer

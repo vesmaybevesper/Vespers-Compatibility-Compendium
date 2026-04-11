@@ -10,6 +10,7 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "accessors.jei.RecipeTransferManagerAccessor"
+    "accessors.jei.RecipeTransferManagerAccessor",
+    "fixes.leaks.athena.AthenaResourceLoaderMixin"
   ]
 }

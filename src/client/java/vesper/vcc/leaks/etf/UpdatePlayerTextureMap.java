@@ -1,6 +1,7 @@
 package vesper.vcc.leaks.etf;
 
 import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,9 @@ public class UpdatePlayerTextureMap {
     private static final Logger LOGGER = LoggerFactory.getLogger("VCC/ETF");
 
     public static void init() {
-        VarHandle ETF$PLAYERTEXTURE = Util.ReflectionHelper.getFieldFromClass(AvatarRenderer.class, "etf$ETFPlayerTexture", ETFPlayerTexture.class, false);
+        if (!FabricLoader.getInstance().isModLoaded("entity_texture_features")) return;
+
+       // VarHandle ETF$PLAYERTEXTURE = Util.ReflectionHelper.getFieldFromClass(AvatarRenderer.class, "etf$ETFPlayerTexture", ETFPlayerTexture.class, false);
 
         ClientRespawnEventCallback.EVENT.register((gameMode, oldPlayer, newPlayer, networkManager) -> {
             try {
