@@ -29,7 +29,10 @@ platform {
 		required("fabricloader") {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
-		optional("modmenu") {}
+		optional("modmenu") {
+			slug("modmenu")
+			fabricLikeVersionRange = ">=${prop("deps.modmenu")}"
+		}
 	}
 }
 
@@ -85,4 +88,9 @@ dependencies {
 	// include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modLocalRuntime("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
+	modImplementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
+	modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
+	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
+	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
 }

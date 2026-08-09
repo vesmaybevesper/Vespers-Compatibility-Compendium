@@ -2,7 +2,7 @@ package dev.vesper.vcc;
 
 import dev.vesper.vcc.platform.Platform;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +27,7 @@ public class VCC {
 	public static void onInitialize() {
 		LOGGER.info("Initializing {} on {}", MOD_ID, VCC.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
+		Config.HANDLER.load();
 	}
 
 	public static void onInitializeClient() {
@@ -48,19 +49,19 @@ public class VCC {
 		 *///?}
 	}
 
-	private static ResourceLocation id(String path) {
+	private static Identifier id(String path) {
 		//? > 1.19.2 {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+		return Identifier.tryBuild(MOD_ID, path);
 		 //?} <= 1.19.2 {
-		/*return new ResourceLocation(MOD_ID, path);
+		/*return new Identifier(MOD_ID, path);
 		*///?}
 	}
 
-	private static ResourceLocation id(String namespace, String path) {
+	private static Identifier id(String namespace, String path) {
 		//? > 1.19.2 {
-		return ResourceLocation.fromNamespaceAndPath(namespace, path);
+		return Identifier.tryBuild(namespace, path);
 		 //?} <= 1.19.2 {
-		/*return new ResourceLocation(namespace, path);
+		/*return new Identifier(namespace, path);
 		*///?}
 	}
 }
