@@ -7,6 +7,7 @@ import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import dev.vesper.eveningstarlib.common.serializers.fastjson.FastJsonConfigSerializerBuilder;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.Identifier;
 
 public class Config {
@@ -25,6 +26,10 @@ public class Config {
 					.build())
 			.build();
 	//?}
+
+	public static Screen config(Screen parent){
+		return HANDLER.generateGui().generateScreen(parent);
+	}
 
 	@AutoGen(category = "effxwakes")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)

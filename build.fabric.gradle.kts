@@ -111,7 +111,7 @@ dependencies {
 	// implementation(libs.moulberry.mixinconstraints)
 	// include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
-	modLocalRuntime("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
+	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
 	modImplementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
 	modImplementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (sc.current.parsed <= "1.21.1") {
