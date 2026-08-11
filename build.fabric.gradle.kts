@@ -89,8 +89,17 @@ dependencies {
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modLocalRuntime("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
 	modImplementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
-	modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
+	modImplementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
+	if (sc.current.parsed <= "1.21.1") {
+		modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
+		modCompileOnly("maven.modrinth:lodestonelib:${prop("deps.lodestone")}")
+	}
+	if (sc.current.parsed < "26"){
+		modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
+	}
+	modCompileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
-	modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
+	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
+
 }

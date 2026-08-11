@@ -7,12 +7,15 @@
     "defaultRequire": 1
   },
   "mixins": [
-
   ],
   "client": [
-    "effectivexwakes.WakeNodeAccessor",
-    "effectivexwakes.WakeRendererAccessor",
+    "effectivexparticlerain.DropletParticleMixin",
+    "effectivexwakes.WakeColorMixin",
     "effectivexwakes.WakesUtilsMixin",
-    "effectivexwakes.WakeColorMixin"
+    "effectualxeffective.BubbleBreathMixin",
+    "effectualxeffective.BubbleChestEffectMixin",
+    "effectualxeffective.BubblePotsEffectMixin",
+    "effectualxeffective.MouthSteamEffectMixin",
+    "effectualxeffective.WaterDripEffectMixin"
   ]
 }
