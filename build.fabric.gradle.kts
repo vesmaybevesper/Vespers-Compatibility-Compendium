@@ -29,9 +29,33 @@ platform {
 		required("fabricloader") {
 			fabricLikeVersionRange = ">=${prop("deps.fabric-loader")}"
 		}
+		required("eveningstarlib") {
+			slug("eveningstarlib")
+			fabricLikeVersionRange = ">=${prop("deps.eveningstarlib")}"
+		}
 		optional("modmenu") {
 			slug("modmenu")
 			fabricLikeVersionRange = ">=${prop("deps.modmenu")}"
+		}
+		optional("wakes"){
+			slug("wakes")
+			fabricLikeVersionRange = ">=${prop("deps.wakes")}"
+		}
+		optional("effectual") {
+			slug("effectual")
+			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
+		}
+		if (stonecutter.current.parsed <= "1.21.11") {
+			optional("particle-rain") {
+				slug("particle-rain")
+				fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
+			}
+		}
+		if (stonecutter.current.parsed <= "1.21.1") {
+			optional("effective") {
+				slug("effective")
+				fabricLikeVersionRange = ">=${prop("deps.effective")}"
+			}
 		}
 	}
 }
