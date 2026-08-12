@@ -36,6 +36,10 @@ platform {
 			slug("eveningstarlib")
 			fabricLikeVersionRange = ">=$eslCleanVersion"
 		}
+		required("yet_another_config_lib_v3"){
+			slug("yacl")
+			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+		}
 		optional("modmenu") {
 			slug("modmenu")
 			fabricLikeVersionRange = ">=${prop("deps.modmenu")}"
