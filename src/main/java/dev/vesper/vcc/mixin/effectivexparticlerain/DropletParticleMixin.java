@@ -43,7 +43,9 @@ public abstract class DropletParticleMixin /*? <=1.21.1{ *//*extends TextureShee
 
 	@Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
 	private void tick(ClientLevel instance, ParticleOptions particle, double x, double y, double z, double xd, double yd, double zd){
-		instance.addParticle(ParticleRain.RIPPLE, x, y, z, xd, yd, zd);
+		if (Config.replaceRipple && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("particle-rain")) {
+			instance.addParticle(ParticleRain.RIPPLE, x, y, z, xd, yd, zd);
+		}
 	}
 	*///?}
 }
