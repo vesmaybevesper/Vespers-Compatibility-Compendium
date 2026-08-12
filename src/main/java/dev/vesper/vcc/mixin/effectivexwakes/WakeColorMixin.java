@@ -55,6 +55,7 @@ public class WakeColorMixin {
 		return WakesClient.areShadersEnabled() ? k * (4.0f * Math.pow(x - 0.5f, 3.0f) + 0.5f) : x;
 	}
 
+	// I've been really thinking trying to find a cleaner way to do this and I can't come up with anything so...
 	@Inject(method = "blend", at = @At("HEAD"), cancellable = true)
 	//? <=1.21.11{
 	/*private void VCC$blend$head(WakeColor tint, int lightColor, float opacity, CallbackInfoReturnable<WakeColor> cir){
@@ -76,7 +77,7 @@ public class WakeColorMixin {
 				float sat = 0.3F;
 				WakeColor color = new WakeColor(hue, sat, value, 1.0F);
 				int foamLight = 15728880;
-				double scrA = Math.pow((double)((float)this.a / 255.0F), (double)(WakesConfig.blendStrength * 10.0F));
+				double scrA = Math.pow((float)this.a / 255.0F, WakesConfig.blendStrength * 10.0F);
 				int r = (int)((double)this.r * scrA + (double)color.r * ((double)1.0F - scrA));
 				int g = (int)((double)this.g * scrA + (double)color.g * ((double)1.0F - scrA));
 				int b = (int)((double)this.b * scrA + (double)color.b * ((double)1.0F - scrA));
