@@ -16,8 +16,8 @@ stonecutter {
 	}
 }
 
-val rawVersion = prop("deps.eveningstarlib")
-val cleanVersion = rawVersion.replace(Regex("""(-(?:fabric|forge|neoforge|quilt))?\+.*$"""), "")
+val eslRawVersion = prop("deps.eveningstarlib")
+val eslCleanVersion = eslRawVersion.replace(Regex("""(-(?:fabric|forge|neoforge|quilt))?\+.*$"""), "")
 
 platform {
 	loader = "fabric"
@@ -34,7 +34,7 @@ platform {
 		}
 		required("eveningstarlib") {
 			slug("eveningstarlib")
-			fabricLikeVersionRange = ">=$cleanVersion"
+			fabricLikeVersionRange = ">=$eslCleanVersion"
 		}
 		optional("modmenu") {
 			slug("modmenu")
