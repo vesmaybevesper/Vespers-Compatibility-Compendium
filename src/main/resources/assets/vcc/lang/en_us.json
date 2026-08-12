@@ -4,18 +4,18 @@
   "yacl3.config.vcc:config.category.effxparticlerain": "Effective X Particle Rain Integration",
   "yacl3.config.vcc:config.oarSplash": "Oar Splash",
   "yacl3.config.vcc:config.glowingWakes": "Glowing Wakes",
-  "yacl3.config.vcc:config.replaceEffectualBubbleChest": "Chest Bubbles",
+  "yacl3.config.vcc:config.replaceEffectualChestBubble": "Chest Bubbles",
   "yacl3.config.vcc:config.replaceEffectualPots": "Pot Bubbles",
   "yacl3.config.vcc:config.useEffectiveBubbleBreath": "Breath Bubbles",
   "yacl3.config.vcc:config.effectualGlowDrip": "Glow Droplet",
   "yacl3.config.vcc:config.breathSteam": "Mouth Steam",
-  "yacl3.config.vcc:config.repalceRipple": "Droplet Ripple",
+  "yacl3.config.vcc:config.replaceRipple": "Droplet Ripple",
   "yacl3.config.vcc:config.oarSplash.desc": "Add Effective's Splash & Ripple Particles to Wakes boat particles",
   "yacl3.config.vcc:config.glowingWakes.desc": "Attempts to mimic Effective's plankton glow for some Wakes particles",
-  "yacl3.config.vcc:config.replaceEffectualBubbleChest.desc": "Use Effective bubbles for Effectual's chest bubble effect",
+  "yacl3.config.vcc:config.replaceEffectualChestBubble.desc": "Use Effective bubbles for Effectual's chest bubble effect",
   "yacl3.config.vcc:config.replaceEffectualPots.desc": "Use Effective bubbles for Effectual's pot bubble effect",
   "yacl3.config.vcc:config.useEffectiveBubbleBreath.desc": "Use Effective's bubbles for Effectual's breath bubble effect",
   "yacl3.config.vcc:config.effectualGlowDrip.desc": "Use Effective's glow droplet for Effectual's player water drip effect when applicable",
   "yacl3.config.vcc:config.breathSteam.desc": "Replace Effectual's mouth steam with a modified cascade particle from Effective",
-  "yacl3.config.vcc:config.repalceRipple.desc": "Use Particle Rain's ripple in place of Effective's when (normal) droplets hit water"
+  "yacl3.config.vcc:config.replaceRipple.desc": "Use Particle Rain's ripple in place of Effective's when (normal) droplets hit water"
 }
