@@ -7,13 +7,14 @@
 - Configs from pre 0.4.0-alpha.1 are not compatible
 - Fix adding droplets to wakes completely removing the Wakes splashes regardless of if its enabled
   - They now run in tandem
-- All visual feature mixins are much better [WIP]
 
 Alpha Fixes:
 - Fixed checking for the wrong Evening Star Lib version
 - Fixed wrong logo being present
-- Add lang [NOT WORKING FOR SOME REASON]
+- Add lang
 - Add YACL to required dependencies
+- Fix Particle Rain x Effective not having the proper checks
+- Breath Effect now properly cancels Effectual's when enabled
 
 _This alpha does not contain any of the bug fix features_
 
