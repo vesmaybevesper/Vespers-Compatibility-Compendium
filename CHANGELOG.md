@@ -5,12 +5,14 @@
 - Backported "Use Effective's Cascade for Effectual's Mouth Steam particle" to 1.20.1
   - This feature now defaults to off
 - Configs from pre 0.4.0-alpha.1 are not compatible
-- 
+- Fix adding droplets to wakes completely removing the Wakes splashes regardless of if its enabled
+  - They now run in tandem
+- All visual feature mixins are much better [WIP]
 
 Alpha Fixes:
 - Fixed checking for the wrong Evening Star Lib version
 - Fixed wrong logo being present
-- Add lang
+- Add lang [NOT WORKING FOR SOME REASON]
 - Add YACL to required dependencies
 
 _This alpha does not contain any of the bug fix features_
