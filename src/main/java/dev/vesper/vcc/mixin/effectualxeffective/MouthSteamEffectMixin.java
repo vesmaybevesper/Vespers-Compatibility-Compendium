@@ -35,6 +35,7 @@ public class MouthSteamEffectMixin {
 			for(int i = 0; i < count; ++i) {
 				player.level().addParticle((ParticleOptions) /^? 1.20.1 {^//^Effective.WATERFALL_CLOUD^//^?} 1.21.1 { ^/ /^EffectiveParticles.CASCADE ^//^?} ^/, player.getX(), player.getEyeY(), player.getZ(), (double)player.getId(), (double)0.0F, (double)0.0F);
 			}
+			ci.cancel();
 		}
 	}
 	*///?}
