@@ -4,7 +4,7 @@ mod.id = "vcc"
 mod.name = "Vesper's Compatibility Compendium"
 mod.group = "dev.vesper"
 mod.version = "0.4.0"
-mod.channel_tag = "-alpha.3"
+mod.channel_tag = "-alpha.4"
 mod.description = "Various mod integrations, fixes and tweaks"
 mod.authors = ["VesMaybeVesper"]
 mod.contributors = []
@@ -20,7 +20,6 @@ mod.environment = "both"
 [[mod.pom.developers]]
 id = "vesmaybevesper"
 name = "VesMaybeVesper"
-url = "https://github.com/ghost"
 
 [fabric]
 deps.fabric-loader = "0.19.3"
@@ -38,6 +37,7 @@ deps.effectual= "4EuXjiZd"
 deps.cloth-config= "2xQdCMyG"
 deps.architectury-api= "9.2.14+fabric"
 deps.particle-rain= "v4-beta.10+1.20.1-fabric"
+deps.entity_texture_features= "v0btz5GE"
 
 [fabric."1.21.1"]
 deps.minecraft = "1.21.1"
@@ -52,6 +52,7 @@ deps.effectual= "P9ZLB72Q"
 deps.cloth-config= "HpMb5wGb"
 deps.architectury-api= "13.0.11+fabric"
 deps.particle-rain= "v4-beta.10+1.21.1-fabric"
+deps.entity_texture_features= "udcdeUXw"
 
 [fabric."1.21.11"]
 deps.minecraft = "1.21.11"
@@ -64,6 +65,7 @@ deps.effectual= "PP1YHzMW"
 deps.cloth-config= "xuX40TN5"
 deps.architectury-api= "19.0.1+fabric"
 deps.particle-rain= "v4-beta.10+1.21.11-fabric"
+deps.entity_texture_features= "rAQimlSn"
 
 [fabric."26.2"]
 deps.minecraft = "26.2"
@@ -75,6 +77,7 @@ deps.wakes= "0.7.1+26.2"
 deps.effectual= "s7hy9CGX"
 deps.cloth-config= "Nv3xnWXd"
 deps.architectury-api= "21.0.7+fabric"
+deps.entity_texture_features= "HLCBKYFD"
 
 [forge]
 

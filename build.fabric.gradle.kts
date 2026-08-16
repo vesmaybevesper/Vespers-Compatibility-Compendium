@@ -132,5 +132,6 @@ dependencies {
 	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
 	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
+	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 
 }
