@@ -1,16 +1,18 @@
 package dev.vesper.vcc.mixin.effectualxeffective;
 
+import com.imeetake.effectual.ModParticles;
 import com.imeetake.effectual.effects.WaterDrip.WaterDripEffect;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
+import dev.architectury.registry.registries.RegistrySupplier;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.particles.SimpleParticleType;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //? 1.20.1{
 /*import org.ladysnake.effective.core.Effective;
@@ -25,32 +27,20 @@ import org.ladysnake.effective.index.EffectiveParticles;
 public class WaterDripEffectMixin {
 
 	//? <=1.21.1{
-	/*@Unique
-	private static final RandomSource RANDOM = RandomSource.create();
-
-	@Inject(method = "spawnWaterDripParticles", at = @At("HEAD"), cancellable = true)
-	private static void vcc$spawnWaterDripParticle$head(Player player, CallbackInfo ci){
+	/*@WrapOperation(method = "spawnWaterDripParticles", at = @At(value = "INVOKE", target = "Lcom/imeetake/effectual/EffectualClientParticles;spawn(Ldev/architectury/registry/registries/RegistrySupplier;DDDDDD)V"))
+	private static void vcc$spawnWaterDripParticle$head(RegistrySupplier<? extends SimpleParticleType> type, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original, @Local(name = "lx") double lx, @Local(name = "lz") double lz){
 		if (Config.effectualGlowDrip && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")){
-			if (EffectiveUtils.isGlowingWater(player.level(), player.blockPosition())) {
-				int count = 1 + (RANDOM.nextFloat() < 0.12F ? 1 : 0);
-				float yaw = player.getYRot();
-				double ry = Math.toRadians((double)(-yaw));
-
-				for(int i = 0; i < count; ++i) {
-					double ring = 0.32 + RANDOM.nextDouble() * 0.08;
-					double ang = RANDOM.nextDouble() * Math.PI * (double)2.0F;
-					double lx = Math.cos(ang) * ring;
-					double lz = Math.sin(ang) * ring;
-					double ly = 0.95 + RANDOM.nextDouble() * 0.7;
-					double rx = lx * Math.cos(ry) - lz * Math.sin(ry);
-					double rz = lx * Math.sin(ry) + lz * Math.cos(ry);
-					double x = player.getX() + rx;
-					double y = player.getY() + ly;
-					double z = player.getZ() + rz;
-					player.level().addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, (double)player.getId(), lx, lz);
-				}
-				ci.cancel();
+			assert Minecraft.getInstance().player != null;
+			if (EffectiveUtils.isGlowingWater(Minecraft.getInstance().level, Minecraft.getInstance().player.blockPosition())) {
+				assert Minecraft.getInstance().level != null;
+				// I know this delta math looks weird but trust me this was the only way to make the effect look even close to right
+				// also want to reduce the transparency and size of the particle a bit if possible
+				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, 0, lx / 4, lz / 10);
+			} else {
+				original.call(ModParticles.WATER_DRIP, x, y, z, dx, dy, dz);
 			}
+		} else {
+			original.call(ModParticles.WATER_DRIP, x, y, z, dx, dy, dz);
 		}
 	}
 	*///?}
