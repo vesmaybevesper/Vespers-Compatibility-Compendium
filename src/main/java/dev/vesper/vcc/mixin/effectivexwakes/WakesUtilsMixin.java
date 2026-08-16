@@ -25,8 +25,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 @MixinEnvironment(type =  MixinEnvironment.Env.CLIENT)
 public class WakesUtilsMixin {
 	//? <=1.21.1{
-	/*// I JUST realized this is compeltly overwriting the wakes splash plane and I think I want both
-	@Inject(method = {"spawnPaddleSplashCloudParticle"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
+	/*@Inject(method = {"spawnPaddleSplashCloudParticle"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
 	private static void VCC$spawnPaddleSplashCloudParticle$invoke(
 			Level world, Boat boat, CallbackInfo ci, @Local(ordinal = 1) Vec3 pos) {
 		if (Config.oarSplash && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("wakes")) {
