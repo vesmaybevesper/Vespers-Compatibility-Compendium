@@ -16,6 +16,6 @@
   "yacl3.config.vcc:config.replaceEffectualPots.desc": "Use Effective bubbles for Effectual's pot bubble effect",
   "yacl3.config.vcc:config.useEffectiveBubbleBreath.desc": "Use Effective's bubbles for Effectual's breath bubble effect",
   "yacl3.config.vcc:config.effectualGlowDrip.desc": "Use Effective's glow droplet for Effectual's player water drip effect when applicable",
-  "yacl3.config.vcc:config.breathSteam.desc": "Replace Effectual's mouth steam with a modified cascade particle from Effective",
+  "yacl3.config.vcc:config.breathSteam.desc": "Replace Effectual's mouth steam with a modified cascade particle from Effective. Requires the explict enable-ing of Mouth Steam in Effectual's Settings (as of version 1.4.1)",
   "yacl3.config.vcc:config.replaceRipple.desc": "Use Particle Rain's ripple in place of Effective's when (normal) droplets hit water"
 }
