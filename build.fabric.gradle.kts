@@ -52,6 +52,10 @@ platform {
 			slug("effectual")
 			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
+		optional("entity_texture_features"){
+			slug("entitytexturefeatures")
+			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
+		}
 		if (stonecutter.current.parsed <= "1.21.11") {
 			optional("particle-rain") {
 				slug("particle-rain")
@@ -62,6 +66,11 @@ platform {
 			optional("effective") {
 				slug("effective")
 				fabricLikeVersionRange = ">=${prop("deps.effective")}"
+			}
+
+			optional("emi"){
+				slug("emi")
+				fabricLikeVersionRange = ">=1.1.7"
 			}
 		}
 	}
