@@ -56,6 +56,10 @@ platform {
 			slug("entitytexturefeatures")
 			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
 		}
+		optional("iceberg"){
+			slug("iceberg")
+			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
+		}
 		if (stonecutter.current.parsed <= "1.21.11") {
 			optional("particle-rain") {
 				slug("particle-rain")
@@ -142,5 +146,6 @@ dependencies {
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
 	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
+	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
 
 }

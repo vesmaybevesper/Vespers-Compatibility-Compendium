@@ -16,6 +16,7 @@
     "effectualxeffective.BubbleChestEffectMixin",
     "effectualxeffective.BubblePotsEffectMixin",
     "effectualxeffective.MouthSteamEffectMixin",
-    "effectualxeffective.WaterDripEffectMixin"
+    "effectualxeffective.WaterDripEffectMixin",
+    "accessors.CustomItemRenderAccessor"
   ]
 }
