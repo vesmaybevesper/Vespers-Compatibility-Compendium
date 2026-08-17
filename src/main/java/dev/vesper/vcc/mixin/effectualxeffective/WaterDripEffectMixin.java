@@ -33,7 +33,7 @@ public class WaterDripEffectMixin {
 			assert Minecraft.getInstance().player != null;
 			if (EffectiveUtils.isGlowingWater(Minecraft.getInstance().level, Minecraft.getInstance().player.blockPosition())) {
 				assert Minecraft.getInstance().level != null;
-				// I know this delta math looks weird but trust me this was the only way to make the effect look even close to right
+				// I know this delta math looks weird but this was my solution to make the deltas look right in game, I'll come back around to this at some point
 				// also want to reduce the transparency and size of the particle a bit if possible
 				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, 0, lx / 4, lz / 10);
 			} else {
