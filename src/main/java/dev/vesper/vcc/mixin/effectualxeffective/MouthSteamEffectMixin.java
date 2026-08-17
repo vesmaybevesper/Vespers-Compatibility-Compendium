@@ -26,7 +26,7 @@ public class MouthSteamEffectMixin {
 	//? <=1.21.1{
 	/*// It's also just straight up not working, might be a velocity issue again
 	@WrapOperation(method = "spawnBreath", at = @At(value = "INVOKE", target = "Lcom/imeetake/effectual/EffectualClientParticles;spawn(Ldev/architectury/registry/registries/RegistrySupplier;DDDDDD)V"))
-	private static void vcc$register$head(RegistrySupplier<? extends SimpleParticleType> type, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
+	private static void vcc$register$invoke(RegistrySupplier<? extends SimpleParticleType> type, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
 		if (Config.breathSteam && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")) {
 			assert Minecraft.getInstance().level != null;
 			Minecraft.getInstance().level.addParticle((ParticleOptions) /^? 1.20.1 {^//^Effective.WATERFALL_CLOUD^//^?} 1.21.1 { ^/ /^EffectiveParticles.CASCADE ^//^?} ^/, x, y, z, dx, dy, dz);

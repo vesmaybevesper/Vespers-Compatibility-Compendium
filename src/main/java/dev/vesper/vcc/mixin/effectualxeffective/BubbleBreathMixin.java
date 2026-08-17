@@ -34,7 +34,7 @@ public class BubbleBreathMixin {
 	private final static RandomSource RANDOM = RandomSource.create();
 
 	@WrapOperation(method = "processBreathTick", at = @At(value = "INVOKE", target = "Lcom/imeetake/effectual/EffectualClientParticles;spawnVanilla(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
-	private static void vcc$processBreathTick$head(ParticleOptions options, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
+	private static void vcc$processBreathTick$invoke(ParticleOptions options, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
 		if (useEffectiveBubbleBreath && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")){
 				//? 1.20.1{
 			/^assert Minecraft.getInstance().level != null;
