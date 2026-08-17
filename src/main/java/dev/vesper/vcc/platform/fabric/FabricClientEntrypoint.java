@@ -6,6 +6,7 @@ import dev.vesper.vcc.VCC;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import dev.vesper.vcc.fixes.leaks.emi.ClearEMIHistoryOnRespawn;
 import dev.vesper.vcc.fixes.leaks.etf.UpdateETFEntityOnRespawn;
+import dev.vesper.vcc.fixes.leaks.iceberg.ClearEntitiesOnUnload;
 import net.fabricmc.api.ClientModInitializer;
 
 @Entrypoint("client")
@@ -35,6 +36,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
 		// All remaining fixes that apply to all versions
 		UpdateETFEntityOnRespawn.init();
+		ClearEntitiesOnUnload.init();
 	}
 
 }
