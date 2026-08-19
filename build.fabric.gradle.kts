@@ -60,6 +60,10 @@ platform {
 			slug("iceberg")
 			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
 		}
+		optional("jei"){
+			slug("jei")
+			fabricLikeVersionRange = ">=${prop("deps.jei")}"
+		}
 		if (stonecutter.current.parsed <= "1.21.11") {
 			optional("particle-rain") {
 				slug("particle-rain")
@@ -78,6 +82,10 @@ platform {
 			optional("jade") {
 				slug("jade")
 				fabricLikeVersionRange = ">=${prop("deps.jade")}"
+			}
+			optional("supplementaries"){
+				slug("supplementaries")
+				fabricLikeVersionRange = ">=${prop("deps.supplementaries")}"
 			}
 		}
 	}
@@ -141,6 +149,7 @@ dependencies {
 		modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
 		modCompileOnly("maven.modrinth:lodestonelib:${prop("deps.lodestone")}")
 		modCompileOnly("maven.modrinth:jade:${prop("deps.jade")}")
+		modCompileOnly("maven.modrinth:supplementaries:${prop("deps.supplementaries")}")
 	}
 	if (sc.current.parsed < "26"){
 		modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
@@ -151,5 +160,6 @@ dependencies {
 	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
+	modCompileOnly("maven.modrinth:jei:${prop("deps.jei")}")
 
 }

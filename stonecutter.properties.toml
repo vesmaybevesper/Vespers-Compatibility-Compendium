@@ -40,6 +40,8 @@ deps.particle-rain= "v4-beta.10+1.20.1-fabric"
 deps.entity_texture_features= "v0btz5GE"
 deps.iceberg= "AiO84cp2"
 deps.jade= "ahavHbAT"
+deps.jei= "wrBdplEy"
+deps.supplementaries= "i7ejA878"
 
 [fabric."1.21.1"]
 deps.minecraft = "1.21.1"
@@ -57,6 +59,8 @@ deps.particle-rain= "v4-beta.10+1.21.1-fabric"
 deps.entity_texture_features= "udcdeUXw"
 deps.iceberg= "7ITFAyW8"
 deps.jade= "adpNvTZS"
+deps.jei= "KTbbPlfR"
+deps.supplementaries= "svQdnO8W"
 
 [fabric."1.21.11"]
 deps.minecraft = "1.21.11"
@@ -71,6 +75,7 @@ deps.architectury-api= "19.0.1+fabric"
 deps.particle-rain= "v4-beta.10+1.21.11-fabric"
 deps.entity_texture_features= "rAQimlSn"
 deps.iceberg= "yRNBxEJF"
+deps.jei= "QWzRajBo"
 
 [fabric."26.2"]
 deps.minecraft = "26.2"
@@ -84,7 +89,7 @@ deps.cloth-config= "Nv3xnWXd"
 deps.architectury-api= "21.0.7+fabric"
 deps.entity_texture_features= "HLCBKYFD"
 deps.iceberg= "V5RnWL87"
-
+deps.jei= "VI3quY4l"
 
 [forge]
 

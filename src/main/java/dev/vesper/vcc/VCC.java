@@ -1,5 +1,6 @@
 package dev.vesper.vcc;
 
+import dev.vesper.vcc.fixes.leaks.supplementaries.ClearCachesOnServerStop;
 import dev.vesper.vcc.platform.Platform;
 
 import net.minecraft.resources.Identifier;
@@ -28,6 +29,10 @@ public class VCC {
 		LOGGER.info("Initializing {} on {}", MOD_ID, VCC.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
 		Config.HANDLER.load();
+
+		//? <=1.21.1{
+		/*ClearCachesOnServerStop.init();
+		*///?}
 	}
 
 	public static void onInitializeClient() {

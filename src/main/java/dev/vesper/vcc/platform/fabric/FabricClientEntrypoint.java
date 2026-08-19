@@ -9,6 +9,7 @@ import dev.vesper.vcc.fixes.leaks.etf.UpdateETFEntityOnRespawn;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearEntitiesOnUnload;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearMapsOnUnload;
 import dev.vesper.vcc.fixes.leaks.jade.ClearAccessorOnUnload;
+import dev.vesper.vcc.fixes.leaks.jei.ClearMenuOnRespawn;
 import net.fabricmc.api.ClientModInitializer;
 
 @Entrypoint("client")
@@ -41,6 +42,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 		UpdateETFEntityOnRespawn.init();
 		ClearEntitiesOnUnload.init();
 		ClearMapsOnUnload.init();
+		ClearMenuOnRespawn.init();
 	}
 
 }

@@ -14,7 +14,7 @@ import snownee.jade.impl.ObjectDataCenter;
 import java.lang.invoke.VarHandle;
 
 public class ClearAccessorOnUnload {
-//? <1.21.1{
+//? <=1.21.1{
 	/*public static void init(){
 		if (!FabricLoader.getInstance().isModLoaded("jade")) return;
 
