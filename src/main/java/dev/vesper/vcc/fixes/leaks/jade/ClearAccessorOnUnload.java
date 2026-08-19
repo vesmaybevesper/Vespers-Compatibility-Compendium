@@ -6,14 +6,16 @@ import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
 import dev.vesper.vcc.VCC;
 import dev.vesper.vcc.util.ReflectionHelper;
 import net.fabricmc.loader.api.FabricLoader;
-import snownee.jade.JadeClient;
+//? <=1.21.1{
+/*import snownee.jade.JadeClient;
 import snownee.jade.impl.ObjectDataCenter;
+*///?}
 
 import java.lang.invoke.VarHandle;
 
 public class ClearAccessorOnUnload {
-
-	public static void init(){
+//? <1.21.1{
+	/*public static void init(){
 		if (!FabricLoader.getInstance().isModLoaded("jade")) return;
 
 		try {
@@ -35,4 +37,5 @@ public class ClearAccessorOnUnload {
 			VCC.LOGGER.warn("Jade class not found, skipping Jade fix");
 		}
 	}
+*///?}
 }
