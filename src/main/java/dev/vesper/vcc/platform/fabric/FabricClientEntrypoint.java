@@ -7,6 +7,8 @@ import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import dev.vesper.vcc.fixes.leaks.emi.ClearEMIHistoryOnRespawn;
 import dev.vesper.vcc.fixes.leaks.etf.UpdateETFEntityOnRespawn;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearEntitiesOnUnload;
+import dev.vesper.vcc.fixes.leaks.iceberg.ClearMapsOnUnload;
+import dev.vesper.vcc.fixes.leaks.jade.ClearAccessorOnUnload;
 import net.fabricmc.api.ClientModInitializer;
 
 @Entrypoint("client")
@@ -19,6 +21,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 		// Calls to all the fixes, versioned by highest applicable version, additional versioning may happen within the methods
 		//? <= 1.21.1{
 		/*ClearEMIHistoryOnRespawn.init();
+		ClearAccessorOnUnload.init();
 		*///?} <=1.21.11{
 
 		//?}
@@ -37,6 +40,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 		// All remaining fixes that apply to all versions
 		UpdateETFEntityOnRespawn.init();
 		ClearEntitiesOnUnload.init();
+		ClearMapsOnUnload.init();
 	}
 
 }

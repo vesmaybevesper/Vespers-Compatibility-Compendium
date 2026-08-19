@@ -71,10 +71,13 @@ platform {
 				slug("effective")
 				fabricLikeVersionRange = ">=${prop("deps.effective")}"
 			}
-
 			optional("emi"){
 				slug("emi")
 				fabricLikeVersionRange = ">=1.1.7"
+			}
+			optional("jade") {
+				slug("jade")
+				fabricLikeVersionRange = ">=${prop("deps.jade")}"
 			}
 		}
 	}
@@ -137,6 +140,7 @@ dependencies {
 	if (sc.current.parsed <= "1.21.1") {
 		modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
 		modCompileOnly("maven.modrinth:lodestonelib:${prop("deps.lodestone")}")
+		modCompileOnly("maven.modrinth:jade:${prop("deps.jade")}")
 	}
 	if (sc.current.parsed < "26"){
 		modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
