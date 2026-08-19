@@ -7,8 +7,10 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "fixes.leaks.minecraft.EntityTickListMixin"
   ],
   "client": [
+    "accessors.CustomItemRenderAccessor",
     "effectivexparticlerain.DropletParticleMixin",
     "effectivexwakes.WakeColorMixin",
     "effectivexwakes.WakesUtilsMixin",
@@ -16,7 +18,6 @@
     "effectualxeffective.BubbleChestEffectMixin",
     "effectualxeffective.BubblePotsEffectMixin",
     "effectualxeffective.MouthSteamEffectMixin",
-    "effectualxeffective.WaterDripEffectMixin",
-    "accessors.CustomItemRenderAccessor"
+    "effectualxeffective.WaterDripEffectMixin"
   ]
 }
