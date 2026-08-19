@@ -53,7 +53,7 @@ platform {
 			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
 		optional("entity_texture_features"){
-			slug("entitytexturefeatures")
+			slug("entitytexturefeatures", "entity-texture-features-fabric")
 			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
 		}
 		optional("iceberg"){
