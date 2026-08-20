@@ -37,10 +37,10 @@ public class WaterDripEffectMixin {
 				// also want to reduce the transparency and size of the particle a bit if possible
 				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, 0, lx / 4, lz / 10);
 			} else {
-				original.call(ModParticles.WATER_DRIP, x, y, z, dx, dy, dz);
+				original.call(type, x, y, z, dx, dy, dz);
 			}
 		} else {
-			original.call(ModParticles.WATER_DRIP, x, y, z, dx, dy, dz);
+			original.call(type, x, y, z, dx, dy, dz);
 		}
 	}
 	*///?}
