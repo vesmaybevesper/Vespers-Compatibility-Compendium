@@ -2,6 +2,7 @@ package dev.vesper.vcc.mixin.effectualxeffective;
 
 import com.imeetake.effectual.EffectualConfig;
 import com.imeetake.effectual.effects.Bubbles.BubblePotsEffect;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.architectury.event.events.client.ClientTickEvent;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
@@ -59,6 +60,7 @@ public class BubblePotsEffectMixin {
 	private static final BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
 	@Inject(method = "register", at = @At("HEAD"), cancellable = true)
+	//@WrapOperation(method = "register", at = @At(value = "INVOKE", target = "Lcom/imeetake/effectual/EffectualClientParticles;spawnVanilla(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
 	private static void vcc$register$head(CallbackInfo ci){
 		if (Config.replaceEffectualPots && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")) {
 			ClientTickEvent.CLIENT_POST.register((ClientTickEvent.Client)(client) -> {

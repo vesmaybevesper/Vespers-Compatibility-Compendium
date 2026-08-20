@@ -4,6 +4,7 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
+import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import dev.vesper.eveningstarlib.common.serializers.fastjson.FastJsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screens.Screen;
@@ -29,6 +30,25 @@ public class Config {
 	public static Screen config(Screen parent){
 		return HANDLER.generateGui().generateScreen(parent);
 	}
+
+	public enum RippleType {WAKES, EFFECTIVE, PARTICLE_RAIN}
+
+	public enum EFFFavor {EFFECTIVE, EFFECTUAL}
+
+	//@AutoGen(category = "general")
+	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE)
+	@SerialEntry
+	public static boolean globalRipple = false;
+
+	//@AutoGen(category = "general")
+	@EnumCycler
+	@SerialEntry
+	public static RippleType rippleType = RippleType.WAKES;
+
+	//@AutoGen(category = "general")
+	@EnumCycler
+	@SerialEntry
+	public static EFFFavor effFavor = EFFFavor.EFFECTIVE;
 
 	@AutoGen(category = "effxwakes")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
