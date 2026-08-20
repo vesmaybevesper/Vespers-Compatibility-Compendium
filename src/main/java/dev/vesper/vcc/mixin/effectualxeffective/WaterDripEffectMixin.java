@@ -1,6 +1,5 @@
 package dev.vesper.vcc.mixin.effectualxeffective;
 
-import com.imeetake.effectual.ModParticles;
 import com.imeetake.effectual.effects.WaterDrip.WaterDripEffect;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
