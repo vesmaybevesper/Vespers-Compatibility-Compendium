@@ -50,10 +50,12 @@ public class Config {
 	@SerialEntry
 	public static EFFFavor effFavor = EFFFavor.EFFECTIVE;
 
-	@AutoGen(category = "effxwakes")
+	//? <=1.21.1{
+	/*@AutoGen(category = "effxwakes")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean oarSplash = true;
+	*///?}
 
 	@AutoGen(category = "effxwakes")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
@@ -62,7 +64,8 @@ public class Config {
 
 	public static float shaderLightPassthrough = 0.5f;
 
-	@AutoGen(category = "effxeff")
+	//? <=1.21.1{
+	/*@AutoGen(category = "effxeff")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean useEffectiveBubbleBreath = true;
@@ -91,4 +94,5 @@ public class Config {
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean replaceRipple = true;
+	*///?}
 }
