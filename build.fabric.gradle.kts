@@ -64,12 +64,11 @@ platform {
 			slug("jei")
 			fabricLikeVersionRange = ">=${prop("deps.jei")}"
 		}
-		if (stonecutter.current.parsed <= "1.21.11") {
-			optional("particle-rain") {
-				slug("particle-rain")
-				fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
-			}
+		optional("particle-rain") {
+			slug("particle-rain")
+			fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
 		}
+
 		if (stonecutter.current.parsed <= "1.21.1") {
 			optional("effective") {
 				slug("effective")
@@ -151,9 +150,7 @@ dependencies {
 		modCompileOnly("maven.modrinth:jade:${prop("deps.jade")}")
 		modCompileOnly("maven.modrinth:supplementaries:${prop("deps.supplementaries")}")
 	}
-	if (sc.current.parsed < "26"){
-		modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
-	}
+	modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
 	modCompileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
