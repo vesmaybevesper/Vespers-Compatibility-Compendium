@@ -8,6 +8,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
+import dev.vesper.vcc.util.ParticleModContext;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.SimpleParticleType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,7 +35,9 @@ public class WaterDripEffectMixin {
 				assert Minecraft.getInstance().level != null;
 				// I know this delta math looks weird but this was my solution to make the deltas look right in game, I'll come back around to this at some point
 				// also want to reduce the transparency and size of the particle a bit if possible
+				ParticleModContext.fixGlowDropForPlayerDrip = true;
 				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, 0, lx / 4, lz / 10);
+				ParticleModContext.fixGlowDropForPlayerDrip = false;
 			} else {
 				original.call(type, x, y, z, dx, dy, dz);
 			}
