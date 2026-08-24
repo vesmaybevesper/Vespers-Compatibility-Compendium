@@ -1,2 +1,5 @@
 accessWidener v2 named
 
+accessible field net/minecraft/client/particle/SingleQuadParticle quadSize F
+
+accessible field net/minecraft/client/particle/Particle alpha F
