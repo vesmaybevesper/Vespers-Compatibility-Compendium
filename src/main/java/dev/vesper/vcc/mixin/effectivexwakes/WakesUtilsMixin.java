@@ -30,11 +30,8 @@ public class WakesUtilsMixin {
 			Level world, Boat boat, CallbackInfo ci, @Local(ordinal = 1) Vec3 pos) {
 		if (Config.oarSplash && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("wakes")) {
 			RandomSource random = world.random;
-			int count = random.nextIntBetweenInclusive(5, 8);
 
-			for (int i = 0; i < count; i++){
-				EffectiveUtils.spawnWaterEffect(world, new Vec3(pos.x,pos.y, pos.z), random.nextGaussian() / 20.0f, random.nextFloat() / 4.0f, random.nextGaussian() / 20.0f, EffectiveUtils.WaterEffectType.DROPLET);
-			}
+			EffectiveUtils.spawnWaterEffect(world, new Vec3(pos.x, pos.y, pos.z), random.nextGaussian() / 20.0f, random.nextFloat() / 4.0f, random.nextGaussian() / 20.0f, EffectiveUtils.WaterEffectType.DROPLET);
 		}
 	}
 	*///?}
