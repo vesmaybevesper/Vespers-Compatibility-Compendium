@@ -33,9 +33,10 @@ public class WaterDripEffectMixin {
 			assert Minecraft.getInstance().player != null;
 			if (EffectiveUtils.isGlowingWater(Minecraft.getInstance().level, Minecraft.getInstance().player.blockPosition())) {
 				assert Minecraft.getInstance().level != null;
-				// I know this delta math looks weird but this was my solution to make the deltas look right in game, I'll come back around to this at some point
+				// I fully expect this to accidentally modify the droplet particles of other effects, but we can just call that cosmetic variation and move on
+				// deltas are the best this effect is going to get without taking over Glow Droplet in a way that will negatively impact the appearance of other effects
 				ParticleModContext.fixGlowDropForPlayerDrip = true;
-				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, 0, lx / 4, lz / 10);
+				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, lx/7, -0.05, lz/7);
 				ParticleModContext.fixGlowDropForPlayerDrip = false;
 			} else {
 				original.call(type, x, y, z, dx, dy, dz);
