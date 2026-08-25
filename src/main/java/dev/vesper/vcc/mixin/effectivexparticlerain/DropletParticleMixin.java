@@ -3,6 +3,7 @@ package dev.vesper.vcc.mixin.effectivexparticlerain;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
+import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleOptions;
 
@@ -26,8 +27,7 @@ import net.minecraft.client.particle.TextureSheetParticle;
 //? <=1.21.1{
 /*@Mixin(DropletParticle.class)
 *///?} >=1.21.11{
-// I need this to still be a mixin to avoid problems launching so I mixin to something random and do nothing :)
-@Mixin(Config.class)
+@Mixin(MixinDummy.class)
 //?}
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public abstract class DropletParticleMixin /*? <=1.21.1{ *//*extends TextureSheetParticle *//*?} */ {
