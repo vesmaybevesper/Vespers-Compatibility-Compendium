@@ -4,7 +4,7 @@ mod.id = "vcc"
 mod.name = "Vesper's Compatibility Compendium"
 mod.group = "dev.vesper"
 mod.version = "0.4.0"
-mod.channel_tag = "-beta.3"
+mod.channel_tag = ""
 mod.description = "Various mod integrations, fixes and tweaks"
 mod.authors = ["VesMaybeVesper"]
 mod.contributors = []
@@ -97,6 +97,18 @@ deps.jei= "AFgObZjc"
 [forge."1.20.1"]
 deps.minecraft = "1.20.1"
 deps.forge = "47.4.10"
+deps.yet_another_config_lib_v3= "3.6.6+1.20.1-forge"
+deps.eveningstarlib= "1.2.1-forge+1.20.1"
+deps.wakes= "0.4.0+1.20.1"
+deps.effectual= "4EuXjiZd"
+deps.cloth-config= "2xQdCMyG"
+deps.architectury-api= "9.2.14+forge"
+deps.particle-rain= "v4-beta.11+1.20.1-forge"
+deps.entity_texture_features= "v0btz5GE"
+deps.iceberg= "AiO84cp2"
+deps.jade= "ahavHbAT"
+deps.jei= "wrBdplEy"
+deps.supplementaries= "i7ejA878"
 
 [neoforge]
 
