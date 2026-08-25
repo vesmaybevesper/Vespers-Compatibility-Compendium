@@ -19,6 +19,8 @@
     "effectualxeffective.BubblePotsEffectMixin",
     "effectualxeffective.MouthSteamEffectMixin",
     "effectualxeffective.WaterDripEffectMixin",
-    "particlemod.MixinEffectiveGlowDroplet"
+    "particlemod.MixinEffectiveCascade",
+    "particlemod.MixinEffectiveGlowDroplet",
+    "particlemod.MixinEffectiveWaterfallCloud"
   ]
 }
