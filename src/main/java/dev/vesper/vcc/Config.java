@@ -33,7 +33,7 @@ public class Config {
 
 	public enum RippleType {WAKES, EFFECTIVE, PARTICLE_RAIN}
 
-	public enum EFFFavor {EFFECTIVE, EFFECTUAL}
+	public enum OverlapFavor {EFFECTIVE, EFFECTUAL}
 
 	//@AutoGen(category = "general")
 	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE)
@@ -46,9 +46,19 @@ public class Config {
 	public static RippleType rippleType = RippleType.WAKES;
 
 	//@AutoGen(category = "general")
+	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE)
+	@SerialEntry
+	public static boolean disableOverlap = false;
+
+	//@AutoGen(category = "general")
 	@EnumCycler
 	@SerialEntry
-	public static EFFFavor effFavor = EFFFavor.EFFECTIVE;
+	public static OverlapFavor overlapFavorPrimary = OverlapFavor.EFFECTIVE;
+
+	//@AutoGen(category = "general")
+	@EnumCycler
+	@SerialEntry
+	public static OverlapFavor overlapFavorSecondary = OverlapFavor.EFFECTIVE;
 
 	//? <=1.21.1{
 	/*@AutoGen(category = "effxwakes")
@@ -57,7 +67,11 @@ public class Config {
 	public static boolean oarSplash = true;
 	*///?}
 
-	@AutoGen(category = "effxwakes")
+	//? <=1.21.1{
+	/*@AutoGen(category = "effxwakes")
+	*///?} >=1.21.11{
+	@AutoGen(category = "tweaks")
+	//?}
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
 	public static boolean glowingWakes = true;
@@ -83,7 +97,7 @@ public class Config {
 	@AutoGen(category = "effxeff")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
 	@SerialEntry
-	public static boolean effectualGlowDrip = true;
+	public static boolean effectualGlowDrip = false;
 
 	@AutoGen(category = "effxeff")
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
