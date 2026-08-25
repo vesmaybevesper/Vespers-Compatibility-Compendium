@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 
-// Portions of this file are derived from All The Leaks
+// This file is derived from All The Leaks
 // Copyright (c) 2023 AllTheLeaks
 // Licensed under the MIT License. See THIRD_PARTY_NOTICES for full text.
 public class ReflectionHelper {
