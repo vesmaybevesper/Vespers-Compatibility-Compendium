@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.jei;
 
+//? if fabric {
 import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
 import dev.vesper.vcc.VCC;
 import dev.vesper.vcc.util.ReflectionHelper;
@@ -21,3 +22,4 @@ public class ClearMenuOnRespawn {
 		}
 	}
 }
+//?}

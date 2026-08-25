@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 @Mixin(EntityTickList.class)
 @MixinEnvironment(type = MixinEnvironment.Env.SERVER)
 public class EntityTickListMixin {
-	//? 1.21.1{
+	//? 1.21.1 && fabric{
 
 	/*@Shadow
 	private Int2ObjectMap<Entity> passive;

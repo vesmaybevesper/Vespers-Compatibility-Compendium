@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.iceberg;
 
+//? if fabric {
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
 import dev.vesper.vcc.mixin.accessors.CustomItemRenderAccessor;
@@ -18,3 +19,4 @@ public class ClearEntitiesOnUnload {
 		});
 	}
 }
+//?}

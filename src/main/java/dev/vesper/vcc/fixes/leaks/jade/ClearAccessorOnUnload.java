@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.jade;
 
+//? if fabric {
 import com.google.common.cache.Cache;
 import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
 import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
@@ -39,3 +40,4 @@ public class ClearAccessorOnUnload {
 	}
 *///?}
 }
+//?}

@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.etf;
 
+//? fabric {
 import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
 import dev.vesper.vcc.VCC;
 import net.fabricmc.loader.api.FabricLoader;
@@ -23,3 +24,4 @@ public class UpdateETFEntityOnRespawn {
 		}
 	}
 }
+//?}

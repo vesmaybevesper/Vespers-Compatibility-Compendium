@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.supplementaries;
 
+//? if fabric {
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
 //? <=1.21.1{
@@ -19,3 +20,4 @@ public class ClearCachesOnServerStop {
 	}
 	*///?}
 }
+//?}

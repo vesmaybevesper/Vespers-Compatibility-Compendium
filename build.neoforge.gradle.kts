@@ -13,6 +13,9 @@ stonecutter {
 	}
 }
 
+val eslRawVersion = prop("deps.eveningstarlib")
+val eslCleanVersion = eslRawVersion.replace(Regex("""(-(?:fabric|forge|neoforge|quilt))?\+.*$"""), "")
+
 platform {
 	loader = "neoforge"
 	dependencies {
@@ -21,6 +24,52 @@ platform {
 		}
 		required("neoforge") {
 			forgeLikeVersionRange.set("[1,)")
+		}
+		required("eveningstarlib") {
+			slug("eveningstarlib")
+			fabricLikeVersionRange = ">=$eslCleanVersion"
+		}
+		required("yet_another_config_lib_v3"){
+			slug("yacl")
+			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+		}
+		optional("wakes"){
+			slug("wakes-reforged")
+			fabricLikeVersionRange = ">=${prop("deps.wakes")}"
+		}
+		optional("effectual") {
+			slug("effectual")
+			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
+		}
+		optional("entity_texture_features"){
+			slug("entitytexturefeatures", "entity-texture-features-fabric")
+			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
+		}
+		optional("iceberg"){
+			slug("iceberg")
+			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
+		}
+		optional("jei"){
+			slug("jei")
+			fabricLikeVersionRange = ">=${prop("deps.jei")}"
+		}
+		optional("emi"){
+			slug("emi")
+			fabricLikeVersionRange = ">=1.1.7"
+		}
+		if (stonecutter.current.parsed.equals("1.21.1")) {
+			optional("supplementaries") {
+				slug("supplementaries")
+				fabricLikeVersionRange = ">=${prop("deps.supplementaries")}"
+			}
+			optional("particle-rain") {
+				slug("particle-rain")
+				fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
+			}
+			optional("jade") {
+				slug("jade")
+				fabricLikeVersionRange = ">=${prop("deps.jade")}"
+			}
 		}
 	}
 }
@@ -66,6 +115,20 @@ repositories {
 dependencies {
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
+	implementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
+	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
+	if (stonecutter.current.parsed.equals("1.21.1")) {
+		compileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
+		compileOnly("maven.modrinth:supplementaries:${prop("deps.supplementaries")}")
+		compileOnly("maven.modrinth:jade:${prop("deps.jade")}")
+	}
+	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
+	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
+	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
+	compileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
+	compileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
+	compileOnly("maven.modrinth:jei:${prop("deps.jei")}")
 }
 
 tasks.named("createMinecraftArtifacts") {

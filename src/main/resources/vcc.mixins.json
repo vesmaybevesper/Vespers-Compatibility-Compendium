@@ -12,8 +12,9 @@
   "client": [
     "accessors.CustomItemRenderAccessor",
     "effectivexparticlerain.DropletParticleMixin",
-    "effectivexwakes.WakeColorMixin",
-    "effectivexwakes.WakesUtilsMixin",
+    "effectivexwakes.fabric.WakeColorMixin",
+    "effectivexwakes.fabric.WakesUtilsMixin",
+    "effectivexwakes.forges.WakeColorMixin",
     "effectualxeffective.BubbleBreathMixin",
     "effectualxeffective.BubbleChestEffectMixin",
     "effectualxeffective.BubblePotsEffectMixin",

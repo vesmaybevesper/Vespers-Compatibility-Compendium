@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.emi;
 
+//? fabric {
 import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
 import dev.vesper.vcc.VCC;
 import net.fabricmc.loader.api.FabricLoader;
@@ -27,3 +28,4 @@ public class ClearEMIHistoryOnRespawn {
 		}
 	}
 }
+//?}

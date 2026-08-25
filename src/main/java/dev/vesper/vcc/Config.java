@@ -69,7 +69,7 @@ public class Config {
 
 	//? <=1.21.1{
 	/*@AutoGen(category = "effxwakes")
-	*///?} >=1.21.11{
+	*///?} >=1.21.11 || !fabric{
 	@AutoGen(category = "tweaks")
 	//?}
 	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)

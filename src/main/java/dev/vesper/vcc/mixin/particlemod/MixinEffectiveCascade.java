@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /*import org.ladysnake.effective.particle.CascadeParticle;
 *///?}
 
-//? 1.21.1 {
+//? 1.21.1 && fabric{
 /*@Mixin(CascadeParticle.class)
 *///?} else {
 @Mixin(MixinDummy.class)

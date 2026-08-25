@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.iceberg;
 
+//? if fabric {
 import com.anthonyhilyard.iceberg.util.EntityCollector;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
@@ -35,3 +36,4 @@ public class ClearMapsOnUnload {
 
 	}
 }
+//?}

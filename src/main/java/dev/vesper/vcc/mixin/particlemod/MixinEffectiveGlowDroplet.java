@@ -10,20 +10,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//? 1.20.1{
+//? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.particle.GlowDropletParticle;
-*///?} 1.21.1{
+*///?} 1.21.1 && fabric{
 /*import org.ladysnake.effective.particle.GlowDropletParticle;
 *///?}
 
-//? <=1.21.1 {
+//? <=1.21.1 && fabric{
 /*@Mixin(GlowDropletParticle.class)
-*///?} >1.21.1{
+*///?} >1.21.1 || !fabric{
 @Mixin(MixinDummy.class)
 //?}
 public class MixinEffectiveGlowDroplet {
 
-	//? <=1.21.1 {
+	//? <=1.21.1 && fabric{
 	/*@Inject(method = "<init>", at = @At("TAIL"))
 	private void conditionallyChangeAttributes(ClientLevel world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteSet spriteProvider, CallbackInfo ci){
 		if (ParticleModContext.fixGlowDropForPlayerDrip) {

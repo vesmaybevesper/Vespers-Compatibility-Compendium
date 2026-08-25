@@ -1,11 +1,14 @@
-package dev.vesper.vcc.mixin.effectivexwakes;
+package dev.vesper.vcc.mixin.effectivexwakes.fabric;
 
+//? if fabric {
 import com.goby56.wakes.WakesClient;
 import com.goby56.wakes.config.WakesConfig;
 import com.goby56.wakes.render.WakeColor;
+//?}
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
+import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -18,16 +21,18 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-//? 1.20.1{
+//? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.utils.EffectiveUtils;
 *///?} 1.21.1{
 /*import org.ladysnake.effective.utils.EffectiveUtils;
 *///?}
 
+//~ if !fabric 'WakeColor' -> 'MixinDummy'
 @Mixin(WakeColor.class)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public class WakeColorMixin {
 
+	//? if fabric {
 	@Shadow
 	@Final
 	public int a;
@@ -116,4 +121,5 @@ public class WakeColorMixin {
 		}
 		//?}
 	}
+	//?}
 }

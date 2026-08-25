@@ -13,26 +13,31 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 //? <=1.21.1{
 /*import pigcart.particlerain.ParticleRain;
+import net.minecraft.client.particle.TextureSheetParticle;
 *///?}
 
-//? 1.20.1{
+//? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.particle.DropletParticle;
-import net.minecraft.client.particle.TextureSheetParticle;
-*///?} 1.21.1{
+*///?} 1.21.1 && fabric{
 /*import org.ladysnake.effective.particle.DropletParticle;
-import net.minecraft.client.particle.TextureSheetParticle;
 *///?}
 
 
-//? <=1.21.1{
+//? <=1.21.1 && fabric{
 /*@Mixin(DropletParticle.class)
-*///?} >=1.21.11{
+*///?} >=1.21.11 || !fabric{
 @Mixin(MixinDummy.class)
 //?}
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public abstract class DropletParticleMixin /*? <=1.21.1{ *//*extends TextureSheetParticle *//*?} */ {
 
-	//? <=1.21.1{
+	//? if <=1.21.1 {
+	/*protected DropletParticleMixin(ClientLevel p_108323_, double p_108324_, double p_108325_, double p_108326_) {
+		super(p_108323_, p_108324_, p_108325_, p_108326_);
+	}
+	*///?}
+
+	//? <=1.21.1 && fabric{
 	/*protected DropletParticleMixin(ClientLevel clientLevel, double d, double e, double f) {
 		super(clientLevel, d, e, f);
 	}
