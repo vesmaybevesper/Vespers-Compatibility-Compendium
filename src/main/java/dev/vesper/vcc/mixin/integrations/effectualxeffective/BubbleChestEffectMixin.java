@@ -30,8 +30,8 @@ public class BubbleChestEffectMixin {
 		if (Config.replaceEffectualChestBubble && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")) {
 			assert Minecraft.getInstance().level != null;
 			//? 1.20.1{
-			/^Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
-			^///?} 1.21.1{
+			Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
+			//?} 1.21.1{
 			/^Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dz, dy, dz);
 			^///?}
 		} else {

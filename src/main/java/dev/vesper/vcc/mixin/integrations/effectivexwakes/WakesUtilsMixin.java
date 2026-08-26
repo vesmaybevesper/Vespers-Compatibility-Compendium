@@ -12,6 +12,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.utils.EffectiveUtils;
@@ -19,9 +22,6 @@ import net.minecraft.world.entity.vehicle.Boat;
 *///?} 1.21.1 && fabric{
 /*import org.ladysnake.effective.utils.EffectiveUtils;
 import net.minecraft.world.entity.vehicle.Boat;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 *///?}
 
 //~ if !fabric 'WakesUtils' -> 'MixinDummy'
