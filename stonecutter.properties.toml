@@ -96,7 +96,7 @@ deps.jei= "AFgObZjc"
 
 [forge."1.20.1"]
 deps.minecraft = "1.20.1"
-deps.forge = "47.4.10"
+deps.forge = "47.4.23"
 deps.yet_another_config_lib_v3= "3.6.6+1.20.1-forge"
 deps.eveningstarlib= "1.2.1-forge+1.20.1"
 deps.wakes= "a4XWF1p5"
