@@ -39,7 +39,7 @@ public class WaterDripEffectMixin {
 				// Deltas are the best this effect is going to get without taking over Glow Droplet in a way that will negatively impact the appearance of other effects
 				// All that being said I have an idea for a better way to do this, will add in 0.4.1 after i port to the forges
 				ParticleModContext.fixGlowDropForPlayerDrip = true;
-				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^/Effective.GLOW_DROPLET/^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, lx/7, -0.05, lz/7);
+				Minecraft.getInstance().level.addParticle(/^? 1.20.1 {^//^Effective.GLOW_DROPLET^//^?} 1.21.1 { ^/ /^EffectiveParticles.GLOW_DROPLET ^//^?} ^/, x, y, z, lx/7, -0.05, lz/7);
 				ParticleModContext.fixGlowDropForPlayerDrip = false;
 			} else {
 				original.call(type, x, y, z, dx, dy, dz);

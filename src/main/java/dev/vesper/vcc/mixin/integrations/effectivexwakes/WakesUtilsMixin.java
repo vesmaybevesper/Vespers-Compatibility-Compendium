@@ -5,7 +5,12 @@ import com.goby56.wakes.utils.WakesUtils;
 import com.llamalad7.mixinextras.sugar.Local;
 //?}
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
+import dev.vesper.eveningstarlib.EveningStarLib;
+import dev.vesper.vcc.Config;
 import dev.vesper.vcc.util.MixinDummy;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 
 //? 1.20.1 && fabric{
@@ -14,6 +19,9 @@ import net.minecraft.world.entity.vehicle.Boat;
 *///?} 1.21.1 && fabric{
 /*import org.ladysnake.effective.utils.EffectiveUtils;
 import net.minecraft.world.entity.vehicle.Boat;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 *///?}
 
 //~ if !fabric 'WakesUtils' -> 'MixinDummy'

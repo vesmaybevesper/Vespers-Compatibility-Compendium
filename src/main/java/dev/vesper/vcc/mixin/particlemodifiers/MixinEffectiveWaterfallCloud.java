@@ -1,11 +1,17 @@
 package dev.vesper.vcc.mixin.particlemodifiers;
 
 import dev.vesper.vcc.util.MixinDummy;
+import dev.vesper.vcc.util.ParticleModContext;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.SingleQuadParticle;
 import org.spongepowered.asm.mixin.Mixin;
 
 //? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.particle.WaterfallCloudParticle;
 import net.fabricmc.fabric.impl.client.particle.FabricSpriteProviderImpl;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import team.lodestar.lodestone.systems.particle.world.options.WorldParticleOptions;
 *///?}
 

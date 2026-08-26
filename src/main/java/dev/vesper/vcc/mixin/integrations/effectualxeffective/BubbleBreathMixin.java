@@ -31,9 +31,9 @@ public class BubbleBreathMixin {
 	private static void vcc$processBreathTick$invoke(ParticleOptions options, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
 		if (useEffectiveBubbleBreath && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")){
 				//? 1.20.1{
-			assert Minecraft.getInstance().level != null;
+			/^assert Minecraft.getInstance().level != null;
 			Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
-				//?} 1.21.1{
+				^///?} 1.21.1{
 			/^assert Minecraft.getInstance().level != null;
 			Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dx, dy, dz);
 				^///?}
