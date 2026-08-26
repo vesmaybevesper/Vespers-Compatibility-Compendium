@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 //~ if fabric 'WakeColor' -> 'MixinDummy'
-@Mixin(MixinDummy.class)
+@Mixin(value = MixinDummy.class, remap = false)
 public class WakeColorMixin {
 
 	//? if !fabric {

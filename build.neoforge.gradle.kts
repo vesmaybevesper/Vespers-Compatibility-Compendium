@@ -53,22 +53,10 @@ platform {
 			slug("jei")
 			fabricLikeVersionRange = ">=${prop("deps.jei")}"
 		}
-		optional("emi"){
-			slug("emi")
-			fabricLikeVersionRange = ">=1.1.7"
-		}
 		if (stonecutter.current.parsed.equals("1.21.1")) {
-			optional("supplementaries") {
-				slug("supplementaries")
-				fabricLikeVersionRange = ">=${prop("deps.supplementaries")}"
-			}
 			optional("particle-rain") {
 				slug("particle-rain")
 				fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
-			}
-			optional("jade") {
-				slug("jade")
-				fabricLikeVersionRange = ">=${prop("deps.jade")}"
 			}
 		}
 	}
@@ -119,8 +107,6 @@ dependencies {
 	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (stonecutter.current.parsed.equals("1.21.1")) {
 		compileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
-		compileOnly("maven.modrinth:supplementaries:${prop("deps.supplementaries")}")
-		compileOnly("maven.modrinth:jade:${prop("deps.jade")}")
 	}
 	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")

@@ -31,9 +31,9 @@ public class MouthSteamEffectMixin {
 	private static void vcc$register$invoke(RegistrySupplier<? extends SimpleParticleType> type, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original){
 		if (Config.breathSteam && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")) {
 			assert Minecraft.getInstance().level != null;
-			// the pos needs help to go in front of where the player is looking, particle is too large and moves down and really quickly
+			// the pos needs help to go in front of where the player is looking, particle moves down really quickly
 			ParticleModContext.fixCascadeForBreath = true;
-			Minecraft.getInstance().level.addParticle((ParticleOptions) /^? 1.20.1 {^/Effective.WATERFALL_CLOUD/^?} 1.21.1 { ^/ /^EffectiveParticles.CASCADE ^//^?} ^/, x, y, z, 0, 0.001, 0);
+			Minecraft.getInstance().level.addParticle((ParticleOptions) /^? 1.20.1 {^//^Effective.WATERFALL_CLOUD^//^?} 1.21.1 { ^/ EffectiveParticles.CASCADE /^?} ^/, x, y, z, 0, 0.001, 0);
 			ParticleModContext.fixCascadeForBreath = true;
 		} else {
 			original.call(type, x, y, z, dx, dy, dz);

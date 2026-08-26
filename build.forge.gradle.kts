@@ -41,33 +41,9 @@ platform {
 			slug("effectual")
 			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
-		optional("entity_texture_features"){
-			slug("entitytexturefeatures", "entity-texture-features-fabric")
-			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
-		}
-		optional("iceberg"){
-			slug("iceberg")
-			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
-		}
-		optional("jei"){
-			slug("jei")
-			fabricLikeVersionRange = ">=${prop("deps.jei")}"
-		}
 		optional("particle-rain") {
 			slug("particle-rain")
 			fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
-		}
-		optional("emi"){
-			slug("emi")
-			fabricLikeVersionRange = ">=1.1.7"
-		}
-		optional("jade") {
-			slug("jade")
-			fabricLikeVersionRange = ">=${prop("deps.jade")}"
-		}
-		optional("supplementaries"){
-			slug("supplementaries")
-			fabricLikeVersionRange = ">=${prop("deps.supplementaries")}"
 		}
 	}
 }
@@ -119,18 +95,13 @@ dependencies {
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
 
-	modImplementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
-	modImplementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
-	modCompileOnly("maven.modrinth:jade:${prop("deps.jade")}")
-	modCompileOnly("maven.modrinth:supplementaries:${prop("deps.supplementaries")}")
-	modCompileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
-	modCompileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
-	modCompileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
-	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
-	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
-	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
-	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
-	modCompileOnly("maven.modrinth:jei:${prop("deps.jei")}")
+	implementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
+	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
+	compileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
+	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
+	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
+	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 }
 
 sourceSets {
