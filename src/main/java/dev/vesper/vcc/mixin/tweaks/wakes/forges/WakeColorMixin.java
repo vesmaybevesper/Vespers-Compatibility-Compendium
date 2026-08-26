@@ -1,8 +1,10 @@
-package dev.vesper.vcc.mixin.effectivexwakes.forges;
+package dev.vesper.vcc.mixin.tweaks.wakes.forges;
 
-import com.leclowndu93150.wakes.render.WakeColor;
+//? if !fabric
+//import com.leclowndu93150.wakes.render.WakeColor;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
+import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;

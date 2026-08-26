@@ -1,4 +1,4 @@
-package dev.vesper.vcc.mixin.effectivexparticlerain;
+package dev.vesper.vcc.mixin.integrations.effectivexparticlerain;
 
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-//? <=1.21.1{
+//? <=1.21.1 && fabric{
 /*import pigcart.particlerain.ParticleRain;
 import net.minecraft.client.particle.TextureSheetParticle;
 *///?}
@@ -29,13 +29,7 @@ import net.minecraft.client.particle.TextureSheetParticle;
 @Mixin(MixinDummy.class)
 //?}
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
-public abstract class DropletParticleMixin /*? <=1.21.1{ *//*extends TextureSheetParticle *//*?} */ {
-
-	//? if <=1.21.1 {
-	/*protected DropletParticleMixin(ClientLevel p_108323_, double p_108324_, double p_108325_, double p_108326_) {
-		super(p_108323_, p_108324_, p_108325_, p_108326_);
-	}
-	*///?}
+public abstract class DropletParticleMixin /*? <=1.21.1 && fabric{ *//*extends TextureSheetParticle *//*?} */ {
 
 	//? <=1.21.1 && fabric{
 	/*protected DropletParticleMixin(ClientLevel clientLevel, double d, double e, double f) {

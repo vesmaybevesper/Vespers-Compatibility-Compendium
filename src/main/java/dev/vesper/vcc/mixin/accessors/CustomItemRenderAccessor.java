@@ -35,7 +35,9 @@ public interface CustomItemRenderAccessor {
 	@Accessor("armorStand")
 	static void setArmorStand(ArmorStand armorStand){}
 
+	//? if fabric {
 	@Mutable
 	@Accessor("wolf")
 	static void setWolf(Wolf wolf){}
+	//?}
 }

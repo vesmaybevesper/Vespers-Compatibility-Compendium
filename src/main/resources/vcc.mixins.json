@@ -11,17 +11,17 @@
   ],
   "client": [
     "accessors.CustomItemRenderAccessor",
-    "effectivexparticlerain.DropletParticleMixin",
-    "effectivexwakes.fabric.WakeColorMixin",
-    "effectivexwakes.fabric.WakesUtilsMixin",
-    "effectivexwakes.forges.WakeColorMixin",
-    "effectualxeffective.BubbleBreathMixin",
-    "effectualxeffective.BubbleChestEffectMixin",
-    "effectualxeffective.BubblePotsEffectMixin",
-    "effectualxeffective.MouthSteamEffectMixin",
-    "effectualxeffective.WaterDripEffectMixin",
-    "particlemod.MixinEffectiveCascade",
-    "particlemod.MixinEffectiveGlowDroplet",
-    "particlemod.MixinEffectiveWaterfallCloud"
+    "integrations.effectivexparticlerain.DropletParticleMixin",
+    "tweaks.wakes.fabric.WakeColorMixin",
+    "integrations.effectivexwakes.WakesUtilsMixin",
+    "tweaks.wakes.forges.WakeColorMixin",
+    "integrations.effectualxeffective.BubbleBreathMixin",
+    "integrations.effectualxeffective.BubbleChestEffectMixin",
+    "integrations.effectualxeffective.BubblePotsEffectMixin",
+    "integrations.effectualxeffective.MouthSteamEffectMixin",
+    "integrations.effectualxeffective.WaterDripEffectMixin",
+    "particlemodifiers.MixinEffectiveCascade",
+    "particlemodifiers.MixinEffectiveGlowDroplet",
+    "particlemodifiers.MixinEffectiveWaterfallCloud"
   ]
 }

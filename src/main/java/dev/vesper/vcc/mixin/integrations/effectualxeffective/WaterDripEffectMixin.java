@@ -1,4 +1,4 @@
-package dev.vesper.vcc.mixin.effectualxeffective;
+package dev.vesper.vcc.mixin.integrations.effectualxeffective;
 
 import com.imeetake.effectual.effects.WaterDrip.WaterDripEffect;
 //? if fabric {
