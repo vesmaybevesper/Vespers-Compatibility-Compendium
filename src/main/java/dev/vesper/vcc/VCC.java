@@ -20,7 +20,7 @@ import dev.vesper.vcc.platform.fabric.FabricPlatform;
 public class VCC {
 
 	public static final String MOD_ID = /*$ mod_id*/ "vcc";
-	public static final String MOD_VERSION = /*$ mod_version*/ "0.4.1";
+	public static final String MOD_VERSION = /*$ mod_version*/ "0.4.2";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Vesper's Compatibility Compendium";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

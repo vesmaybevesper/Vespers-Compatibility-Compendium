@@ -31,8 +31,8 @@ public class BubblePotsEffectMixin {
 		//? 1.20.1{
 			/^Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
 		^///?} 1.21.1{
-			Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dx, dy, dz);
-		//?}
+			/^Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dx, dy, dz);
+		^///?}
 		} else {
 			original.call(options, x, y, z, dx, dy, dz);
 		}

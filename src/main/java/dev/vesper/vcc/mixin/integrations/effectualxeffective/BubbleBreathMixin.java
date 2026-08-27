@@ -34,9 +34,9 @@ public class BubbleBreathMixin {
 			/^assert Minecraft.getInstance().level != null;
 			Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
 				^///?} 1.21.1{
-			assert Minecraft.getInstance().level != null;
+			/^assert Minecraft.getInstance().level != null;
 			Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dx, dy, dz);
-				//?}
+				^///?}
 		} else {
 			original.call(options, x, y, z, dx, dy, dz);
 		}

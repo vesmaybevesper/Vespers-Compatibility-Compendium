@@ -104,6 +104,7 @@ dependencies {
 	// implementation(libs.moulberry.mixinconstraints)
 	// jarJar(libs.moulberry.mixinconstraints)
 	implementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
+	compileOnly("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
 	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (stonecutter.current.parsed.equals("1.21.1")) {
 		compileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
