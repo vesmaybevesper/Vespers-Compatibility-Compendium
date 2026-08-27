@@ -14,6 +14,7 @@ public class ClearEntitiesOnUnload {
 				CustomItemRenderAccessor.setEntity(null);
 				CustomItemRenderAccessor.setArmorStand(null);
 				CustomItemRenderAccessor.setHorse(null);
+				//? >=1.21.1
 				CustomItemRenderAccessor.setWolf(null);
 			}
 		});
