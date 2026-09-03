@@ -9,10 +9,7 @@ import dev.vesper.vcc.fixes.leaks.iceberg.ClearEntitiesOnUnload;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearMapsOnUnload;
 import dev.vesper.vcc.fixes.leaks.jade.ClearAccessorOnUnload;
 import dev.vesper.vcc.fixes.leaks.jei.ClearMenuOnRespawn;
-import fuzs.forgeconfigapiport.fabric.api.v5.ConfigRegistry;
 import net.fabricmc.api.ClientModInitializer;
-//~ if 1.20.1 'import net.neoforged.fml.config.ModConfig;' -> 'import net.minecraftforge.fml.config.ModConfig;'
-import net.neoforged.fml.config.ModConfig;
 
 @Entrypoint("client")
 public class FabricClientEntrypoint implements ClientModInitializer {
@@ -20,7 +17,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		VCC.onInitializeClient();
-		ConfigRegistry.INSTANCE.register(VCC.MOD_ID, ModConfig.Type.CLIENT, Config.CONFIG_SPEC);
+
 		// Calls to all the fixes, versioned by highest applicable version, additional versioning may happen within the methods
 		//? <= 1.21.1{
 		/*ClearEMIHistoryOnRespawn.init();

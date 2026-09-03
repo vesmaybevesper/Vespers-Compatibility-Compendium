@@ -2,9 +2,9 @@ package dev.vesper.vcc.mixin.integrations.effectualxeffective;
 
 import com.imeetake.effectual.effects.Bubbles.BubblePotsEffect;
 //? if fabric {
-//?}
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+//?}
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
@@ -29,8 +29,8 @@ public class BubblePotsEffectMixin {
 		if (Config.replaceEffectualPots() && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")) {
 			assert Minecraft.getInstance().level != null;
 		//? 1.20.1{
-			/^Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
-		^///?} 1.21.1{
+			Minecraft.getInstance().level.addParticle((ParticleOptions) Effective.BUBBLE, x, y, z, dx, dy, dz);
+		//?} 1.21.1{
 			/^Minecraft.getInstance().level.addParticle(EffectiveParticles.BUBBLE, x, y, z, dx, dy, dz);
 		^///?}
 		} else {
