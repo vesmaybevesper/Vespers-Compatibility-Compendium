@@ -1,26 +1,26 @@
 package dev.vesper.vcc;
 
-//? if neoforge || fabric
+//? if neoforge || fabric && >=1.21.1
 import net.neoforged.neoforge.common.ModConfigSpec;
-//? if forge
+//? if forge || fabric && 1.20.1
 //import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class Config {
 
 	public static final ClientConfig CLIENT;
-	//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec'
+	//~ if forge || fabric && 1.20.1 'ModConfigSpec' -> 'ForgeConfigSpec'
 	public static final ModConfigSpec CONFIG_SPEC;
 
 	static {
-		//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec'
+		//~ if forge || fabric && 1.20.1 'ModConfigSpec' -> 'ForgeConfigSpec'
 		final Pair<ClientConfig, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(ClientConfig::new);
 		CLIENT = specPair.getLeft();
 		CONFIG_SPEC = specPair.getRight();
 	}
 
 	public static class ClientConfig {
-		//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec' {
+		//~ if forge || fabric && 1.20.1 'ModConfigSpec' -> 'ForgeConfigSpec' {
 		private final ModConfigSpec.BooleanValue oarSplash;
 		private final ModConfigSpec.BooleanValue glowingWakes;
 		private final ModConfigSpec.BooleanValue useEffectiveBubbleBreath;
