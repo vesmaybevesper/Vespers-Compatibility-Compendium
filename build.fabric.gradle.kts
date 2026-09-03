@@ -38,7 +38,7 @@ platform {
 		}
 		required("forgeconfigapiport"){
 			slug("forge-config-api-port")
-			fabricLikeVersionRange = ">=${prop("deps.forge_config_api")}"
+			fabricLikeVersionRange = ">=${prop("deps.forge_config_api_num")}"
 		}
 		optional("modmenu") {
 			slug("modmenu")
@@ -138,8 +138,8 @@ dependencies {
 		})
 	}
 	modImplementation("net.fabricmc:fabric-loader:${prop("deps.fabric-loader")}")
-	// implementation(libs.moulberry.mixinconstraints)
-	// include(libs.moulberry.mixinconstraints)
+	implementation(libs.moulberry.mixinconstraints)
+	include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
 	modImplementation("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")

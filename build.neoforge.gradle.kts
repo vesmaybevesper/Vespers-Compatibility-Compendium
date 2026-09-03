@@ -31,7 +31,7 @@ platform {
 		}
 		required("forgeconfigapiport"){
 			slug("forge-config-api-port")
-			forgeLikeVersionRange = ">=${prop("deps.forge_config_api")}"
+			forgeLikeVersionRange = ">=${prop("deps.forge_config_api_num")}"
 		}
 		optional("wakes"){
 			slug("wakes-reforged")
@@ -101,8 +101,8 @@ repositories {
 }
 
 dependencies {
-	// implementation(libs.moulberry.mixinconstraints)
-	// jarJar(libs.moulberry.mixinconstraints)
+	implementation(libs.moulberry.mixinconstraints)
+	jarJar(libs.moulberry.mixinconstraints)
 	implementation("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
 	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (stonecutter.current.parsed.equals("1.21.1")) {
