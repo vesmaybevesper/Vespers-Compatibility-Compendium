@@ -46,7 +46,7 @@ public class WakeColorMixin {
 
 	@Inject(method = "blendFast", at = @At("HEAD"), cancellable = true)
 	private static void blendFast(WakeColor color, int tintR, int tintG, int tintB, int lightColor, float opacity, CallbackInfoReturnable<Integer> cir) {
-		if (Config.glowingWakes && EveningStarLib.isModLoaded("wakes")){
+		if (Config.glowingWakes() && EveningStarLib.isModLoaded("wakes")){
 			Level level = Minecraft.getInstance().level;
 
 			Player player = Minecraft.getInstance().player;

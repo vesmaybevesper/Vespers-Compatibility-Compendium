@@ -6,13 +6,12 @@ import dev.vesper.vcc.Config;
 import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleOptions;
-
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 //? <=1.21.1 && fabric{
-/*import pigcart.particlerain.ParticleRain;
+/*import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import pigcart.particlerain.ParticleRain;
 import net.minecraft.client.particle.TextureSheetParticle;
 *///?}
 
@@ -38,7 +37,7 @@ public abstract class DropletParticleMixin /*? <=1.21.1 && fabric{ *//*extends T
 
 	@Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"))
 	private void tick(ClientLevel instance, ParticleOptions particle, double x, double y, double z, double xd, double yd, double zd){
-		if (Config.replaceRipple && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("particle-rain")) {
+		if (Config.replaceRipple() && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("particle-rain")) {
 			instance.addParticle(ParticleRain.RIPPLE, x, y, z, xd, yd, zd);
 		}
 	}

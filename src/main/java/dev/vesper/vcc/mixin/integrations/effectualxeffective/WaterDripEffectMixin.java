@@ -2,10 +2,10 @@ package dev.vesper.vcc.mixin.integrations.effectualxeffective;
 
 import com.imeetake.effectual.effects.WaterDrip.WaterDripEffect;
 //? if fabric {
+//?}
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-//?}
 import dev.architectury.registry.registries.RegistrySupplier;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
@@ -31,7 +31,7 @@ public class WaterDripEffectMixin {
 	//? <=1.21.1 && fabric{
 	/*@WrapOperation(method = "spawnWaterDripParticles", at = @At(value = "INVOKE", target = "Lcom/imeetake/effectual/EffectualClientParticles;spawn(Ldev/architectury/registry/registries/RegistrySupplier;DDDDDD)V"))
 	private static void vcc$spawnWaterDripParticle$head(RegistrySupplier<? extends SimpleParticleType> type, double x, double y, double z, double dx, double dy, double dz, Operation<Void> original, @Local(name = "lx") double lx, @Local(name = "lz") double lz){
-		if (Config.effectualGlowDrip && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")){
+		if (Config.effectualGlowDrip() && EveningStarLib.isModLoaded("effectual") && EveningStarLib.isModLoaded("effective")){
 			assert Minecraft.getInstance().player != null;
 			if (EffectiveUtils.isGlowingWater(Minecraft.getInstance().level, Minecraft.getInstance().player.blockPosition())) {
 				assert Minecraft.getInstance().level != null;

@@ -8,7 +8,6 @@ import com.goby56.wakes.render.WakeColor;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
-import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +20,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import dev.vesper.vcc.util.MixinDummy;
 //? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.utils.EffectiveUtils;
 *///?} 1.21.1 && fabric{
@@ -55,7 +55,7 @@ public class WakeColorMixin {
 		/*float k = WakesConfig.shaderLightPassthrough;
 		*///?} >=26.2{
 		//temp measure till i get familar with the new wakes changes
-		float k = Config.shaderLightPassthrough;
+		float k = Config.ClientConfig.shaderLightPassthrough;
 		//?}
 		return WakesClient.areShadersEnabled() ? k * (4.0f * Math.pow(x - 0.5f, 3.0f) + 0.5f) : x;
 	}
@@ -68,7 +68,7 @@ public class WakeColorMixin {
 	private void VCC$blend$head(WakeColor tint, float opacity, CallbackInfoReturnable<WakeColor> cir){
 	//?}
 		//? <=1.21.1{
-		/*if (Config.glowingWakes && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("wakes")){
+		/*if (Config.glowingWakes() && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("wakes")){
 			Level level = Minecraft.getInstance().level;
 
 			Player player = Minecraft.getInstance().player;
@@ -94,7 +94,7 @@ public class WakeColorMixin {
 			}
 		}
 		*///?} >=1.21.11{
-		if (Config.glowingWakes && EveningStarLib.isModLoaded("wakes")) {
+		if (Config.glowingWakes() && EveningStarLib.isModLoaded("wakes")) {
 			Level level = Minecraft.getInstance().level;
 
 			Player player = Minecraft.getInstance().player;

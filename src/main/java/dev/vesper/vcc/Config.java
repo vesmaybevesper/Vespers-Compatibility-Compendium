@@ -1,112 +1,62 @@
 package dev.vesper.vcc;
 
-import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
-import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
-import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
-import dev.isxander.yacl3.config.v2.api.autogen.EnumCycler;
-import dev.isxander.yacl3.platform.YACLPlatform;
-import dev.vesper.eveningstarlib.common.serializers.fastjson.FastJsonConfigSerializerBuilder;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.Identifier;
+//? if neoforge || fabric
+import net.neoforged.neoforge.common.ModConfigSpec;
+//? if forge
+//import net.minecraftforge.common.ForgeConfigSpec;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class Config {
-	//? 1.20.1{
-	/*public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-			.id(Identifier.tryBuild(VCC.MOD_ID, "config"))
-			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
-					.setPath(YACLPlatform.getConfigDir().resolve("vcc.json"))
-					.build())
-			.build();
-	*///?} >=1.21.1{
-	public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-			.id(Identifier.fromNamespaceAndPath(VCC.MOD_ID, "config"))
-			.serializer(config -> FastJsonConfigSerializerBuilder.create(config)
-					.setPath(YACLPlatform.getConfigDir().resolve("vcc.json"))
-					.build())
-			.build();
-	//?}
 
-	public static Screen config(Screen parent){
-		return HANDLER.generateGui().generateScreen(parent);
+	public static final ClientConfig CLIENT;
+	//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec'
+	public static final ModConfigSpec CONFIG_SPEC;
+
+	static {
+		//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec'
+		final Pair<ClientConfig, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(ClientConfig::new);
+		CLIENT = specPair.getLeft();
+		CONFIG_SPEC = specPair.getRight();
 	}
 
-	public enum RippleType {WAKES, EFFECTIVE, PARTICLE_RAIN}
+	public static class ClientConfig {
+		//~ if forge 'ModConfigSpec' -> 'ForgeConfigSpec' {
+		private final ModConfigSpec.BooleanValue oarSplash;
+		private final ModConfigSpec.BooleanValue glowingWakes;
+		private final ModConfigSpec.BooleanValue useEffectiveBubbleBreath;
+		private final ModConfigSpec.BooleanValue replaceEffectualChestBubble;
+		private final ModConfigSpec.BooleanValue replaceEffectualPots;
+		private final ModConfigSpec.BooleanValue effectualGlowDrip;
+		private final ModConfigSpec.BooleanValue breathSteam;
+		private final ModConfigSpec.BooleanValue replaceRipple;
+		public static final float shaderLightPassthrough = 0.5f;
 
-	public enum OverlapFavor {EFFECTIVE, EFFECTUAL}
+		ClientConfig(ModConfigSpec.Builder builder) {
+		//~}
+			//builder.comment("Vesper's Compatibility Compendium").push("general");
 
-	//@AutoGen(category = "general")
-	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE)
-	@SerialEntry
-	public static boolean globalRipple = false;
+			builder.comment("Compatibility & Integration").push("compatibility");
+			oarSplash = builder.comment("Enable Oar Splash").define("oarSplash", true);
+			useEffectiveBubbleBreath = builder.comment("effetive bubble").define("useEffectiveBubbleBreath", true);
+			replaceEffectualChestBubble = builder.comment("Enable Oar Splash").define("replaceEffectualChestBubble", true);
+			replaceEffectualPots = builder.comment("Enable Oar Splash").define("replaceEffectualPots", true);
+			effectualGlowDrip = builder.comment("Enable Oar Splash").define("effectualGlowDrip", true);
+			breathSteam = builder.comment("Enable Oar Splash").define("breathSteam", true);
+			replaceRipple = builder.comment("Enable Oar Splash").define("replaceRipple", true);
+			builder.pop();
 
-	//@AutoGen(category = "general")
-	@EnumCycler
-	@SerialEntry
-	public static RippleType rippleType = RippleType.WAKES;
+			builder.comment("Tweaks").push("tweaks");
+			glowingWakes = builder.comment("Make wakes glow").define("glowingWakes", true);
+			builder.pop();
+		}
+	}
 
-	//@AutoGen(category = "general")
-	@Boolean(formatter = Boolean.Formatter.TRUE_FALSE)
-	@SerialEntry
-	public static boolean disableOverlap = false;
-
-	//@AutoGen(category = "general")
-	@EnumCycler
-	@SerialEntry
-	public static OverlapFavor overlapFavorPrimary = OverlapFavor.EFFECTIVE;
-
-	//@AutoGen(category = "general")
-	@EnumCycler
-	@SerialEntry
-	public static OverlapFavor overlapFavorSecondary = OverlapFavor.EFFECTIVE;
-
-	//? <=1.21.1{
-	/*@AutoGen(category = "effxwakes")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean oarSplash = true;
-	*///?}
-
-	//? <=1.21.1{
-	/*@AutoGen(category = "effxwakes")
-	*///?} >=1.21.11 || !fabric{
-	@AutoGen(category = "tweaks")
-	//?}
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean glowingWakes = true;
-
-	public static float shaderLightPassthrough = 0.5f;
-
-	//? <=1.21.1{
-	/*@AutoGen(category = "effxeff")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean useEffectiveBubbleBreath = true;
-
-	@AutoGen(category = "effxeff")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean replaceEffectualChestBubble = true;
-
-	@AutoGen(category = "effxeff")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean replaceEffectualPots = true;
-
-	@AutoGen(category = "effxeff")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean effectualGlowDrip = false;
-
-	@AutoGen(category = "effxeff")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean breathSteam = false;
-
-	@AutoGen(category = "effxparticlerain")
-	@Boolean(formatter = Boolean.Formatter.ON_OFF, colored = true)
-	@SerialEntry
-	public static boolean replaceRipple = true;
-	*///?}
+	public static boolean oarSplash() {return CLIENT.oarSplash.get();}
+	public static boolean glowingWakes() {return CLIENT.glowingWakes.get();}
+	public static boolean useEffectiveBubbleBreath() {return CLIENT.useEffectiveBubbleBreath.get();}
+	public static boolean replaceEffectualChestBubble() {return CLIENT.replaceEffectualChestBubble.get();}
+	public static boolean replaceEffectualPots() {return CLIENT.replaceEffectualPots.get();}
+	public static boolean effectualGlowDrip() {return CLIENT.effectualGlowDrip.get();}
+	public static boolean breathSteam() {return CLIENT.breathSteam.get();}
+	public static boolean replaceRipple() {return CLIENT.replaceRipple.get();}
 }

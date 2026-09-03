@@ -4,11 +4,12 @@ package dev.vesper.vcc;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 
 public class ModMenuInit implements ModMenuApi {
 	@Override
 	public ConfigScreenFactory<?> getModConfigScreenFactory() {
-		return Config::config;
+		return parent -> new ConfigurationScreen(VCC.MOD_ID, parent);
 	}
 }
 
