@@ -27,23 +27,19 @@ platform {
 		}
 		required("eveningstarlib") {
 			slug("eveningstarlib")
-			fabricLikeVersionRange = ">=$eslCleanVersion"
-		}
-		required("yet_another_config_lib_v3"){
-			slug("yacl")
-			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+			forgeLikeVersionRange = ">=$eslCleanVersion"
 		}
 		optional("wakes"){
 			slug("wakes-reforged")
-			fabricLikeVersionRange = ">=${prop("deps.wakes")}"
+			forgeLikeVersionRange = ">=${prop("deps.wakes")}"
 		}
 		optional("effectual") {
 			slug("effectual")
-			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
+			forgeLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
 		optional("particle-rain") {
 			slug("particle-rain")
-			fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
+			forgeLikeVersionRange = ">=${prop("deps.particle-rain")}"
 		}
 	}
 }
