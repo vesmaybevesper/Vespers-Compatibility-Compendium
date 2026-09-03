@@ -1,5 +1,6 @@
 package dev.vesper.vcc.mixin.particlemodifiers;
 
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.vesper.vcc.util.MixinDummy;
 import dev.vesper.vcc.util.ParticleModContext;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,11 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import team.lodestar.lodestone.systems.particle.world.options.WorldParticleOptions;
 *///?}
 
-//? 1.20.1 && fabric{
-/*@Mixin(WaterfallCloudParticle.class)
-*///?} else {
+@IfModLoaded(value = "effective")
+//~ if !1.20.1 || !fabric 'WaterfallCloudParticle' -> 'MixinDummy'
 @Mixin(MixinDummy.class)
-//?}
 public class MixinEffectiveWaterfallCloud {
 
 	//? 1.20.1 && fabric{

@@ -3,7 +3,7 @@ package dev.vesper.vcc.mixin.integrations.effectivexwakes;
 //? if fabric {
 import com.goby56.wakes.utils.WakesUtils;
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.vesper.eveningstarlib.EveningStarLib;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -24,6 +24,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.Boat;
 *///?}
 
+@IfModLoaded(value = "wakes")
 //~ if !fabric 'WakesUtils' -> 'MixinDummy'
 @Mixin(WakesUtils.class)
 @MixinEnvironment(type =  MixinEnvironment.Env.CLIENT)

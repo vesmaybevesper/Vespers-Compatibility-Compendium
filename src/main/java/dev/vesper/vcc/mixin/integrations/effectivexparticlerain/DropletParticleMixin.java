@@ -1,5 +1,6 @@
 package dev.vesper.vcc.mixin.integrations.effectivexparticlerain;
 
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
@@ -21,12 +22,9 @@ import net.minecraft.client.particle.TextureSheetParticle;
 /*import org.ladysnake.effective.particle.DropletParticle;
 *///?}
 
-
-//? <=1.21.1 && fabric{
-/*@Mixin(DropletParticle.class)
-*///?} >=1.21.11 || !fabric{
+@IfModLoaded(value = "effective")
+//~ if >1.21.1 || !fabric 'DropletParticle' -> 'MixinDummy'
 @Mixin(MixinDummy.class)
-//?}
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public abstract class DropletParticleMixin /*? <=1.21.1 && fabric{ *//*extends TextureSheetParticle *//*?} */ {
 

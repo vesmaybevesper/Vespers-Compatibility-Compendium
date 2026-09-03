@@ -2,6 +2,7 @@ package dev.vesper.vcc.mixin.tweaks.wakes.forges;
 
 //? if !fabric
 //import com.leclowndu93150.wakes.render.WakeColor;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
 import dev.vesper.vcc.util.MixinDummy;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@IfModLoaded(value = "wakes")
 //~ if fabric 'WakeColor' -> 'MixinDummy'
 @Mixin(value = MixinDummy.class, remap = false)
 public class WakeColorMixin {
