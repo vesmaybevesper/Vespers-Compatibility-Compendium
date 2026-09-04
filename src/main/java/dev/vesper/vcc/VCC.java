@@ -1,13 +1,14 @@
 package dev.vesper.vcc;
 
 import dev.vesper.vcc.platform.Platform;
-import net.minecraft.resources.Identifier;
+import net.fabricmc.loader.api.FabricLoader;import net.minecraft.client.Minecraft;import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
 import dev.vesper.vcc.platform.fabric.FabricPlatform;
-import dev.vesper.vcc.fixes.leaks.supplementaries.ClearCachesOnServerStop;
+import dev.vesper.vcc.fixes.leaks.supplementaries.ClearCachesOnServerStop;import java.util.Arrays;
+import java.util.function.Predicate;
 //?} neoforge {
 /*import dev.vesper.vcc.platform.neoforge.NeoforgePlatform;
  *///?} forge {
