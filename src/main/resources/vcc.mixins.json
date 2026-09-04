@@ -21,7 +21,9 @@
     "particlemodifiers.MixinEffectiveCascade",
     "particlemodifiers.MixinEffectiveGlowDroplet",
     "particlemodifiers.MixinEffectiveWaterfallCloud",
+    "tweaks.wakes.fabric.SplashCloudMixin",
     "tweaks.wakes.fabric.WakeColorMixin",
+    "tweaks.wakes.forges.SplashCloudMixin",
     "tweaks.wakes.forges.WakeColorMixin"
   ]
 }

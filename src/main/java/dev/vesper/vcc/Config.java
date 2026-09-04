@@ -23,6 +23,7 @@ public class Config {
 		//~ if forge || fabric && 1.20.1 'ModConfigSpec' -> 'ForgeConfigSpec' {
 		private final ModConfigSpec.BooleanValue oarSplash;
 		private final ModConfigSpec.BooleanValue glowingWakes;
+		private final ModConfigSpec.BooleanValue glowSplashPlane;
 		private final ModConfigSpec.BooleanValue useEffectiveBubbleBreath;
 		private final ModConfigSpec.BooleanValue replaceEffectualChestBubble;
 		private final ModConfigSpec.BooleanValue replaceEffectualPots;
@@ -47,12 +48,14 @@ public class Config {
 
 			builder.comment("Tweaks").push("tweaks");
 			glowingWakes = builder.comment("Make wakes glow").define("glowingWakes", true);
+			glowSplashPlane = builder.comment("Make Wakes' splash planes glow").define("glowSplashPlane", true);
 			builder.pop();
 		}
 	}
 
 	public static boolean oarSplash() {return CLIENT.oarSplash.get();}
 	public static boolean glowingWakes() {return CLIENT.glowingWakes.get();}
+	public static boolean glowSplashPlane() {return CLIENT.glowSplashPlane.get();}
 	public static boolean useEffectiveBubbleBreath() {return CLIENT.useEffectiveBubbleBreath.get();}
 	public static boolean replaceEffectualChestBubble() {return CLIENT.replaceEffectualChestBubble.get();}
 	public static boolean replaceEffectualPots() {return CLIENT.replaceEffectualPots.get();}
