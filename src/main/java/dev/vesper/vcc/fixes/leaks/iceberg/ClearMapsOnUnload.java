@@ -16,9 +16,8 @@ public class ClearMapsOnUnload {
 
 		try {
 			VarHandle WRAPPED_LEVELS_MAP = ReflectionHelper.getFieldFromClass(EntityCollector.class, "wrappedLevelsMap", Map.class, true);
-			//? <=1.21.1{
-			/*VarHandle ENTITY_CACHE = ReflectionHelper.getFieldFromClass(EntityCollector.class, "entityCache", Map.class, true);
-			*///?}
+			//? if <=1.21.1
+			//VarHandle ENTITY_CACHE = ReflectionHelper.getFieldFromClass(EntityCollector.class, "entityCache", Map.class, true);
 
 			LevelEvents.Unload.UNLOAD.register((LevelEvents.Unload event) ->{
 				if (event.getLevel().isClientSide()){
