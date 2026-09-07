@@ -3,7 +3,7 @@ package dev.vesper.vcc.mixin.integrations.effectivexwakes;
 //? if fabric {
 import com.goby56.wakes.utils.WakesUtils;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.moulberry.mixinconstraints.annotations.IfModLoaded;import dev.vesper.eveningstarlib.EveningStarLib;
+import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import dev.vesper.vcc.util.MixinDummy;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import org.spongepowered.asm.mixin.Mixin;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 
 //? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.utils.EffectiveUtils;
