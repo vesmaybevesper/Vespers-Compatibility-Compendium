@@ -41,6 +41,10 @@ platform {
 			slug("particle-rain")
 			forgeLikeVersionRange = ">=${prop("deps.particle-rain")}"
 		}
+		optional("particular") {
+			slug("particular-reforged")
+			forgeLikeVersionRange = ">=${prop("deps.particular-reforged")}"
+		}
 	}
 }
 
@@ -96,6 +100,7 @@ dependencies {
 	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
 	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	compileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 }
 

@@ -41,6 +41,10 @@ platform {
 			slug("effectual")
 			forgeLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
+		optional("particular") {
+			slug("particular-reforged")
+			forgeLikeVersionRange = ">=${prop("deps.particular-reforged")}"
+		}
 		optional("entity_texture_features"){
 			slug("entitytexturefeatures", "entity-texture-features-fabric")
 			forgeLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
@@ -111,6 +115,7 @@ dependencies {
 	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
 	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	compileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	compileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	compileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")

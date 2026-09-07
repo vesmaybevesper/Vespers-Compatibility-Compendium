@@ -52,6 +52,10 @@ platform {
 			slug("effectual")
 			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
 		}
+		optional("particular") {
+			slug("particular-reforged")
+			fabricLikeVersionRange = ">=${prop("deps.particular-reforged")}"
+		}
 		optional("entity_texture_features"){
 			slug("entitytexturefeatures", "entity-texture-features-fabric")
 			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
@@ -154,6 +158,7 @@ dependencies {
 	modCompileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	modCompileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
