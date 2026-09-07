@@ -1,11 +1,20 @@
 package dev.vesper.vcc.fixes.leaks.iceberg;
 
-//? if fabric {
+import com.anthonyhilyard.iceberg.util.EntityCollector;
 import dev.vesper.eveningstarlib.EveningStarLib;
+//? if fabric
 import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
+import dev.vesper.vcc.util.ReflectionHelper;
+//? if neoforge {
+/*import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.level.LevelEvent;
+*///?}
 import dev.vesper.vcc.mixin.accessors.CustomItemRenderAccessor;
+import java.lang.invoke.VarHandle;
+import java.util.Map;
 
 public class ClearEntitiesOnUnload {
+	//? if fabric {
 	public static void init(){
 		if (!EveningStarLib.isModLoaded("iceberg")) return;
 
@@ -19,5 +28,18 @@ public class ClearEntitiesOnUnload {
 			}
 		});
 	}
+	//?} neoforge && >=26.1.2{
+	/*public ClearEntitiesOnUnload(){
+		NeoForge.EVENT_BUS.addListener(this::clearEntitiesOnLevelUnload);
+	}
+
+	private void clearEntitiesOnLevelUnload(LevelEvent.Unload event) {
+		if (event.getLevel().isClientSide()){
+			CustomItemRenderAccessor.setWolf(null);
+			CustomItemRenderAccessor.setHorse(null);
+			CustomItemRenderAccessor.setEntity(null);
+			CustomItemRenderAccessor.setArmorStand(null);
+		}
+	}
+	*///?}
 }
-//?}
