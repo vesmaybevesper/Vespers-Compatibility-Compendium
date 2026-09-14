@@ -31,7 +31,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = MixinDummy.class, remap = false)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 //~ if <=1.21.1 'SingleQuadParticle' -> 'TextureSheetParticle'
-public class SplashCloudMixin extends SingleQuadParticle {
+public abstract class SplashCloudMixin /*? forge || neoforge {*//*extends SingleQuadParticle*//*?}*/ {
 	//? if !fabric {
 	/*@Unique
 	private float colorEffect;
@@ -75,21 +75,6 @@ public class SplashCloudMixin extends SingleQuadParticle {
 			this.setColor(1.0F, 1.0F, 1.0F);
 		}
 	}
-	*///?} fabric {
-	protected SplashCloudMixin(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
-		super(level, x, y, z, sprite);
-	}
-
-	//? if >1.21.1 {
-	@Override
-	protected Layer getLayer() {
-		return Layer.TRANSLUCENT;
-	}
-	//?} else {
-	/*public ParticleRenderType getRenderType() {
-		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
-	}
 	*///?}
-	//?}
 
 }
