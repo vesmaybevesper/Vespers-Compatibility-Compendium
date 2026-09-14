@@ -23,7 +23,6 @@ public class Config {
 		//~ if forge || fabric && 1.20.1 'ModConfigSpec' -> 'ForgeConfigSpec' {
 		private final ModConfigSpec.BooleanValue glowingWakes;
 		private final ModConfigSpec.BooleanValue glowSplashPlane;
-		private final ModConfigSpec.BooleanValue accurateParticularSplash;
 		private final ModConfigSpec.BooleanValue effectualGlowDrip;
 		//? if <=1.21.1 {
 		/*private final ModConfigSpec.BooleanValue oarSplash;
@@ -37,16 +36,20 @@ public class Config {
 
 		ClientConfig(ModConfigSpec.Builder builder) {
 		//~}
-			builder.comment("Vesper's Compatibility Compendium").push("general");
-
 			//? if <=1.21.1 {
-			/*builder.comment("Compatibility & Integration").push("compatibility");
+			/*builder.comment("Integrations").push("integration");
+			builder.comment("Effective & Wakes").push("effwakes");
 			oarSplash = builder.comment("Enable Oar Splash").define("oarSplash", true);
-			useEffectiveBubbleBreath = builder.comment("effetive bubble").define("useEffectiveBubbleBreath", true);
+			builder.pop();
+			builder.comment("Effective & Effectual").push("effsqr");
+			useEffectiveBubbleBreath = builder.comment("Effective bubble").define("useEffectiveBubbleBreath", true);
 			replaceEffectualChestBubble = builder.comment("Enable Oar Splash").define("replaceEffectualChestBubble", true);
 			replaceEffectualPots = builder.comment("Enable Oar Splash").define("replaceEffectualPots", true);
 			breathSteam = builder.comment("Enable Oar Splash").define("breathSteam", false);
+			builder.pop();
+			builder.comment("Effective & Particle Rain").push("effrain");
 			replaceRipple = builder.comment("Enable Oar Splash").define("replaceRipple", true);
+			builder.pop();
 			builder.pop();
 			*///?}
 
@@ -54,9 +57,6 @@ public class Config {
 			builder.comment("Wakes").push("wakes");
 			glowingWakes = builder.comment("Make wakes glow").define("glowingWakes", true);
 			glowSplashPlane = builder.comment("Make Wakes' splash planes glow").define("glowSplashPlane", true);
-			builder.pop();
-			builder.comment("Particular Reforged").push("particular_reforged");
-			accurateParticularSplash = builder.comment("Use accurate particular Splashes").define("accurateParticularSplash", true);
 			builder.pop();
 			builder.comment("Effectual").push("effectual");
 			effectualGlowDrip = builder.comment("Enable Oar Splash").define("effectualGlowDrip", true);
@@ -67,7 +67,6 @@ public class Config {
 
 	public static boolean glowingWakes() {return CLIENT.glowingWakes.get();}
 	public static boolean glowSplashPlane() {return CLIENT.glowSplashPlane.get();}
-	public static boolean accurateParticularSplash() {return CLIENT.accurateParticularSplash.get();}
 	public static boolean effectualGlowDrip() {return CLIENT.effectualGlowDrip.get();}
 	//? if <=1.21.1 {
 	/*public static boolean oarSplash() {return CLIENT.oarSplash.get();}
