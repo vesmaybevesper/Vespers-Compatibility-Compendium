@@ -55,7 +55,7 @@ public class WakeColorMixin {
 	private static double VCC$invertedLogisticCurve(float x) {
 		//? <=1.21.11{
 		/*float k = WakesConfig.shaderLightPassthrough;
-		*///?} >=26.2{
+		*///?} >=26.1.2{
 		//temp measure till i get familar with the new wakes changes
 		float k = Config.ClientConfig.shaderLightPassthrough;
 		//?}
@@ -66,7 +66,7 @@ public class WakeColorMixin {
 	@Inject(method = "blend", at = @At("HEAD"), cancellable = true)
 	//? <=1.21.11{
 	/*private void VCC$blend$head(WakeColor tint, int lightColor, float opacity, CallbackInfoReturnable<WakeColor> cir){
-	*///?} >=26.2{
+	*///?} >=26.1.2{
 	private void VCC$blend$head(WakeColor tint, float opacity, CallbackInfoReturnable<WakeColor> cir){
 	//?}
 		//? <=1.21.1{

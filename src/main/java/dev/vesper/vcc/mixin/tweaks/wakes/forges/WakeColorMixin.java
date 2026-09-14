@@ -36,7 +36,7 @@ public class WakeColorMixin {
 	private static double invertedLogisticCurve(float x) {
 		throw new UnsupportedOperationException("Implemented via mixin");
 	}
-	^///?} 26.2{
+	^///?} >=26.1.2{
 	@Shadow
 	private static double lightFactor(float x){
 		throw new UnsupportedOperationException("Implemented via mixin");
@@ -56,7 +56,7 @@ public class WakeColorMixin {
 			BlockPos pos = player.blockPosition();
 
 			assert level != null;
-			//~ if 26.2 'isNight' -> 'isDarkOutside'
+			//~ if >=26.1.2 'isNight' -> 'isDarkOutside'
 			if (level.isDarkOutside() && level.getBiome(pos).is(Biomes.WARM_OCEAN)){
 				float fade = Math.min(0.3F, (float)(level.getGameTime() % 40L) / 40.0F);
 				float value = Math.min(0.3F, fade / 15.0F);
@@ -69,7 +69,7 @@ public class WakeColorMixin {
 				int r = (int)((double)color.r * scrA + (double)glow.r * invSrcA);
 				int g = (int)((double)color.g * scrA + (double)glow.g * invSrcA);
 				int b = (int)((double)color.b * scrA + (double)glow.b * invSrcA);
-				//~ if 26.2 'invertedLogisticCurve' -> 'lightFactor' {
+				//~ if >=26.1.2 'invertedLogisticCurve' -> 'lightFactor' {
 				r = (int)((double) r * lightFactor((float) (lightColor & 255) / 255.0F));
 				g = (int)((double) g * lightFactor((float) (lightColor >> 8 & 255) / 255.0F));
 				b = (int)((double) b * lightFactor((float) (lightColor >> 16 & 255) / 255.0F));
