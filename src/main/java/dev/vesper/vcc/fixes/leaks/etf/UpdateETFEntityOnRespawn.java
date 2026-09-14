@@ -10,9 +10,11 @@ import dev.vesper.vcc.util.ReflectionHelper;
 /*import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
 *///?}
+//? if fabric || (neoforge && >=26.1.2) {
 import traben.entity_texture_features.features.ETFManager;
 import traben.entity_texture_features.features.player.ETFPlayerEntity;
 import traben.entity_texture_features.utils.ETFLruCache;
+//?}
 
 import java.lang.invoke.MethodType;
 
