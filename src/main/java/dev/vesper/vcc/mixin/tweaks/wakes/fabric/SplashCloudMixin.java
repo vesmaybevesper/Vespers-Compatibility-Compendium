@@ -1,10 +1,12 @@
 package dev.vesper.vcc.mixin.tweaks.wakes.fabric;
 
+//? if fabric
 import com.goby56.wakes.particle.custom.SplashCloudParticle;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.vcc.Config;
 import dev.vesper.vcc.util.MiscMethods;
+import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SingleQuadParticle;
@@ -24,10 +26,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // straight port of the old effected wakes code, I expect this to not work as intended anymore
 
 @IfModLoaded("Wakes")
+//~ if !fabric 'SplashCloudParticle' -> 'MixinDummy'
 @Mixin(SplashCloudParticle.class)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 //~ if <=1.21.1 'SingleQuadParticle' -> 'TextureSheetParticle'
 public class SplashCloudMixin extends SingleQuadParticle {
+	//? if fabric {
 	@Unique
 	private float colorEffect;
 
@@ -69,5 +73,23 @@ public class SplashCloudMixin extends SingleQuadParticle {
 			this.setColor(1.0F, 1.0F, 1.0F);
 		}
 	}
+	//?} else {
+	/*public SplashCloudMixin(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
+		//~ if 1.20.1 || neoforge && <=1.21.1 'level, x, y, z, sprite' -> 'level, x, y, z'
+		super(level, x, y, z, sprite);
+	}
+
+	//? if >1.20.1 && fabric || neoforge && >=26.1.2 {
+	@Override
+	protected Layer getLayer() {
+		return Layer.TRANSLUCENT;
+	}
+	//?} else{
+	/^@Override
+	public ParticleRenderType getRenderType() {
+		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+	}
+	^///?}
+	*///?}
 
 }

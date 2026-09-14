@@ -1,10 +1,12 @@
 package dev.vesper.vcc.mixin.tweaks.wakes.forges;
 
-import com.leclowndu93150.wakes.particle.custom.SplashCloudParticle;
+//? if !fabric
+//import com.leclowndu93150.wakes.particle.custom.SplashCloudParticle;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.vcc.Config;
 import dev.vesper.vcc.util.MiscMethods;
+import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SingleQuadParticle;
@@ -25,11 +27,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // straight port of the old effected wakes code, I expect this to not work as intended anymore
 
 @IfModLoaded("Wakes")
-@Mixin(value = SplashCloudParticle.class, remap = false)
+//~ if fabric 'SplashCloudParticle' -> 'MixinDummy'
+@Mixin(value = MixinDummy.class, remap = false)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 //~ if <=1.21.1 'SingleQuadParticle' -> 'TextureSheetParticle'
 public class SplashCloudMixin extends SingleQuadParticle {
-	@Unique
+	//? if !fabric {
+	/*@Unique
 	private float colorEffect;
 
 	protected SplashCloudMixin(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
@@ -42,11 +46,11 @@ public class SplashCloudMixin extends SingleQuadParticle {
 	@Override
 	protected Layer getLayer() {return Layer.TRANSLUCENT;}
 	//?} else{
-	/*@Override
+	/^@Override
 	public ParticleRenderType getRenderType() {
 		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
 	}
-	*///?}
+	^///?}
 
 	@Inject(method = "<init>", at = @At("RETURN"))
 	//~ if <=1.21.1 'ClientLevel world, double x, double y, double z, TextureAtlasSprite sprite, double velocityX, double velocityY, double velocityZ, CallbackInfo ci' -> 'ClientLevel world, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci'
@@ -71,5 +75,21 @@ public class SplashCloudMixin extends SingleQuadParticle {
 			this.setColor(1.0F, 1.0F, 1.0F);
 		}
 	}
+	*///?} fabric {
+	protected SplashCloudMixin(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
+		super(level, x, y, z, sprite);
+	}
+
+	//? if >1.21.1 {
+	@Override
+	protected Layer getLayer() {
+		return Layer.TRANSLUCENT;
+	}
+	//?} else {
+	/*public ParticleRenderType getRenderType() {
+		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+	}
+	*///?}
+	//?}
 
 }
