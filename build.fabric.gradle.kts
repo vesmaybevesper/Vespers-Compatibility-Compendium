@@ -36,9 +36,9 @@ platform {
 			slug("eveningstarlib")
 			fabricLikeVersionRange = ">=$eslCleanVersion"
 		}
-		required("yet_another_config_lib_v3"){
-			slug("yacl")
-			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+		required("forgeconfigapiport"){
+			slug("forge-config-api-port")
+			fabricLikeVersionRange = ">=${prop("deps.forge_config_api_num")}"
 		}
 		optional("modmenu") {
 			slug("modmenu")
@@ -51,6 +51,10 @@ platform {
 		optional("effectual") {
 			slug("effectual")
 			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
+		}
+		optional("particular") {
+			slug("particular-reforged")
+			fabricLikeVersionRange = ">=${prop("deps.particular-reforged")}"
 		}
 		optional("entity_texture_features"){
 			slug("entitytexturefeatures", "entity-texture-features-fabric")
@@ -138,12 +142,11 @@ dependencies {
 		})
 	}
 	modImplementation("net.fabricmc:fabric-loader:${prop("deps.fabric-loader")}")
-	// implementation(libs.moulberry.mixinconstraints)
-	// include(libs.moulberry.mixinconstraints)
+	implementation(libs.moulberry.mixinconstraints)
+	include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
 	modCompileOnly("com.terraformersmc:modmenu:${prop("deps.modmenu")}")
-	modImplementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
-	modCompileOnly("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
+	modImplementation("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
 	modImplementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (sc.current.parsed <= "1.21.1") {
 		modCompileOnly("maven.modrinth:effective:${prop("deps.effective")}")
@@ -155,6 +158,7 @@ dependencies {
 	modCompileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	modCompileOnly("maven.modrinth:wakes:${prop("deps.wakes")}")
 	modCompileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	modCompileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	modCompileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")

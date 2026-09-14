@@ -1,5 +1,6 @@
 package dev.vesper.vcc.mixin.particlemodifiers;
 
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.vesper.vcc.util.MixinDummy;
 import dev.vesper.vcc.util.ParticleModContext;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,11 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /*import org.ladysnake.effective.particle.GlowDropletParticle;
 *///?}
 
-//? <=1.21.1 && fabric{
-/*@Mixin(GlowDropletParticle.class)
-*///?} >1.21.1 || !fabric{
+@IfModLoaded(value = "effective")
+//~ if >1.2.1 || !fabric 'GlowDropletParticle' -> 'MixinDummy'
 @Mixin(MixinDummy.class)
-//?}
 public class MixinEffectiveGlowDroplet {
 
 	//? <=1.21.1 && fabric{

@@ -27,36 +27,40 @@ platform {
 		}
 		required("eveningstarlib") {
 			slug("eveningstarlib")
-			fabricLikeVersionRange = ">=$eslCleanVersion"
+			forgeLikeVersionRange = ">=$eslCleanVersion"
 		}
-		required("yet_another_config_lib_v3"){
-			slug("yacl")
-			fabricLikeVersionRange = ">=${prop("deps.yet_another_config_lib_v3")}"
+		required("forgeconfigapiport"){
+			slug("forge-config-api-port")
+			forgeLikeVersionRange = ">=${prop("deps.forge_config_api_num")}"
 		}
 		optional("wakes"){
 			slug("wakes-reforged")
-			fabricLikeVersionRange = ">=${prop("deps.wakes")}"
+			forgeLikeVersionRange = ">=${prop("deps.wakes")}"
 		}
 		optional("effectual") {
 			slug("effectual")
-			fabricLikeVersionRange = ">=${prop("deps.effectual")}"
+			forgeLikeVersionRange = ">=${prop("deps.effectual")}"
+		}
+		optional("particular") {
+			slug("particular-reforged")
+			forgeLikeVersionRange = ">=${prop("deps.particular-reforged")}"
 		}
 		optional("entity_texture_features"){
 			slug("entitytexturefeatures", "entity-texture-features-fabric")
-			fabricLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
+			forgeLikeVersionRange = ">=${prop("deps.entity_texture_features")}"
 		}
 		optional("iceberg"){
 			slug("iceberg")
-			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
+			forgeLikeVersionRange = ">=${prop("deps.iceberg")}"
 		}
 		optional("jei"){
 			slug("jei")
-			fabricLikeVersionRange = ">=${prop("deps.jei")}"
+			forgeLikeVersionRange = ">=${prop("deps.jei")}"
 		}
 		if (stonecutter.current.parsed.equals("1.21.1")) {
 			optional("particle-rain") {
 				slug("particle-rain")
-				fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
+				forgeLikeVersionRange = ">=${prop("deps.particle-rain")}"
 			}
 		}
 	}
@@ -101,10 +105,9 @@ repositories {
 }
 
 dependencies {
-	// implementation(libs.moulberry.mixinconstraints)
-	// jarJar(libs.moulberry.mixinconstraints)
-	implementation("maven.modrinth:yacl:${prop("deps.yet_another_config_lib_v3")}")
-	compileOnly("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
+	implementation(libs.moulberry.mixinconstraints)
+	jarJar(libs.moulberry.mixinconstraints)
+	implementation("maven.modrinth:forge-config-api-port:${prop("deps.forge_config_api")}")
 	implementation("maven.modrinth:eveningstarlib:${prop("deps.eveningstarlib")}")
 	if (stonecutter.current.parsed.equals("1.21.1")) {
 		compileOnly("maven.modrinth:particle-rain:${prop("deps.particle-rain")}")
@@ -112,6 +115,7 @@ dependencies {
 	compileOnly("maven.modrinth:architectury-api:${prop("deps.architectury-api")}")
 	compileOnly("maven.modrinth:wakes-reforged:${prop("deps.wakes")}")
 	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
+	compileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
 	compileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	compileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")

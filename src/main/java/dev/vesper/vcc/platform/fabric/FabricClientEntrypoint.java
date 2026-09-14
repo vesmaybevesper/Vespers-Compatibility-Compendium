@@ -1,8 +1,7 @@
 package dev.vesper.vcc.platform.fabric;
 
 //? fabric {
-
-import dev.vesper.vcc.VCC;
+import dev.vesper.vcc.Config;import dev.vesper.vcc.VCC;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import dev.vesper.vcc.fixes.leaks.emi.ClearEMIHistoryOnRespawn;
 import dev.vesper.vcc.fixes.leaks.etf.UpdateETFEntityOnRespawn;
