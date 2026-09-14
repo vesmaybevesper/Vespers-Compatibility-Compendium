@@ -1,17 +1,13 @@
 package dev.vesper.vcc.fixes.leaks.iceberg;
 
-import com.anthonyhilyard.iceberg.util.EntityCollector;
 import dev.vesper.eveningstarlib.EveningStarLib;
 //? if fabric
 import dev.vesper.eveningstarlib.platform.fabric.events.LevelEvents;
-import dev.vesper.vcc.util.ReflectionHelper;
 //? if neoforge {
 /*import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.level.LevelEvent;
 *///?}
 import dev.vesper.vcc.mixin.accessors.CustomItemRenderAccessor;
-import java.lang.invoke.VarHandle;
-import java.util.Map;
 
 public class ClearEntitiesOnUnload {
 	//? if fabric {

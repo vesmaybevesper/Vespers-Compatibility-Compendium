@@ -1,5 +1,6 @@
 package dev.vesper.vcc.fixes.leaks.iceberg;
 
+//? if fabric || (neoforge && >=26.1.2)
 import com.anthonyhilyard.iceberg.util.EntityCollector;
 import dev.vesper.eveningstarlib.EveningStarLib;
 //? if fabric
