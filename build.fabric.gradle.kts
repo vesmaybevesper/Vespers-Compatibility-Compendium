@@ -34,7 +34,7 @@ platform {
 		}
 		required("eveningstarlib") {
 			slug("eveningstarlib")
-			fabricLikeVersionRange = "eslCleanVersion"
+			fabricLikeVersionRange = eslCleanVersion
 		}
 		required("forgeconfigapiport"){
 			slug("forge-config-api-port")

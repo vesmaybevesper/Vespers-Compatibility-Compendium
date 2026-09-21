@@ -27,7 +27,7 @@ platform {
 		}
 		required("eveningstarlib") {
 			slug("eveningstarlib")
-			forgeLikeVersionRange = "eslCleanVersion"
+			forgeLikeVersionRange = eslCleanVersion
 		}
 		optional("wakes"){
 			slug("wakes-reforged")
