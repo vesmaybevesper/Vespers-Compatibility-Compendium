@@ -1,13 +1,17 @@
-**Release Highlights:**
-
-- Add a tweak to Wakes' Splash Clouds effect to make them glow just like the wakes [WIP]
-- Better Effectual glowing droplet effect [WIP]
+- Add a tweak to Wakes' Splash Clouds effect to make them "glow" just like the wakes
+  - The "glow" is really just a color shift to better match the wakes, improvements coming (I hope)
+- Better Effectual glowing player droplet effect
   - This is now considered a tweak, is on all versions, and is on by default again
 - Switch config to Forge Config API Port
   - The way I eventually want to set up the config wouldn't have been possible using YACL, the Forge API port was the best option I could find for an existing config API
 - Re-add support for 26.1.2
   - I'm still feeling out what the most popular versions are (across all my mods), so this may go away in the future if it doesn't get utilized
 - Enabled applicable fixes on NeoForge >=26.1.2
-  - Fixes for JEI, Iceberg & Entity Texture Features
+- Properly version some fixes and remove unneeded ones
+  - List of fixes and versions will be updated at the end of the update cycle
 - Glowing Wakes is now considered a tweak of Wakes on all versions
 - Use MixinConstraints to fully prevent the running of non-applicable mixins
+
+_This update is going to be a big one, this is maybe a third of what I hope to have in the full release._
+
+_I will add 26.3 during this update cycle if enough features have the required mods updated_
