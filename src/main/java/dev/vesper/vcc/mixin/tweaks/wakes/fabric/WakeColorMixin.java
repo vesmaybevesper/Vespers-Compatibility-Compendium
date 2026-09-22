@@ -9,7 +9,7 @@ import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
-import net.minecraft.client.Minecraft;
+import dev.vesper.vcc.util.MiscMethods;import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -69,47 +69,15 @@ public class WakeColorMixin {
 	*///?} >=26.1.2{
 	private void VCC$blend$head(WakeColor tint, float opacity, CallbackInfoReturnable<WakeColor> cir){
 	//?}
-		//? <=1.21.1{
-		/*if (Config.glowingWakes() && EveningStarLib.isModLoaded("effective") && EveningStarLib.isModLoaded("wakes")){
-			Level level = Minecraft.getInstance().level;
-
-			Player player = Minecraft.getInstance().player;
-			assert player != null;
-			BlockPos pos = player.blockPosition();
-
-			if (EffectiveUtils.isGlowingWater(level, pos)){
-				float fade = Math.min(0.3F, (float)(level.getGameTime() % 40L) / 40.0F);
-				float value = Math.min(0.3F, fade / 15.0F);
-				float hue = 0.5833333F;
-				float sat = 0.3F;
-				WakeColor color = new WakeColor(hue, sat, value, 1.0F);
-				int foamLight = 15728880;
-				double scrA = Math.pow((float)this.a / 255.0F, WakesConfig.blendStrength * 10.0F);
-				int r = (int)((double)this.r * scrA + (double)color.r * ((double)1.0F - scrA));
-				int g = (int)((double)this.g * scrA + (double)color.g * ((double)1.0F - scrA));
-				int b = (int)((double)this.b * scrA + (double)color.b * ((double)1.0F - scrA));
-				r = (int)((double)r * VCC$invertedLogisticCurve(0.0F));
-				g = (int)((double)g * VCC$invertedLogisticCurve(0.0F));
-				b = (int)((double)b * VCC$invertedLogisticCurve(0.9411765F));
-				WakeColor newColor = new WakeColor(r, g, b, (int)((float)this.a * opacity));
-				cir.setReturnValue(newColor);
-			}
-		}
-		*///?} >=1.21.11{
 		if (Config.glowingWakes() && EveningStarLib.isModLoaded("wakes")) {
 			Level level = Minecraft.getInstance().level;
-
-			Player player = Minecraft.getInstance().player;
-			assert player != null;
-			BlockPos pos = player.blockPosition();
 			assert level != null;
-			if (level.isDarkOutside() && level.getBiome(pos).is(Biomes.WARM_OCEAN)) {
+			if (MiscMethods.shouldGlow()) {
 				float fade = Math.min(0.3F, (float) (level.getGameTime() % 40L) / 40.0F);
 				float value = Math.min(0.3F, fade / 15.0F);
 				float hue = 0.5833333F;
 				float sat = 0.3F;
 				WakeColor color = new WakeColor(hue, sat, value, 1.0F);
-				int foamLight = 15728880;
 				double scrA = Math.pow((double) ((float) this.a / 255.0F), (double) (WakesConfig.blendStrength * 10.0F));
 				int r = (int) ((double) this.r * scrA + (double) color.r * ((double) 1.0F - scrA));
 				int g = (int) ((double) this.g * scrA + (double) color.g * ((double) 1.0F - scrA));
@@ -121,7 +89,6 @@ public class WakeColorMixin {
 				cir.setReturnValue(newColor);
 			}
 		}
-		//?}
 	}
 	//?}
 }

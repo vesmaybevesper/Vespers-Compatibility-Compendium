@@ -5,7 +5,7 @@ package dev.vesper.vcc.mixin.tweaks.wakes.forges;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.vcc.Config;
-import dev.vesper.vcc.util.MixinDummy;
+import dev.vesper.vcc.util.MiscMethods;import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -56,16 +56,15 @@ public class WakeColorMixin {
 			BlockPos pos = player.blockPosition();
 
 			assert level != null;
-			//~ if >=26.1.2 'isNight' -> 'isDarkOutside'
-			if (level.isDarkOutside() && level.getBiome(pos).is(Biomes.WARM_OCEAN)){
+			if (MiscMethods.shouldGlow()){
 				float fade = Math.min(0.3F, (float)(level.getGameTime() % 40L) / 40.0F);
 				float value = Math.min(0.3F, fade / 15.0F);
 
 				WakeColor glow = new WakeColor(0.5833333F, 0.3F, value, 1.0F);
 
 				double scrA = cachedSrcA[color.a];
-				double invSrcA = cachedInvSrcA[color.a]
-						;
+				double invSrcA = cachedInvSrcA[color.a];
+
 				int r = (int)((double)color.r * scrA + (double)glow.r * invSrcA);
 				int g = (int)((double)color.g * scrA + (double)glow.g * invSrcA);
 				int b = (int)((double)color.b * scrA + (double)glow.b * invSrcA);
