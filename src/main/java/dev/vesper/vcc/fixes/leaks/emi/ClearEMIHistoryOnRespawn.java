@@ -1,9 +1,9 @@
 package dev.vesper.vcc.fixes.leaks.emi;
 
-//? fabric {
-import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
-import dev.vesper.vcc.VCC;
+//? if fabric && 1.21.1 {
+/*import dev.vesper.vcc.VCC;
 import net.fabricmc.loader.api.FabricLoader;
+import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,8 +24,8 @@ public class ClearEMIHistoryOnRespawn {
 				}
 			}));
 		} catch (ClassNotFoundException | NoSuchMethodException e) {
-			VCC.LOGGER.warn("EMI Class no found, skipping EMI fix");
+			VCC.LOGGER.warn("EMI Class not found, skipping EMI fix");
 		}
 	}
 }
-//?}
+*///?}

@@ -1,9 +1,5 @@
 package dev.vesper.vcc.util;
 
-import dev.vesper.vcc.Config;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-
 public class GlobalRipple {
 /*
 	public void spawn(Level level, Vec3 pos) {

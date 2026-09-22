@@ -1,5 +1,6 @@
 package dev.vesper.vcc.mixin.particlemodifiers;
 
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.vesper.vcc.util.MixinDummy;
 
 import dev.vesper.vcc.util.ParticleModContext;
@@ -14,11 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 *///?}
 
-//? 1.21.1 && fabric{
-/*@Mixin(CascadeParticle.class)
-*///?} else {
+@IfModLoaded(value = "effective")
+//~ if !1.21.1 || !fabric 'CascadeParticle' -> 'MixinDummy'
 @Mixin(MixinDummy.class)
-//?}
 public class MixinEffectiveCascade {
 
 	//? 1.21.1 && fabric{
