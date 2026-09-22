@@ -24,9 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //? if <=1.21.1
 //import net.minecraft.client.particle.TextureSheetParticle;
 
-// straight port of the old effected wakes code, I expect this to not work as intended anymore
-
-@IfModLoaded("Wakes")
+@IfModLoaded(value = "wakes")
 //~ if fabric 'SplashCloudParticle' -> 'MixinDummy'
 @Mixin(value = MixinDummy.class, remap = false)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
@@ -40,17 +38,6 @@ public abstract class SplashCloudMixin /*? forge || neoforge {*//*extends Single
 		//~ if <=1.21.1 'level, x, y, z, sprite' -> 'level, x, y, z'
 		super(level, x, y, z, sprite);
 	}
-
-
-	//? if >=1.21.11 {
-	@Override
-	protected Layer getLayer() {return Layer.TRANSLUCENT;}
-	//?} else{
-	/^@Override
-	public ParticleRenderType getRenderType() {
-		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
-	}
-	^///?}
 
 	@Inject(method = "<init>", at = @At("RETURN"))
 	//~ if <=1.21.1 'ClientLevel world, double x, double y, double z, TextureAtlasSprite sprite, double velocityX, double velocityY, double velocityZ, CallbackInfo ci' -> 'ClientLevel world, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci'
@@ -69,8 +56,9 @@ public abstract class SplashCloudMixin /*? forge || neoforge {*//*extends Single
 	@Unique
 	private void vcc$updateColor(float light){
 		if (MiscMethods.shouldGlow()){
-			float redGreen = Math.min(1.0F, this.colorEffect / 5.0F + light / 15F);
-			this.setColor(redGreen, redGreen, 1.0F);
+			// this is written instead of a single value cause i want to read some of these from variables in the future
+			float redGreen = (float) (0.5f * (4.0f * Math.pow(0.9411765f - 0.5f, 3.0f) + 0.5f));
+			this.setColor(redGreen, redGreen, 1.0f);
 		} else {
 			this.setColor(1.0F, 1.0F, 1.0F);
 		}

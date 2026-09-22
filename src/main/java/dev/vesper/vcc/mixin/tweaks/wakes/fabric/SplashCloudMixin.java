@@ -5,6 +5,7 @@ import com.goby56.wakes.particle.custom.SplashCloudParticle;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import dev.vesper.vcc.Config;
+import dev.vesper.vcc.VCC;
 import dev.vesper.vcc.util.MiscMethods;
 import dev.vesper.vcc.util.MixinDummy;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,7 +16,7 @@ import net.minecraft.client.particle.SpriteSet;
 //import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.util.Mth;import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.LightLayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -23,9 +24,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-// straight port of the old effected wakes code, I expect this to not work as intended anymore
-
-@IfModLoaded("Wakes")
+@IfModLoaded(value = "wakes")
 //~ if !fabric 'SplashCloudParticle' -> 'MixinDummy'
 @Mixin(SplashCloudParticle.class)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
@@ -40,17 +39,6 @@ public abstract class SplashCloudMixin /*? fabric {*/extends SingleQuadParticle/
 		super(level, x, y, z, sprite);
 	}
 
-
-	//? if >=1.21.11 {
-	@Override
-	protected Layer getLayer() {return Layer.TRANSLUCENT;}
-	//?} else{
-	/*@Override
-	public ParticleRenderType getRenderType() {
-		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
-	}
-	*///?}
-
 	@Inject(method = "<init>", at = @At("RETURN"))
 	//~ if <=1.21.1 'ClientLevel world, Entity owner, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci' -> 'ClientLevel world, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci'
 	public void vcc$init$return(ClientLevel world, Entity owner, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci){
@@ -58,21 +46,21 @@ public abstract class SplashCloudMixin /*? fabric {*/extends SingleQuadParticle/
 	}
 
 	@Inject(method = "tick", at = @At("HEAD"))
-	private void vcc$tick$head(CallbackInfo ci){
-		if (Config.glowSplashPlane()) {
-			this.vcc$updateColor(this.level.getBrightness(LightLayer.BLOCK, new BlockPos((int) this.x, (int) this.y, (int) this.z)));
+	private void vcc$tick$head(CallbackInfo ci) {
+		if (Config.glowSplashPlane() && MiscMethods.shouldGlow()) {
+			this.vcc$updateColor(this.level.getBrightness(LightLayer.BLOCK, new BlockPos(Mth.floor(this.x), Mth.floor(this.y), Mth.floor(this.z))));
 		}
 	}
 
 	@Unique
-	private void vcc$updateColor(float light){
-		if (MiscMethods.shouldGlow()){
-			float redGreen = Math.min(1.0F, this.colorEffect / 5.0F + light / 15F);
-			this.setColor(redGreen, redGreen, 1.0F);
+	private void vcc$updateColor(float light) {
+		if (MiscMethods.shouldGlow()) {
+			// this is written instead of a single value cause i want to read some of these from variables in the future
+			float redGreen = (float) (0.5f * (4.0f * Math.pow(0.9411765f - 0.5f, 3.0f) + 0.5f));
+			this.setColor(redGreen, redGreen, 1.0f);
 		} else {
-			this.setColor(1.0F, 1.0F, 1.0F);
+			this.setColor(1.0f, 1.0f, 1.0f);
 		}
 	}
 	//?}
-
 }
