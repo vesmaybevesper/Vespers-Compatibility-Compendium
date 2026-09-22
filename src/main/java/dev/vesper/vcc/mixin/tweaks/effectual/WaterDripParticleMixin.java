@@ -11,12 +11,13 @@ import net.minecraft.client.particle.SingleQuadParticle;
 //import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.LightLayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@IfModLoaded("effectual")
+@IfModLoaded(value = "effective")
 @Mixin(value = WaterDripParticle.class, remap = false)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
 public abstract class WaterDripParticleMixin extends SingleQuadParticle {
@@ -32,7 +33,8 @@ public abstract class WaterDripParticleMixin extends SingleQuadParticle {
 	private void vcc$modifyColor(ClientLevel level, Player player, double localOffsetX, double localOffsetY, double localOffsetZ, TextureAtlasSprite sprite, CallbackInfo ci){
 		if (Config.effectualGlowDrip()) {
 			if (MiscMethods.shouldGlow()){
-				this.setColor(this.random.nextFloat() / 5.0f, this.random.nextFloat() / 5.0f, 1.0f);
+				float rg = Math.min(1.0f, (this.random.nextFloat() / 5f) + level.getBrightness(LightLayer.BLOCK, player.getOnPos()));
+				this.setColor(rg, rg, 1.0f);
 			}
 		}
 	}
