@@ -7,7 +7,6 @@ import dev.vesper.vcc.VCC;
 import dev.vesper.vcc.fixes.leaks.etf.UpdateETFEntityOnRespawn;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearEntitiesOnUnload;
 import dev.vesper.vcc.fixes.leaks.iceberg.ClearMapsOnUnload;
-import dev.vesper.vcc.fixes.leaks.jei.ClearMenuOnRespawn;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -27,7 +26,6 @@ public class NeoforgeEntrypoint {
 		//~ if 1.21.1 'FMLEnvironment.getDist()' -> 'FMLEnvironment.dist'
 		if (FMLEnvironment.getDist() == Dist.CLIENT) {
 			modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-			new ClearMenuOnRespawn();
 			new UpdateETFEntityOnRespawn();
 			new ClearEntitiesOnUnload();
 			new ClearMapsOnUnload();

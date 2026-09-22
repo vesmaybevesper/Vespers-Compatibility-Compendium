@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 //? fabric {
 import dev.vesper.vcc.platform.fabric.FabricPlatform;
-import dev.vesper.vcc.fixes.leaks.supplementaries.ClearCachesOnServerStop;
 import java.util.Arrays;
 import java.util.function.Predicate;
 //?} neoforge {
@@ -29,10 +28,6 @@ public class VCC {
 	public static void onInitialize() {
 		LOGGER.info("Initializing {} on {}", MOD_ID, VCC.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
-
-		//? <=1.21.1 && fabric{
-		/*ClearCachesOnServerStop.init();
-		*///?}
 	}
 
 	public static void onInitializeClient() {

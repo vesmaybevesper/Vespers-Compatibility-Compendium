@@ -64,10 +64,10 @@ platform {
 			slug("iceberg")
 			fabricLikeVersionRange = ">=${prop("deps.iceberg")}"
 		}
-		optional("jei"){
+		/*optional("jei"){
 			slug("jei")
 			fabricLikeVersionRange = ">=${prop("deps.jei")}"
-		}
+		}*/
 		optional("particle-rain") {
 			slug("particle-rain")
 			fabricLikeVersionRange = ">=${prop("deps.particle-rain")}"
@@ -85,10 +85,6 @@ platform {
 			optional("jade") {
 				slug("jade")
 				fabricLikeVersionRange = ">=${prop("deps.jade")}"
-			}
-			optional("supplementaries"){
-				slug("supplementaries")
-				fabricLikeVersionRange = ">=${prop("deps.supplementaries")}"
 			}
 		}
 	}
