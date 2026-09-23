@@ -1,8 +1,8 @@
 package dev.vesper.vcc;
 
 //? if neoforge || fabric && >=1.21.1
-import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.minecraft.network.chat.Component;
 //? if forge || fabric && 1.20.1
 //import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
