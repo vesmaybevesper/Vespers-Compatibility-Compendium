@@ -15,9 +15,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 
-// This file is derived from All The Leaks
-// Copyright (c) 2023 AllTheLeaks
-// Licensed under the MIT License. See THIRD_PARTY_NOTICES for full text.
+/** This file is derived from All The Leaks
+ * Copyright (c) 2023 AllTheLeaks
+ * Licensed under the MIT License. See THIRD_PARTY_NOTICES for full text.
+*/
 public class ReflectionHelper {
 
 	public static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();
