@@ -1,6 +1,7 @@
 package dev.vesper.vcc;
 
 //? if neoforge || fabric && >=1.21.1
+import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.common.ModConfigSpec;
 //? if forge || fabric && 1.20.1
 //import net.minecraftforge.common.ForgeConfigSpec;
@@ -53,13 +54,13 @@ public class Config {
 			builder.pop();
 			*///?}
 
-			builder.comment("Tweaks").push("tweaks");
-			builder.comment("Wakes").push("wakes");
-			glowingWakes = builder.comment("Make wakes glow").define("glowingWakes", true);
-			glowSplashPlane = builder.comment("Make Wakes' splash planes glow").define("glowSplashPlane", true);
+			builder.comment(Component.translatable("config.tweaks.comment").getString()).push("tweaks");
+			builder.comment(Component.translatable("config.wakes.comment").getString()).push("wakes");
+			glowingWakes = builder.comment(Component.translatable("config.glowwakes.comment").getString()).define("glowingWakes", true);
+			glowSplashPlane = builder.comment(Component.translatable("config.glowclouds.comment").getString()).define("glowSplashPlane", true);
 			builder.pop();
-			builder.comment("Effectual").push("effectual");
-			effectualGlowDrip = builder.comment("Enable Oar Splash").define("effectualGlowDrip", true);
+			builder.comment(Component.translatable("config.effectual.comment").getString()).push("effectual");
+			effectualGlowDrip = builder.comment(Component.translatable("config.glowdrip.comment").getString()).define("effectualGlowDrip", true);
 			builder.pop();
 			builder.pop();
 		}
