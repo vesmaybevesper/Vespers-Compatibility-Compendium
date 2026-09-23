@@ -38,28 +38,28 @@ public class Config {
 		ClientConfig(ModConfigSpec.Builder builder) {
 		//~}
 			//? if <=1.21.1 {
-			/*builder.comment("Integrations").push("integration");
-			builder.comment("Effective & Wakes").push("effwakes");
-			oarSplash = builder.comment("Enable Oar Splash").define("oarSplash", true);
+			/*builder.comment(Component.translatable("config.integrations.comment").getString()).push("integration");
+			builder.push("effwakes");
+			oarSplash = builder.comment(Component.translatable("config.oarsplash.comment").getString()).define("oarSplash", true);
 			builder.pop();
-			builder.comment("Effective & Effectual").push("effsqr");
-			useEffectiveBubbleBreath = builder.comment("Effective bubble").define("useEffectiveBubbleBreath", true);
-			replaceEffectualChestBubble = builder.comment("Enable Oar Splash").define("replaceEffectualChestBubble", true);
-			replaceEffectualPots = builder.comment("Enable Oar Splash").define("replaceEffectualPots", true);
-			breathSteam = builder.comment("Enable Oar Splash").define("breathSteam", false);
+			builder.push("effsqr");
+			useEffectiveBubbleBreath = builder.comment(Component.translatable("config.effbubblebreath.comment").getString()).define("useEffectiveBubbleBreath", true);
+			replaceEffectualChestBubble = builder.comment(Component.translatable("config.effbubblechest.comment").getString()).define("replaceEffectualChestBubble", true);
+			replaceEffectualPots = builder.comment(Component.translatable("config.effbubblepots.comment").getString()).define("replaceEffectualPots", true);
+			breathSteam = builder.comment(Component.translatable("config.breathsteam.comment").getString()).define("breathSteam", false);
 			builder.pop();
-			builder.comment("Effective & Particle Rain").push("effrain");
-			replaceRipple = builder.comment("Enable Oar Splash").define("replaceRipple", true);
+			builder.push("effrain");
+			replaceRipple = builder.comment(Component.translatable("config.replaceripple.comment").getString()).define("replaceRipple", true);
 			builder.pop();
 			builder.pop();
 			*///?}
 
 			builder.comment(Component.translatable("config.tweaks.comment").getString()).push("tweaks");
-			builder.comment(Component.translatable("config.wakes.comment").getString()).push("wakes");
+			builder.push("wakes");
 			glowingWakes = builder.comment(Component.translatable("config.glowwakes.comment").getString()).define("glowingWakes", true);
 			glowSplashPlane = builder.comment(Component.translatable("config.glowclouds.comment").getString()).define("glowSplashPlane", true);
 			builder.pop();
-			builder.comment(Component.translatable("config.effectual.comment").getString()).push("effectual");
+			builder.push("effectual");
 			effectualGlowDrip = builder.comment(Component.translatable("config.glowdrip.comment").getString()).define("effectualGlowDrip", true);
 			builder.pop();
 			builder.pop();
