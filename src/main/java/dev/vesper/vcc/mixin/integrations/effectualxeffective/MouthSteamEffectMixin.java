@@ -14,10 +14,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.particles.ParticleOptions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 
 //? 1.20.1 && fabric{
 /*import org.ladysnake.effective.core.Effective;
-import org.spongepowered.asm.mixin.injection.Coerce;
 *///?} 1.21.1 && fabric{
 /*import org.ladysnake.effective.index.EffectiveParticles;
 *///?}
