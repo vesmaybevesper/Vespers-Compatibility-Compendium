@@ -11,7 +11,14 @@
   - List of fixes and versions will be updated at the end of the update cycle
 - Glowing Wakes is now considered a tweak of Wakes on all versions
 - Use MixinConstraints to fully prevent the running of non-applicable mixins
+- Update for Effectual 1.4.2
 
-_This update is going to be a big one, this is maybe a third of what I hope to have in the full release._
+Alpha Version Changes:
+- Note that Wakes Reforged settings are in the same menu as Fabric Wakes
+- Improve config 
+  - Including tooltip descriptions ([#8](https://github.com/vesmaybevesper/Vespers-Compatibility-Compendium/issues/8))
+  - Feel free to open pull requests with translations
+
+_1.20.1 fabric still cant open the config in game, long story short I forgot I needed to make a screen as Forge Config Port API doesn't ship one on that version. I'm working on one, and it will hopefully be included in alpha.3_
 
 _I will add 26.3 during this update cycle if enough features have the required mods updated_
