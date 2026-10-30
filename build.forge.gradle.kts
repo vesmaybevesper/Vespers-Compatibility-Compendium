@@ -45,6 +45,10 @@ platform {
 			slug("particular-reforged")
 			forgeLikeVersionRange = ">=${prop("deps.particular-reforged")}"
 		}
+		embeds("configured"){
+			slug("", "configured")
+			forgeLikeVersionRange = "2.2.3"
+		}
 	}
 }
 
@@ -87,6 +91,7 @@ mixin {
 repositories {
 	mavenCentral()
 	strictMaven("https://api.modrinth.com/maven", "maven.modrinth") { name = "Modrinth" }
+	maven ("https://cursemaven.com")
 }
 
 dependencies {
@@ -102,6 +107,8 @@ dependencies {
 	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
 	compileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
+	modImplementation("curse.maven:configured-457570:5180900")
+	jarJar("curse.maven:configured-457570:5180900")
 }
 
 sourceSets {

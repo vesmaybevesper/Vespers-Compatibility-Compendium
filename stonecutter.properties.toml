@@ -4,7 +4,7 @@ mod.id = "vcc"
 mod.name = "Vesper's Compatibility Compendium"
 mod.group = "dev.vesper"
 mod.version = "0.5.0"
-mod.channel_tag = "-alpha.2"
+mod.channel_tag = "-alpha.3"
 mod.description = "Various mod integrations, fixes and tweaks"
 mod.authors = ["VesMaybeVesper"]
 mod.contributors = []
@@ -45,6 +45,7 @@ deps.iceberg= "AiO84cp2"
 deps.jade= "ahavHbAT"
 deps.jei= "wrBdplEy"
 deps.supplementaries= "i7ejA878"
+deps.config_screen= "nwy63zfI"
 
 [fabric."1.21.1"]
 deps.minecraft = "1.21.1"
@@ -121,11 +122,16 @@ deps.entity_texture_features= "HLCBKYFD"
 deps.iceberg= "V5RnWL87"
 deps.jei= "AFgObZjc"
 
+[fabric."26.3"]
+deps.minecraft = "26.3"
+deps.fabric-api = "0.165.0+26.3"
+deps.modmenu = "21.0.0"
+
 [forge]
 
 [forge."1.20.1"]
 deps.minecraft = "1.20.1"
-deps.forge = "47.4.23"
+deps.forge = "47.4.28"
 deps.yet_another_config_lib_v3= "3.6.6+1.20.1-forge"
 deps.eveningstarlib= "1.2.2-forge+1.20.1"
 deps.wakes= "a4XWF1p5"
@@ -139,6 +145,7 @@ deps.iceberg= "BQ8rJPXV"
 deps.jade= "xJQHCmWJ"
 deps.jei= "4FwmcFsu"
 deps.supplementaries= "S0TIJ1hU"
+deps.config_screen= "YUDLu26S"
 
 [neoforge]
 

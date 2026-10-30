@@ -87,6 +87,13 @@ platform {
 				fabricLikeVersionRange = ">=${prop("deps.jade")}"
 			}
 		}
+
+		if (stonecutter.current.parsed.matches("1.20.1")) {
+			embeds("configured"){
+				slug("", "configured")
+				fabricLikeVersionRange = "2.2.3"
+			}
+		}
 	}
 }
 
@@ -120,6 +127,7 @@ repositories {
 	mavenCentral()
 	strictMaven("https://maven.terraformersmc.com/", "com.terraformersmc") { name = "TerraformersMC" }
 	strictMaven("https://api.modrinth.com/maven", "maven.modrinth") { name = "Modrinth" }
+	maven ("https://cursemaven.com")
 }
 
 configurations.all {
@@ -159,5 +167,9 @@ dependencies {
 	modCompileOnly("maven.modrinth:entitytexturefeatures:${prop("deps.entity_texture_features")}")
 	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
 	modCompileOnly("maven.modrinth:jei:${prop("deps.jei")}")
+	if (sc.current.parsed.matches("1.20.1")){
+		modImplementation("curse.maven:configured-457570:5180902")
+		include("curse.maven:configured-457570:5180902")
+	}
 
 }
