@@ -12,7 +12,7 @@
   "vcc.configuration.replaceEffectualPots": "Pot Bubbles",
   "config.effbubblepots.comment": "Use Effective bubbles for Effectual's pot bubble effect",
   "vcc.configuration.breathSteam": "Mouth Steam",
-  "config.breathsteam.comment": "Replace Effectual's mouth steam with a modified cascade particle from Effective. Requires the explicit enable-ing of Mouth Steam in Effectual's Settings (as of version 1.4.1).",
+  "config.breathsteam.comment": "Replace Effectual's mouth steam with a modified cascade particle from Effective.",
   "vcc.configuration.effrain": "Effective & Particle Rain",
   "vcc.configuration.replaceRipple": "Droplet Ripple",
   "config.replaceripple.comment": "Use Particle Rain's ripple in place of Effective's when (normal) droplets hit water",
