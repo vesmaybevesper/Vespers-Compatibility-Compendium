@@ -1,3 +1,4 @@
+- Add support for 26.3 [IS STILL FABRIC ONLY BC UR LAZY DO NEO]
 - Add a tweak to Wakes' Splash Clouds effect to make them "glow" just like the wakes
   - The "glow" is really just a color shift to better match the wakes, improvements coming (I hope)
 - Better Effectual glowing player droplet effect
@@ -5,7 +6,6 @@
 - Switch config to Forge Config API Port
   - The way I eventually want to set up the config wouldn't have been possible using YACL, the Forge API port was the best option I could find for an existing config API
 - Re-add support for 26.1.2
-  - ~~I'm still feeling out what the most popular versions are (across all my mods), so this may go away in the future if it doesn't get utilized~~ Ya'll love 26.1.2 lol It's staying
 - Enabled applicable fixes on NeoForge >=26.1.2
 - Properly version some fixes and remove unneeded ones
   - List of fixes and versions will be updated at the end of the update cycle
@@ -22,5 +22,3 @@ Alpha Version Changes:
 - Add a screen for 1.20.1 Forge config using [Configured](https://www.curseforge.com/minecraft/mc-mods/configured) ([#9](https://github.com/vesmaybevesper/Vespers-Compatibility-Compendium/issues/9))
   - This isn't a perfect solution, but it sure is the easiest. Given that I expect 1.20.1 to be the first or second dropped version I don't feel its worth the effort to write a custom screen system for this.
   - I'm not sure why the Fabric implementation of this isn't working how I expect, but given that most of the 1.20.1 downloads are on Forge (& I really want to put out an update for this mod) I'm okay with leaving it as broken on Fabric for the time being. Uses the config file if you need to edit the config on it, and as soon as I fix it I will release an update.
-
-_I will add 26.3 during this update cycle if enough features have the required mods updated_
