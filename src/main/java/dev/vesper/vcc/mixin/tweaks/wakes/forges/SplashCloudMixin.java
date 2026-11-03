@@ -36,17 +36,17 @@ public abstract class SplashCloudMixin /*? forge || neoforge {*//*extends Single
 
 	protected SplashCloudMixin(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
 		//~ if <=1.21.1 'level, x, y, z, sprite' -> 'level, x, y, z'
-		super(level, x, y, z, sprite);
+		super(level, x, y, z);
 	}
 
 	@Inject(method = "<init>", at = @At("RETURN"))
 	//~ if <=1.21.1 'ClientLevel world, double x, double y, double z, TextureAtlasSprite sprite, double velocityX, double velocityY, double velocityZ, CallbackInfo ci' -> 'ClientLevel world, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci'
-	public void vcc$init$return(ClientLevel world, double x, double y, double z, TextureAtlasSprite sprite, double velocityX, double velocityY, double velocityZ, CallbackInfo ci){
+	public void vcc$init$return(ClientLevel world, double x, double y, double z, SpriteSet sprites, double velocityX, double velocityY, double velocityZ, CallbackInfo ci){
 		this.colorEffect = world.getRandom().nextFloat();
 	}
 
 	//~ if 1.20.1 'tick' -> 'm_5989_'
-	@Inject(method = "tick", at = @At("HEAD"))
+	@Inject(method = "m_5989_", at = @At("HEAD"))
 	private void vcc$tick$head(CallbackInfo ci){
 		if (Config.glowSplashPlane()) {
 			this.vcc$updateColor(this.level.getBrightness(LightLayer.BLOCK, new BlockPos((int) this.x, (int) this.y, (int) this.z)));

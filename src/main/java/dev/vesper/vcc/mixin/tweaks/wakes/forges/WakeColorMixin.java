@@ -32,16 +32,16 @@ public class WakeColorMixin {
 	public int g;
 
 	//? if <=1.21.1 {
-	/^@Shadow
+	@Shadow
 	private static double invertedLogisticCurve(float x) {
 		throw new UnsupportedOperationException("Implemented via mixin");
 	}
-	^///?} >=26.1.2{
-	@Shadow
+	//?} >=26.1.2{
+	/^@Shadow
 	private static double lightFactor(float x){
 		throw new UnsupportedOperationException("Implemented via mixin");
 	}
-	//?}
+	^///?}
 
 	@Shadow
 	private static double[] cachedInvSrcA;
@@ -69,9 +69,9 @@ public class WakeColorMixin {
 				int g = (int)((double)color.g * scrA + (double)glow.g * invSrcA);
 				int b = (int)((double)color.b * scrA + (double)glow.b * invSrcA);
 				//~ if >=26.1.2 'invertedLogisticCurve' -> 'lightFactor' {
-				r = (int)((double) r * lightFactor((float) (lightColor & 255) / 255.0F));
-				g = (int)((double) g * lightFactor((float) (lightColor >> 8 & 255) / 255.0F));
-				b = (int)((double) b * lightFactor((float) (lightColor >> 16 & 255) / 255.0F));
+				r = (int)((double) r * invertedLogisticCurve((float) (lightColor & 255) / 255.0F));
+				g = (int)((double) g * invertedLogisticCurve((float) (lightColor >> 8 & 255) / 255.0F));
+				b = (int)((double) b * invertedLogisticCurve((float) (lightColor >> 16 & 255) / 255.0F));
 				//~}
 				int a = (int) (color.a * opacity);
 
