@@ -45,10 +45,11 @@ platform {
 			slug("particular-reforged")
 			forgeLikeVersionRange = ">=${prop("deps.particular-reforged")}"
 		}
-		embeds("configured"){
-			slug("", "configured")
-			forgeLikeVersionRange = "2.2.3"
+		embeds("forge config screens"){
+			slug("forge-config-screens", "config-menus-forge")
+			fabricLikeVersionRange = "v8.0.2-1.20.1-Forge"
 		}
+
 	}
 }
 
@@ -107,8 +108,8 @@ dependencies {
 	compileOnly("maven.modrinth:effectual:${prop("deps.effectual")}")
 	compileOnly("maven.modrinth:particular-reforged:${prop("deps.particular-reforged")}")
 	compileOnly("maven.modrinth:cloth-config:${prop("deps.cloth-config")}")
-	modImplementation("curse.maven:configured-457570:5180900")
-	jarJar("curse.maven:configured-457570:5180900")
+	modImplementation("maven.modrinth:forge-config-screens:YUDLu26S")
+	jarJar("maven.modrinth:forge-config-screens:YUDLu26S")
 }
 
 sourceSets {

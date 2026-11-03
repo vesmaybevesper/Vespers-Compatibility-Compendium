@@ -19,8 +19,8 @@ Alpha Version Changes:
 - Improve config 
   - Including tooltip descriptions ([#8](https://github.com/vesmaybevesper/Vespers-Compatibility-Compendium/issues/8))
   - Feel free to open pull requests with translations
-- Add a screen for 1.20.1 Forge config using [Configured](https://www.curseforge.com/minecraft/mc-mods/configured) ([#9](https://github.com/vesmaybevesper/Vespers-Compatibility-Compendium/issues/9))
+- Add a screen for 1.20.1 config using [Forge Config Screens](https://modrinth.com/mod/forge-config-screens) ([#9](https://github.com/vesmaybevesper/Vespers-Compatibility-Compendium/issues/9))
   - This isn't a perfect solution, but it sure is the easiest. Given that I expect 1.20.1 to be the first or second dropped version I don't feel its worth the effort to write a custom screen system for this.
-  - I'm not sure why the Fabric implementation of this isn't working how I expect, but given that most of the 1.20.1 downloads are on Forge (& I really want to put out an update for this mod) I'm okay with leaving it as broken on Fabric for the time being. Use the config file if you need to edit the config on it, and as soon as I fix it I will release an update.
+  - This is a switch from alpha.3 which used Configured, I couldn't get it to work on Fabric and FCS worked with zero work on my part, please let me know if you encounter issues with it as it has been archived and may be out of date 
 
 _We return to feature additions in the next update_

@@ -89,9 +89,9 @@ platform {
 		}
 
 		if (stonecutter.current.parsed.matches("1.20.1")) {
-			embeds("configured"){
-				slug("", "configured")
-				fabricLikeVersionRange = "2.2.3"
+			embeds("forge config screens"){
+				slug("forge-config-screens", "config-menus-forge")
+				fabricLikeVersionRange = "v8.0.2-1.20.1-Fabric"
 			}
 		}
 	}
@@ -168,8 +168,8 @@ dependencies {
 	modCompileOnly("maven.modrinth:iceberg:${prop("deps.iceberg")}")
 	modCompileOnly("maven.modrinth:jei:${prop("deps.jei")}")
 	if (sc.current.parsed.matches("1.20.1")){
-		modImplementation("curse.maven:configured-457570:5180902")
-		include("curse.maven:configured-457570:5180902")
+		modImplementation("maven.modrinth:forge-config-screens:nwy63zfI")
+		include("maven.modrinth:forge-config-screens:nwy63zfI")
 	}
 
 }
