@@ -1,4 +1,4 @@
-- Add support for 26.3 [IS STILL FABRIC ONLY BC UR LAZY DO NEO]
+- Add support for 26.3
 - Add a tweak to Wakes' Splash Clouds effect to make them "glow" just like the wakes
   - The "glow" is really just a color shift to better match the wakes, improvements coming (I hope)
 - Better Effectual glowing player droplet effect
@@ -12,7 +12,7 @@
 - Glowing Wakes is now considered a tweak of Wakes on all versions
 - Use MixinConstraints to fully prevent the running of non-applicable mixins
 - Update for Effectual 1.4.2
-  - Remove info about needing to enable Effectual's breath effect as it is now on my default
+  - Remove info about needing to enable Effectual's breath effect as it is now on by default
 
 Alpha Version Changes:
 - Note that Wakes Reforged settings are in the same menu as Fabric Wakes
